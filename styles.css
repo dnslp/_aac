@@ -4,23 +4,24 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 5px;
 }
 
 :root {
-  /* Default custom properties for hover outline */
+  /* We'll keep these variables so we can set them via JS */
+  --icon-size: 32px;
+  --card-size: 120px;
   --border-style: solid;
   --border-color: #ff0000;
-  /* We'll also set dynamic card size with JS. */
-  --card-size: 120px;
-  /* fallback default for card dimension */
-  --icon-size: 32px;
-  /* fallback default for icon dimension */
+
+  /* New variable for background color (settable in settings) */
+  --app-background: #ffffff;
 }
 
 body {
   font-family: sans-serif;
-  padding: 1rem;
+  /* Use our background variable */
+  background: var(--app-background);
 }
 
 #controls {
@@ -47,7 +48,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 998;
+  margin: 2em;
 }
 
 /* Dock Positions */
@@ -81,7 +83,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   transition: background-color 0.2s;
 }
 
@@ -117,30 +119,40 @@ body {
   margin-bottom: 0.5rem;
 }
 
+:root {
+  --icon-size: 32px;
+  --card-size: 120px;
+  --border-style: solid;
+  --border-color: #ff0000;
+  --app-background: #ffffff;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 1rem;
+  background: var(--app-background);
+}
+
+/* The items grid uses fixed squares */
 .items-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--card-size), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-size), var(--card-size)));
   gap: 1rem;
 }
 
-/* =======================
-   Item Card
-======================= */
+/* Each card is a fixed square */
 .item-card {
+  width: var(--card-size);
+  height: var(--card-size);
   background-color: #fdfdfd;
   border-radius: 0.25rem;
   cursor: pointer;
   transition: background-color 0.2s;
-  /* We let the width/height be auto but each cell in items-grid 
-     is minmax(var(--card-size), 1fr). 
-     If you want fixed squares, you could do:
-     width: var(--card-size);
-     height: var(--card-size);
-  */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 2px solid black;
 }
 
 .item-card:hover {
@@ -148,24 +160,37 @@ body {
   outline: 2px var(--border-style) var(--border-color);
 }
 
-/* Symbol (emoji/letter) uses a dynamic variable for size */
+/* The .item-symbol can have text or an inline SVG */
 .item-symbol {
-  font-size: var(--icon-size);
+  /* We start with a base size. We'll also auto-scale in JS if needed. */
+  font-size: calc(var(--card-size) * 0.5);
   line-height: 1;
   transition: transform 0.2s;
   margin-bottom: 0.25rem;
-  width: 100%;
-  height: 100%;
+  text-align: center;
+  max-width: 90%;
+  max-height: 80%;
+  overflow: hidden; /* Prevent text from overflowing the box visually */
 }
 
 .item-symbol:hover {
   transform: scale(1.2);
 }
 
-.item-label {
-  font-size: 0.9rem;
-  color: #333;
+/* If .item-symbol contains SVG, ensure it fits nicely */
+.item-symbol svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
+
+.item-label {
+  font-size: 0.75rem;
+  color: #333;
+  text-align: center;
+  padding: 0 0.25rem;
+}
+
 
 /* =======================
    Settings Modal

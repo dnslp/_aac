@@ -2,33 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Emoji Speak - Advanced Dock & Settings</title>
+  <title>Emoji Speak - Advanced Features</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Top Controls -->
   <div id="controls">
     <label for="dock-position">Dock Position:</label>
     <select id="dock-position">
-      <option value="left">← Left</option>
-      <option value="bottom">↓ Bottom</option>
-      <option value="right">→ Right</option>
-
+      <option value="left">Left</option>
+      <option value="right">Right</option>
+      <option value="bottom">Bottom</option>
     </select>
 
     <label for="size-range">Icon/Card Size:</label>
-    <!-- Changed max=150 as requested -->
     <input type="range" id="size-range" min="16" max="150" value="32" />
 
-    <!-- Button to open Settings Modal -->
+    <!-- Settings button -->
     <button id="settings-btn">Settings</button>
   </div>
 
-  <!-- Dock Navigation -->
+  <!-- Dock -->
   <nav id="dock"></nav>
 
-  <!-- Main Content (Category Sections) -->
+  <!-- Main Content -->
   <main id="main-content"></main>
 
   <!-- Settings Modal -->
@@ -36,7 +33,7 @@
     <div class="modal-content">
       <h2>Settings</h2>
 
-      <!-- Border Style -->
+      <!-- Outline Style / Color -->
       <label for="border-style-select">Border Style:</label>
       <select id="border-style-select">
         <option value="solid">Solid</option>
@@ -44,9 +41,25 @@
         <option value="dotted">Dotted</option>
       </select>
 
-      <!-- Border Color -->
       <label for="border-color-input">Border Color:</label>
       <input type="color" id="border-color-input" value="#ff0000" />
+
+      <!-- Background Color -->
+      <label for="background-select">Background Color:</label>
+      <select id="background-select">
+        <option value="white">White</option>
+        <option value="lightgray">Light Gray</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightpink">Light Pink</option>
+        <option value="lightyellow">Light Yellow</option>
+        <option value="rainbow">Rainbow</option>
+      </select>
+
+      <!-- Voice Selection -->
+      <label for="voice-select">Voice:</label>
+      <select id="voice-select">
+        <!-- We'll populate this dynamically with English voices -->
+      </select>
 
       <!-- Modal Actions -->
       <div class="modal-actions">
@@ -56,9 +69,7 @@
     </div>
   </div>
 
-  <!-- Load Data & Main Script -->
   <script src="data.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
