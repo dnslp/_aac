@@ -1,58 +1,106 @@
-/* =======================
-   Basic Resets
-======================= */
+/* =========================
+   Global Resets & Defaults
+========================= */
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 5px;
+  padding: 0;
 }
 
 :root {
-  /* We'll keep these variables so we can set them via JS */
   --icon-size: 32px;
   --card-size: 120px;
   --border-style: solid;
   --border-color: #ff0000;
-
-  /* New variable for background color (settable in settings) */
   --app-background: #ffffff;
+  --transition-speed: 0.2s;
+  --focus-outline: 2px auto -webkit-focus-ring-color;
 }
 
+/* Use an Apple-like system font stack */
 body {
-  font-family: sans-serif;
-  /* Use our background variable */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--app-background);
+  color: #333;
+  min-height: 100vh;
+  margin: 0 2em
 }
 
+/* =========================
+   Sticky Header (Controls)
+========================= */
 #controls {
   position: sticky;
   top: 0;
-  z-index: 999; /* to ensure it stays on top of other elements */
-  background-color: #fff; /* or another background so it doesn’t appear transparent */
-  /* Optional styling for aesthetics */
-  padding: 1rem;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px); /* subtle glassy effect */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #ddd;
+}
+
+/* Left/Right sections in the header */
+.controls-left,
+.controls-right {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
+/* Range and select styles (Apple-inspired minimalism) */
+input[type="range"],
+select {
+  appearance: none;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 0.25rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: border-color var(--transition-speed);
+}
 
-/* =======================
+input[type="range"]:focus,
+select:focus {
+  outline: var(--focus-outline);
+}
+
+/* Settings button */
+#settings-btn {
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color var(--transition-speed);
+}
+#settings-btn:hover {
+  background-color: #005bb5;
+}
+#settings-btn:focus {
+  outline: var(--focus-outline);
+}
+
+/* =========================
    Dock
-======================= */
+========================= */
 #dock {
   position: fixed;
-  background-color: #f9f9f9;
+  z-index: 998;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   border: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 998;
-  margin: 2em;
+  transition: transform var(--transition-speed);
+  margin: 2em
 }
 
-/* Dock Positions */
 .dock-left {
   top: 0;
   left: 0;
@@ -77,124 +125,131 @@ body {
   flex-direction: row;
 }
 
+.dock-top {
+  top: 3.5rem; /* or slightly more to ensure it sits below the sticky header */
+  left: 0;
+  width: 100%;
+  height: 60px;
+  flex-direction: row;
+  margin: 0 !important;
+}
+
 /* Dock Buttons */
 #dock button {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 3rem;
   padding: 0.5rem;
-  font-size: 2.5rem;
-  transition: background-color 0.2s;
+  transition: background-color var(--transition-speed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 #dock button:hover {
-  background-color: #eee;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+#dock button:focus {
+  outline: var(--focus-outline);
 }
 
-/* =======================
+/* =========================
    Main Content
-======================= */
+========================= */
 #main-content {
-  margin-left: 70px;
-  /* default left dock spacing */
+  margin: 1rem auto;
+  max-width: 1200px; /* or any container width you like */
+  padding-top: 1rem;
 }
 
-.dock-right~#main-content {
-  margin-left: 0;
+/* Adjust margins if dock is on left/right to avoid overlap */
+.dock-left ~ #main-content {
+  margin-left: 70px;
+}
+.dock-right ~ #main-content {
   margin-right: 70px;
 }
-
-.dock-bottom~#main-content {
-  margin-left: 0;
-  margin-right: 0;
+.dock-bottom ~ #main-content {
   margin-bottom: 70px;
 }
+/* For dock-top, no special margin needed unless you want extra spacing:
+   .dock-top ~ #main-content { padding-top: 5rem; }
+*/
 
+/* Category Section */
 .category-section {
   margin-bottom: 2rem;
 }
-
 .section-title {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
-:root {
-  --icon-size: 32px;
-  --card-size: 120px;
-  --border-style: solid;
-  --border-color: #ff0000;
-  --app-background: #ffffff;
-}
-
-body {
-  font-family: sans-serif;
-  padding: 1rem;
-  background: var(--app-background);
-}
-
-/* The items grid uses fixed squares */
+/* =========================
+   Items Grid & Cards
+========================= */
 .items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--card-size), var(--card-size)));
   gap: 1rem;
 }
 
-/* Each card is a fixed square */
 .item-card {
   width: var(--card-size);
   height: var(--card-size);
-  background-color: #fdfdfd;
-  border-radius: 0.25rem;
+  background-color: #fafafa;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color var(--transition-speed);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid black;
 }
-
 .item-card:hover {
-  background-color: #fafafa;
+  background-color: #f0f0f0;
   outline: 2px var(--border-style) var(--border-color);
 }
+.item-card:focus {
+  outline: var(--focus-outline);
+}
 
-/* The .item-symbol can have text or an inline SVG */
+/* The item-symbol might be text or an inline SVG */
 .item-symbol {
-  /* We start with a base size. We'll also auto-scale in JS if needed. */
+  max-width: 80%;
+  max-height: 70%;
   font-size: calc(var(--card-size) * 0.5);
-  line-height: 1;
-  transition: transform 0.2s;
-  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-width: 90%;
-  max-height: 80%;
-  overflow: hidden; /* Prevent text from overflowing the box visually */
+  overflow: hidden;
+  line-height: 1;
+  transition: transform var(--transition-speed);
 }
 
 .item-symbol:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
-/* If .item-symbol contains SVG, ensure it fits nicely */
+/* If .item-symbol has an SVG, let's scale it fully */
 .item-symbol svg {
-  display: block;
   width: 100%;
   height: 100%;
+  display: block;
 }
 
 .item-label {
   font-size: 0.75rem;
-  color: #333;
+  margin-top: 0.25rem;
   text-align: center;
-  padding: 0 0.25rem;
+  color: #555;
 }
 
-
-/* =======================
+/* =========================
    Settings Modal
-======================= */
+========================= */
 #settings-modal {
   position: fixed;
   top: 0;
@@ -202,7 +257,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  /* hidden by default */
+  backdrop-filter: blur(4px);
 }
 
 #settings-modal.hidden {
@@ -211,31 +266,130 @@ body {
 
 .modal-content {
   background: #fff;
-  width: 300px;
+  width: 320px;
   margin: 10% auto;
-  /* center it */
   padding: 1rem;
   border-radius: 8px;
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  position: relative;
 }
 
 .modal-actions {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   justify-content: flex-end;
 }
 
-/* Responsive tweak for mobile screens */
+.modal-actions button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color var(--transition-speed);
+}
+.modal-actions button:focus {
+  outline: var(--focus-outline);
+}
+
+#save-settings {
+  background-color: #007aff;
+  color: #fff;
+}
+#save-settings:hover {
+  background-color: #005bb5;
+}
+
+#close-settings {
+  background-color: #eee;
+  color: #333;
+}
+#close-settings:hover {
+  background-color: #ddd;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slider-container label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+#size-range {
+  -webkit-appearance: none; /* Remove default slider styles in Chrome/Safari */
+  width: 160px;
+  height: 8px;
+  background: #ddd; /* track color */
+  border-radius: 4px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+/* When hovered or focused, change track color slightly */
+#size-range:hover,
+#size-range:focus {
+  background: #ccc;
+}
+
+/* WebKit Thumb */
+#size-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; /* bigger thumb */
+  height: 20px;
+  background: #007aff; /* or your accent color */
+  border-radius: 50%;
+  border: 2px solid #fff; /* white border ring */
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+#size-range::-webkit-slider-thumb:hover {
+  background: #005bb5; /* darker accent on hover */
+}
+#size-range::-webkit-slider-thumb:focus {
+  outline: 2px auto -webkit-focus-ring-color; /* typical focus outline */
+}
+
+/* Firefox Thumb */
+#size-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #007aff;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+#size-range::-moz-range-thumb:hover {
+  background: #005bb5;
+}
+
+/* Firefox Track */
+#size-range::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* For Edge/IE if needed... 
+   #size-range::-ms-track, etc.
+   But modern Edge uses the Blink engine and can rely on WebKit rules
+*/
+
+/* Responsive Tweak */
 @media (max-width: 600px) {
   #controls {
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
-
-  /* smaller items grid if needed */
   .items-grid {
-    grid-template-columns: repeat(auto-fill, minmax(calc(var(--card-size) / 1.25), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
 }

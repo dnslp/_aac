@@ -2,36 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Emoji Speak - Advanced Features</title>
+  <title>Emoji Speak - Apple-Like Design</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <div id="controls">
-    <label for="dock-position">Dock Position:</label>
-    <select id="dock-position">
-      <option value="left">Left</option>
-      <option value="right">Right</option>
-      <option value="bottom">Bottom</option>
-    </select>
+  <!-- Sticky Controls -->
+  <header id="controls">
+    <div class="controls-left">
 
-    <label for="size-range">Icon/Card Size:</label>
-    <input type="range" id="size-range" min="16" max="150" value="32" />
 
-    <!-- Settings button -->
-    <button id="settings-btn">Settings</button>
-  </div>
+      <label for="size-range">Icon/Card Size:</label>
+      <input type="range" id="size-range" min="16" max="150" value="32" />
+    </div>
 
-  <!-- Dock -->
+    <div class="controls-right">
+      <button id="settings-btn" aria-label="Open Settings">Settings</button>
+    </div>
+  </header>
+
+  <!-- Dock (can be top, left, right, bottom) -->
   <nav id="dock"></nav>
 
   <!-- Main Content -->
   <main id="main-content"></main>
 
   <!-- Settings Modal -->
-  <div id="settings-modal" class="hidden">
+  <div id="settings-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
     <div class="modal-content">
-      <h2>Settings</h2>
+      <h2 id="settings-modal-title">Settings</h2>
+      <label for="dock-position">Dock Position:</label>
+      <select id="dock-position">
+        <option value="left">Left</option>
+        <option value="right">Right</option>
+        <option value="bottom">Bottom</option>
+        <option value="top">Top</option> <!-- New Option -->
+      </select>
 
       <!-- Outline Style / Color -->
       <label for="border-style-select">Border Style:</label>
@@ -57,9 +63,7 @@
 
       <!-- Voice Selection -->
       <label for="voice-select">Voice:</label>
-      <select id="voice-select">
-        <!-- We'll populate this dynamically with English voices -->
-      </select>
+      <select id="voice-select"></select>
 
       <!-- Modal Actions -->
       <div class="modal-actions">

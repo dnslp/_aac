@@ -1,4 +1,3 @@
-
 /* ---------------------
    Global / App State
 --------------------- */
@@ -7,11 +6,10 @@ let appState = {
   currentSize: 32,
   borderStyle: "solid",
   borderColor: "#ff0000",
-  backgroundColor: "white",    // new
-  voiceName: null,             // new - store voice name or something unique
+  backgroundColor: "white",
+  voiceName: null,
 };
 
-// Map categories to dock icons
 const categoryIcons = {
   "Smileys & Emotion": "😃",
   "Animals & Nature": "🐶",
@@ -25,14 +23,14 @@ const categoryIcons = {
   "Objects": "💡"
 };
 
-// DOM references
+// DOM References
 const dock = document.getElementById("dock");
 const mainContent = document.getElementById("main-content");
 const dockPositionSelect = document.getElementById("dock-position");
 const sizeRange = document.getElementById("size-range");
 const settingsBtn = document.getElementById("settings-btn");
 
-// Settings Modal
+// Modal + Settings
 const settingsModal = document.getElementById("settings-modal");
 const borderStyleSelect = document.getElementById("border-style-select");
 const borderColorInput = document.getElementById("border-color-input");
@@ -41,7 +39,6 @@ const voiceSelect = document.getElementById("voice-select");
 const saveSettingsBtn = document.getElementById("save-settings");
 const closeSettingsBtn = document.getElementById("close-settings");
 
-/* We'll store the available voices in a global variable, to be populated once we fetch them */
 let availableVoices = [];
 
 /* ---------------------
@@ -50,7 +47,7 @@ let availableVoices = [];
 window.addEventListener("DOMContentLoaded", () => {
   loadAppStateFromStorage();
 
-  // Setup controls from appState
+  // Initialize UI from appState
   dockPositionSelect.value = appState.dockPosition;
   sizeRange.value = appState.currentSize;
   borderStyleSelect.value = appState.borderStyle;
@@ -65,43 +62,13 @@ window.addEventListener("DOMContentLoaded", () => {
   buildCategorySections();
   populateDock();
 
-  // Fetch available voices, then populate voice dropdown
+  // Load voices for TTS
   loadVoices();
-  // If voices load after onvoiceschanged, we repopulate
   speechSynthesis.onvoiceschanged = loadVoices;
 
   initEventListeners();
 });
 
-/* ---------------------
-   Load Voices
---------------------- */
-function loadVoices() {
-  const allVoices = window.speechSynthesis.getVoices();
-  // Filter for English
-  availableVoices = allVoices.filter((v) => v.lang.startsWith("en"));
-
-  // Populate the voiceSelect with these voices
-  voiceSelect.innerHTML = "";
-  availableVoices.forEach((voice, index) => {
-    const option = document.createElement("option");
-    option.value = voice.name; // or voice.voiceURI
-    option.textContent = `${voice.name} (${voice.lang})`;
-    voiceSelect.appendChild(option);
-  });
-
-  // If appState.voiceName is set, select it. Otherwise, pick the first voice
-  if (appState.voiceName) {
-    voiceSelect.value = appState.voiceName;
-  } else if (availableVoices.length > 0) {
-    appState.voiceName = availableVoices[0].name;
-    voiceSelect.value = availableVoices[0].name;
-  }
-}
-
-/* ---------------------
-   Event Listeners
---------------------- */
 function initEventListeners() {
   dockPositionSelect.addEventListener("change", (e) => {
     appState.dockPosition = e.target.value;
@@ -114,6 +81,12 @@ function initEventListeners() {
     appState.currentSize = newSize;
     applySizeToCardsAndIcons(newSize);
     saveAppStateToStorage();
+  
+    // Show numeric value in #size-display
+    document.getElementById("size-display").textContent = newSize;
+  
+    // Re-auto-scale items if they're text
+    reScaleAllText();
   });
 
   settingsBtn.addEventListener("click", () => {
@@ -124,7 +97,6 @@ function initEventListeners() {
     appState.borderStyle = borderStyleSelect.value;
     appState.borderColor = borderColorInput.value;
     appState.backgroundColor = backgroundSelect.value;
-    // voice
     appState.voiceName = voiceSelect.value;
 
     applyBorderSettings();
@@ -163,39 +135,34 @@ function buildCategorySections() {
     catItems.forEach((item) => {
       const card = document.createElement("div");
       card.className = "item-card";
-    
+
       const symbolElem = document.createElement("div");
       symbolElem.className = "item-symbol";
-    
+
       if (item.type === "svg") {
-        // Insert raw SVG markup
-        symbolElem.innerHTML = item.symbol;
+        symbolElem.innerHTML = item.symbol; // raw SVG
       } else {
-        // For text (emoji, letter, number, etc.)
-        symbolElem.textContent = item.symbol;
+        symbolElem.textContent = item.symbol; // text (letters, emoji, numbers)
       }
-    
-      // Label
+
       const labelElem = document.createElement("div");
       labelElem.className = "item-label";
       labelElem.textContent = item.label;
-    
-      // Append
+
       card.appendChild(symbolElem);
       card.appendChild(labelElem);
-    
-      // If it's text (not svg), auto-scale it so it doesn't overflow
+
+      // TTS on click
+      card.addEventListener("click", () => speakLabel(item.label));
+
+      itemsGrid.appendChild(card);
+
+      // If it's text, auto-scale it to fit
       if (item.type !== "svg") {
-        // We'll do a small delay so the DOM can render initial sizes
         setTimeout(() => {
           autoScaleText(symbolElem, card);
         }, 0);
       }
-    
-      // TTS on click
-      card.addEventListener("click", () => speakLabel(item.label));
-    
-      itemsGrid.appendChild(card);
     });
 
     section.appendChild(itemsGrid);
@@ -226,35 +193,73 @@ function populateDock() {
 }
 
 /* ---------------------
-   Appearance & Layout
+   Dock Position
 --------------------- */
 function applyDockPosition(position) {
-  dock.classList.remove("dock-left", "dock-right", "dock-bottom");
+  dock.classList.remove("dock-left", "dock-right", "dock-bottom", "dock-top");
   if (position === "left") {
     dock.classList.add("dock-left");
   } else if (position === "right") {
     dock.classList.add("dock-right");
-  } else {
+  } else if (position === "bottom") {
     dock.classList.add("dock-bottom");
+  } else {
+    dock.classList.add("dock-top");
   }
 }
 
+/* ---------------------
+   Size & Auto-Scaling
+--------------------- */
 function applySizeToCardsAndIcons(sizeValue) {
-  const cardSize = sizeValue * 3.5; 
+  const cardSize = sizeValue * 3.5;
   document.documentElement.style.setProperty("--icon-size", sizeValue + "px");
   document.documentElement.style.setProperty("--card-size", cardSize + "px");
 }
 
+/**
+ * Re-run autoScaleText on all .item-symbol elements that are text-based.
+ * Called after user adjusts size in real-time.
+ */
+function reScaleAllText() {
+  const symbols = document.querySelectorAll(".item-symbol");
+  symbols.forEach((sym) => {
+    // If sym has an <svg>, skip
+    if (sym.querySelector("svg")) return;
+
+    // Reset font-size to our base (calc(var(--card-size)*0.5)) so we have a starting point
+    sym.style.fontSize = "";
+    // Then do an auto-scale pass
+    setTimeout(() => {
+      autoScaleText(sym, sym.parentElement);
+    }, 0);
+  });
+}
+
+/**
+ * Auto-scale text so it fits within card bounds
+ */
+function autoScaleText(textElem, containerElem) {
+  let fontSize = parseInt(window.getComputedStyle(textElem).fontSize, 10);
+
+  // Keep shrinking until it fits or we hit a minimum
+  while ((textElem.scrollWidth > containerElem.clientWidth ||
+          textElem.scrollHeight > containerElem.clientHeight)
+         && fontSize > 10) {
+    fontSize -= 1;
+    textElem.style.fontSize = fontSize + "px";
+  }
+}
+
+/* ---------------------
+   Border & Background
+--------------------- */
 function applyBorderSettings() {
   document.documentElement.style.setProperty("--border-style", appState.borderStyle);
   document.documentElement.style.setProperty("--border-color", appState.borderColor);
 }
 
 function applyBackgroundColor(bgValue) {
-  /* 
-    For 'rainbow', let's do a simple gradient. 
-    Otherwise, use a named color or # code.
-  */
   let colorStr = "#ffffff";
   switch (bgValue) {
     case "white":
@@ -273,32 +278,13 @@ function applyBackgroundColor(bgValue) {
       colorStr = "lightyellow";
       break;
     case "rainbow":
-      // Example gradient
       colorStr = "linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet)";
       break;
     default:
-      colorStr = bgValue; // if you allow custom hex
+      colorStr = bgValue;
       break;
   }
-
   document.documentElement.style.setProperty("--app-background", colorStr);
-}
-
-/**
- * Auto-scale the text inside textElem so it fits within containerElem
- * without overflowing. This is a naive approach but works for short text.
- */
-function autoScaleText(textElem, containerElem) {
-  // Start with the current font size
-  let fontSize = parseInt(window.getComputedStyle(textElem).fontSize, 10);
-
-  // Keep shrinking until it fits or we hit a minimum
-  while ((textElem.scrollWidth > containerElem.clientWidth ||
-          textElem.scrollHeight > containerElem.clientHeight)
-         && fontSize > 10) {
-    fontSize -= 1;
-    textElem.style.fontSize = fontSize + "px";
-  }
 }
 
 /* ---------------------
@@ -309,24 +295,43 @@ function speakLabel(label) {
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(label);
 
-    // match user's chosen voice
     if (appState.voiceName && availableVoices.length > 0) {
       const selectedVoice = availableVoices.find((v) => v.name === appState.voiceName);
       if (selectedVoice) {
         utterance.voice = selectedVoice;
       }
     }
-
-    utterance.lang = "en-US"; // or let the voice determine
+    utterance.lang = "en-US";
     window.speechSynthesis.speak(utterance);
   } else {
-    console.warn("This browser does not support text-to-speech.");
+    console.warn("This browser does not support TTS.");
   }
 }
 
 /* ---------------------
-   Local Storage
+   Voices & Storage
 --------------------- */
+function loadVoices() {
+  const allVoices = window.speechSynthesis.getVoices();
+  availableVoices = allVoices.filter((v) => v.lang.startsWith("en"));
+
+  voiceSelect.innerHTML = "";
+  availableVoices.forEach((voice) => {
+    const option = document.createElement("option");
+    option.value = voice.name;
+    option.textContent = `${voice.name} (${voice.lang})`;
+    voiceSelect.appendChild(option);
+  });
+
+  // Set or default
+  if (appState.voiceName) {
+    voiceSelect.value = appState.voiceName;
+  } else if (availableVoices.length > 0) {
+    appState.voiceName = availableVoices[0].name;
+    voiceSelect.value = availableVoices[0].name;
+  }
+}
+
 function loadAppStateFromStorage() {
   const saved = JSON.parse(localStorage.getItem("dockAppStateV3"));
   if (saved) {
@@ -338,9 +343,6 @@ function saveAppStateToStorage() {
   localStorage.setItem("dockAppStateV3", JSON.stringify(appState));
 }
 
-/* ---------------------
-   Helper
---------------------- */
 function getUniqueCategories() {
   const catSet = new Set(dataItems.map((item) => item.category));
   return Array.from(catSet);
