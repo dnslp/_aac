@@ -1,0 +1,72 @@
+/* Basic reset or minimal styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+    padding: 1rem;
+  }
+  
+  /* Controls Area */
+  #controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Main Grid Container */
+  #item-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 1rem;
+  }
+  
+  /* Individual Item Card */
+  .item-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #fdfdfd;
+    cursor: pointer; /* Indicate clickable for TTS */
+    transition: background-color 0.2s;
+  }
+  
+  .item-card:hover {
+    background-color: #fafafa;
+  }
+  
+  /* Symbol (Emoji / Letter / Icon) */
+  .item-symbol {
+    font-size: 32px; /* Default, will adjust via JS range slider */
+    line-height: 1;
+    transition: transform 0.2s;
+    margin-bottom: 0.25rem;
+  }
+  
+  .item-symbol:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Label under the symbol */
+  .item-label {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  /* Responsive tweak for mobile */
+  @media (max-width: 600px) {
+    #controls {
+      flex-wrap: wrap;
+    }
+    #item-container {
+      grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    }
+  }
+  
