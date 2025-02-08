@@ -12,8 +12,10 @@
   --border-style: solid;
   --border-color: #ff0000;
   /* We'll also set dynamic card size with JS. */
-  --card-size: 120px;  /* fallback default for card dimension */
-  --icon-size: 32px;   /* fallback default for icon dimension */
+  --card-size: 120px;
+  /* fallback default for card dimension */
+  --icon-size: 32px;
+  /* fallback default for icon dimension */
 }
 
 body {
@@ -22,11 +24,18 @@ body {
 }
 
 #controls {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* to ensure it stays on top of other elements */
+  background-color: #fff; /* or another background so it doesn’t appear transparent */
+  /* Optional styling for aesthetics */
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
 }
+
 
 /* =======================
    Dock
@@ -84,15 +93,16 @@ body {
    Main Content
 ======================= */
 #main-content {
-  margin-left: 70px; /* default left dock spacing */
+  margin-left: 70px;
+  /* default left dock spacing */
 }
 
-.dock-right ~ #main-content {
+.dock-right~#main-content {
   margin-left: 0;
   margin-right: 70px;
 }
 
-.dock-bottom ~ #main-content {
+.dock-bottom~#main-content {
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 70px;
@@ -144,6 +154,8 @@ body {
   line-height: 1;
   transition: transform 0.2s;
   margin-bottom: 0.25rem;
+  width: 100%;
+  height: 100%;
 }
 
 .item-symbol:hover {
@@ -175,7 +187,8 @@ body {
 .modal-content {
   background: #fff;
   width: 300px;
-  margin: 10% auto; /* center it */
+  margin: 10% auto;
+  /* center it */
   padding: 1rem;
   border-radius: 8px;
   position: relative;
@@ -195,6 +208,7 @@ body {
   #controls {
     flex-wrap: wrap;
   }
+
   /* smaller items grid if needed */
   .items-grid {
     grid-template-columns: repeat(auto-fill, minmax(calc(var(--card-size) / 1.25), 1fr));

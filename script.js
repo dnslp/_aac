@@ -8,7 +8,26 @@ let appState = {
   borderColor: "#ff0000",    // any hex color
 };
 
-// DOM references
+/**
+ * A map from category name to an emoji or label you'd like in the dock.
+ * If a category doesn't appear here, we'll default to the first letter.
+ */
+const categoryIcons = {
+  "Smileys & Emotion": "😃",
+  "Animals & Nature": "🐶",
+  "Alphabet": "🔤",
+  "Colors": "🎨",
+  "Shapes": "⬜",
+  "Numbers": "🔢",
+  "Food & Drink": "🍎",
+  "Travel & Places": "🚙",
+  "Activities": "⚽️",
+  "Objects": "💡"
+};
+
+/* ---------------------
+   DOM References
+--------------------- */
 const dock = document.getElementById("dock");
 const mainContent = document.getElementById("main-content");
 const dockPositionSelect = document.getElementById("dock-position");
@@ -28,24 +47,28 @@ const closeSettingsBtn = document.getElementById("close-settings");
 window.addEventListener("DOMContentLoaded", () => {
   loadAppStateFromStorage();
 
-  // Apply initial state
+  // Apply initial state to UI
   dockPositionSelect.value = appState.dockPosition;
   sizeRange.value = appState.currentSize;
   borderStyleSelect.value = appState.borderStyle;
   borderColorInput.value = appState.borderColor;
 
+  // Apply dock position, size, and border settings
   applyDockPosition(appState.dockPosition);
   applySizeToCardsAndIcons(appState.currentSize);
   applyBorderSettings();
 
-  // Build the sections and dock
+  // Build out sections (categories) and populate dock
   buildCategorySections();
   populateDock();
 
-  // Listen for user changes
+  // Initialize event listeners for user actions
   initEventListeners();
 });
 
+/* ---------------------
+   Event Listeners
+--------------------- */
 function initEventListeners() {
   // Dock position changes
   dockPositionSelect.addEventListener("change", (e) => {
@@ -74,6 +97,7 @@ function initEventListeners() {
     applyBorderSettings();
     saveAppStateToStorage();
 
+    // Close modal
     settingsModal.classList.add("hidden");
   });
 
@@ -84,7 +108,7 @@ function initEventListeners() {
 }
 
 /* ---------------------
-   Build Sections & Dock
+   Build Category Sections
 --------------------- */
 function buildCategorySections() {
   mainContent.innerHTML = "";
@@ -102,7 +126,7 @@ function buildCategorySections() {
     title.textContent = cat;
     section.appendChild(title);
 
-    // Grid container for items
+    // Grid container
     const itemsGrid = document.createElement("div");
     itemsGrid.className = "items-grid";
 
@@ -112,10 +136,15 @@ function buildCategorySections() {
       const card = document.createElement("div");
       card.className = "item-card";
 
-      // Symbol
       const symbolElem = document.createElement("div");
       symbolElem.className = "item-symbol";
-      symbolElem.textContent = item.symbol;
+
+      // If item.type === "svg", insert raw SVG. Otherwise, use textContent
+      if (item.type === "svg") {
+        symbolElem.innerHTML = item.symbol;
+      } else {
+        symbolElem.textContent = item.symbol;
+      }
 
       // Label
       const labelElem = document.createElement("div");
@@ -125,6 +154,7 @@ function buildCategorySections() {
       // TTS on click
       card.addEventListener("click", () => speakLabel(item.label));
 
+      // Append symbol & label to card
       card.appendChild(symbolElem);
       card.appendChild(labelElem);
       itemsGrid.appendChild(card);
@@ -135,16 +165,22 @@ function buildCategorySections() {
   });
 }
 
+/* ---------------------
+   Populate Dock
+--------------------- */
 function populateDock() {
   dock.innerHTML = "";
   const categories = getUniqueCategories();
 
   categories.forEach((cat) => {
     const btn = document.createElement("button");
-    // You can customize which icon or text to show:
-    btn.textContent = cat[0]; // e.g., first letter of category
-    // For a more advanced approach, use a map of category->emoji or small images.
 
+    // Determine the icon or label for this category
+    const icon = categoryIcons[cat] || cat[0];  // fallback: first letter
+    btn.textContent = icon;
+    btn.title = cat;  // show full category on hover (tooltip)
+
+    // Smooth scroll to the relevant section
     btn.addEventListener("click", () => {
       const sectionId = `section-${cat.replace(/\s+/g, "-").toLowerCase()}`;
       const sectionEl = document.getElementById(sectionId);
@@ -155,11 +191,6 @@ function populateDock() {
 
     dock.appendChild(btn);
   });
-}
-
-function getUniqueCategories() {
-  const catSet = new Set(dataItems.map((item) => item.category));
-  return Array.from(catSet);
 }
 
 /* ---------------------
@@ -180,11 +211,9 @@ function applyDockPosition(position) {
    Size (Cards & Icons)
 --------------------- */
 function applySizeToCardsAndIcons(sizeValue) {
-  // We'll set some CSS variables that control card & icon dimensions
-  // For example, let's say the card size is ~ (sizeValue * 3.5) - tweak to taste
-  const cardSize = sizeValue * 3.5;
+  // We set two CSS variables that control icon size and card dimension
+  const cardSize = sizeValue * 3.5; // tweak as needed
 
-  // Update root CSS variables
   document.documentElement.style.setProperty("--icon-size", sizeValue + "px");
   document.documentElement.style.setProperty("--card-size", cardSize + "px");
 }
@@ -223,4 +252,12 @@ function loadAppStateFromStorage() {
 
 function saveAppStateToStorage() {
   localStorage.setItem("dockAppStateV2", JSON.stringify(appState));
+}
+
+/* ---------------------
+   Helper
+--------------------- */
+function getUniqueCategories() {
+  const catSet = new Set(dataItems.map((item) => item.category));
+  return Array.from(catSet);
 }
