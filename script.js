@@ -1,92 +1,140 @@
-// Grabbing DOM elements
-const container = document.getElementById("item-container");
-const categoryFilter = document.getElementById("category-filter");
-const sizeRange = document.getElementById("size-range");
+// --------------- script.js ---------------
 
-// 1. Display items in the grid
-function displayItems(items) {
-  // Clear existing
-  container.innerHTML = "";
-
-  items.forEach((item) => {
-    // Create card div
-    const card = document.createElement("div");
-    card.className = "item-card";
-
-    // Symbol (could be emoji, letter, etc.)
-    const symbolElem = document.createElement("div");
-    symbolElem.className = "item-symbol";
-    // If "symbol" is a character, just set textContent
-    // If it's an image or SVG path, you'd handle that differently
-    symbolElem.textContent = item.symbol;
-
-    // Label
-    const labelElem = document.createElement("div");
-    labelElem.className = "item-label";
-    labelElem.textContent = item.label;
-
-    // Append symbol + label to the card
-    card.appendChild(symbolElem);
-    card.appendChild(labelElem);
-
-    // Click event -> TTS
-    card.addEventListener("click", () => {
-      speakLabel(item.label);
+// GLOBAL OR MODULE-LEVEL STATE
+let appState = {
+    selectedCategory: "all",
+    currentSize: 32,
+  };
+  
+  // DOM References
+  const container = document.getElementById("item-container");
+  const categoryFilter = document.getElementById("category-filter");
+  const sizeRange = document.getElementById("size-range");
+  
+  // 1. On page load, fetch settings from localStorage (if any)
+  window.addEventListener("DOMContentLoaded", () => {
+    loadAppStateFromStorage();  // Load existing settings
+  
+    populateCategoryOptions();  // Populate the category dropdown
+    categoryFilter.value = appState.selectedCategory; // Set dropdown to saved category
+    sizeRange.value = appState.currentSize;           // Set slider to saved size
+  
+    displayItems(getFilteredItems()); // Display items based on saved filter
+    applySizeToAllSymbols(appState.currentSize);      // Apply saved size
+  });
+  
+  // Helper to load localStorage into appState
+  function loadAppStateFromStorage() {
+    const savedState = JSON.parse(localStorage.getItem("myAppSettings"));
+    if (savedState) {
+      // Merge saved properties into our appState
+      appState = { 
+        ...appState, 
+        ...savedState 
+      };
+    }
+  }
+  
+  // Helper to save current appState to localStorage
+  function saveAppStateToStorage() {
+    localStorage.setItem("myAppSettings", JSON.stringify(appState));
+  }
+  
+  // 2. Display items in the grid
+  function displayItems(items) {
+    container.innerHTML = "";
+  
+    items.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "item-card";
+  
+      const symbolElem = document.createElement("div");
+      symbolElem.className = "item-symbol";
+      symbolElem.textContent = item.symbol;
+  
+      const labelElem = document.createElement("div");
+      labelElem.className = "item-label";
+      labelElem.textContent = item.label;
+  
+      card.appendChild(symbolElem);
+      card.appendChild(labelElem);
+  
+      // TTS on click
+      card.addEventListener("click", () => {
+        speakLabel(item.label);
+      });
+  
+      container.appendChild(card);
     });
-
-    // Append to container
-    container.appendChild(card);
-  });
-}
-
-// 2. TTS (Text-to-Speech) function
-function speakLabel(label) {
-  if ("speechSynthesis" in window) {
-    // Cancel any ongoing speech
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(label);
-    utterance.lang = "en-US"; // or any language you want
-    window.speechSynthesis.speak(utterance);
-  } else {
-    console.warn("This browser does not support text-to-speech.");
   }
-}
-
-// 3. Category Filter
-function populateCategoryOptions() {
-  // Gather unique categories from data
-  const categories = [...new Set(dataItems.map((item) => item.category))];
-  // Insert options into <select>
-  categories.forEach((cat) => {
-    const option = document.createElement("option");
-    option.value = cat;
-    option.textContent = cat;
-    categoryFilter.appendChild(option);
-  });
-}
-
-categoryFilter.addEventListener("change", () => {
-  const selected = categoryFilter.value;
-  if (selected === "all") {
-    displayItems(dataItems);
-  } else {
-    const filtered = dataItems.filter((item) => item.category === selected);
+  
+  // 3. TTS (Text-to-Speech)
+  function speakLabel(label) {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(label);
+      utterance.lang = "en-US"; 
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+  
+  // 4. Populate category dropdown from data.js
+  function populateCategoryOptions() {
+    // Clear existing options, except "all"
+    categoryFilter.innerHTML = "";
+    const allOption = document.createElement("option");
+    allOption.value = "all";
+    allOption.textContent = "All Categories";
+    categoryFilter.appendChild(allOption);
+  
+    // Unique categories
+    const categories = [...new Set(dataItems.map((item) => item.category))];
+    categories.forEach((cat) => {
+      const option = document.createElement("option");
+      option.value = cat;
+      option.textContent = cat;
+      categoryFilter.appendChild(option);
+    });
+  }
+  
+  // 5. Filter items based on selectedCategory in appState
+  function getFilteredItems() {
+    if (appState.selectedCategory === "all") {
+      return dataItems;
+    } else {
+      return dataItems.filter(
+        (item) => item.category === appState.selectedCategory
+      );
+    }
+  }
+  
+  // 6. Category change event
+  categoryFilter.addEventListener("change", () => {
+    appState.selectedCategory = categoryFilter.value;
+    saveAppStateToStorage(); 
+  
+    const filtered = getFilteredItems();
     displayItems(filtered);
-  }
-});
-
-// 4. Icon Size Slider
-sizeRange.addEventListener("input", (e) => {
-  const newSize = e.target.value + "px";
-  // Adjust all .item-symbol elements
-  document.querySelectorAll(".item-symbol").forEach((elem) => {
-    elem.style.fontSize = newSize;
+  
+    // Re-apply the current size
+    applySizeToAllSymbols(appState.currentSize);
   });
-});
-
-// 5. On page load, populate categories and display items
-window.addEventListener("DOMContentLoaded", () => {
-  populateCategoryOptions(); 
-  displayItems(dataItems);
-});
+  
+  // 7. Size slider event
+  sizeRange.addEventListener("input", (e) => {
+    const newSize = parseInt(e.target.value, 10);
+    appState.currentSize = newSize;
+    saveAppStateToStorage();
+  
+    // Apply the new size to displayed items
+    applySizeToAllSymbols(newSize);
+  });
+  
+  // 8. Apply size to .item-symbol elements
+  function applySizeToAllSymbols(size) {
+    const symbolElems = document.querySelectorAll(".item-symbol");
+    symbolElems.forEach((elem) => {
+      elem.style.fontSize = size + "px";
+    });
+  }
+  
