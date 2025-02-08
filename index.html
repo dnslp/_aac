@@ -2,32 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Emoji Speak - Basic Version</title>
+  <title>Emoji Speak - Advanced Dock & Settings</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Controls Section -->
+  <!-- Top Controls -->
   <div id="controls">
-    <select id="category-filter">
-      <option value="all">All Categories</option>
-      <!-- We'll dynamically fill more options in script.js, or you can hardcode them -->
-      <!-- e.g. 
-      <option value="Smileys & Emotion">Smileys & Emotion</option>
-      <option value="Alphabet">Alphabet</option>
-      <option value="Animals & Nature">Animals & Nature</option>
-      -->
+    <label for="dock-position">Dock Position:</label>
+    <select id="dock-position">
+      <option value="left">Left</option>
+      <option value="right">Right</option>
+      <option value="bottom">Bottom</option>
     </select>
 
-    <label for="size-range">Icon Size:</label>
-    <input type="range" id="size-range" min="16" max="72" value="32" />
+    <label for="size-range">Icon/Card Size:</label>
+    <!-- Changed max=150 as requested -->
+    <input type="range" id="size-range" min="16" max="150" value="32" />
+
+    <!-- Button to open Settings Modal -->
+    <button id="settings-btn">Settings</button>
   </div>
 
-  <!-- Main Container for Items -->
-  <div id="item-container"></div>
+  <!-- Dock Navigation -->
+  <nav id="dock"></nav>
 
-  <!-- Scripts: load data first, then main script -->
+  <!-- Main Content (Category Sections) -->
+  <main id="main-content"></main>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="hidden">
+    <div class="modal-content">
+      <h2>Settings</h2>
+
+      <!-- Border Style -->
+      <label for="border-style-select">Border Style:</label>
+      <select id="border-style-select">
+        <option value="solid">Solid</option>
+        <option value="dashed">Dashed</option>
+        <option value="dotted">Dotted</option>
+      </select>
+
+      <!-- Border Color -->
+      <label for="border-color-input">Border Color:</label>
+      <input type="color" id="border-color-input" value="#ff0000" />
+
+      <!-- Modal Actions -->
+      <div class="modal-actions">
+        <button id="save-settings">Save</button>
+        <button id="close-settings">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Data & Main Script -->
   <script src="data.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
