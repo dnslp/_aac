@@ -23,7 +23,7 @@ body {
   background: var(--app-background);
   color: #333;
   min-height: 100vh;
-  margin: 0 2em
+  margin: 0 3em
 }
 
 /* =========================
@@ -38,7 +38,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 5rem;
   border-bottom: 1px solid #ddd;
 }
 
@@ -90,39 +90,45 @@ select:focus {
 ========================= */
 #dock {
   position: fixed;
-  z-index: 998;
-  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 999;
+  background-color: rgb(125 123 123 / 25%);
   backdrop-filter: blur(10px);
   border: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: transform var(--transition-speed);
-  margin: 2em
+  margin: 2em;
+  overflow: scroll;
+  border-radius: 10px;
 }
 
 .dock-left {
   top: 0;
   left: 0;
-  width: 60px;
-  height: 100%;
+  width: 70px;
+  height: 90%;
   flex-direction: column;
+  display: flow !important;
+  font-size: 20px;
 }
 
 .dock-right {
   top: 0;
   right: 0;
-  width: 60px;
-  height: 100%;
+  width: 70px;
+  height: 90%;
   flex-direction: column;
+  display: flow !important;
+  font-size: 20px;
 }
 
 .dock-bottom {
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 60px;
-  flex-direction: row;
+  width: 90%;
+  height: 100px;
+  flex-direction: row !important;
 }
 
 .dock-top {
@@ -152,6 +158,27 @@ select:focus {
 #dock button:focus {
   outline: var(--focus-outline);
 }
+.dock-left, .dock-right {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* For Firefox */
+}
+
+/* For Webkit browsers like Chrome, Safari */
+.dock-left::-webkit-scrollbar, .dock-right::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dock-left::-webkit-scrollbar-thumb, .dock-right::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.dock-left::-webkit-scrollbar-track, .dock-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
 
 /* =========================
    Main Content
@@ -184,6 +211,7 @@ select:focus {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
+  padding-top: 4em;
 }
 
 /* =========================
@@ -206,6 +234,7 @@ select:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 .item-card:hover {
   background-color: #f0f0f0;
@@ -227,6 +256,7 @@ select:focus {
   overflow: hidden;
   line-height: 1;
   transition: transform var(--transition-speed);
+
 }
 
 .item-symbol:hover {

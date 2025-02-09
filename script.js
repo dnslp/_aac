@@ -2,7 +2,7 @@
    Global / App State
 --------------------- */
 let appState = {
-  dockPosition: "left",
+  dockPosition: "bottom",
   currentSize: 32,
   borderStyle: "solid",
   borderColor: "#ff0000",
@@ -20,7 +20,10 @@ const categoryIcons = {
   "Food & Drink": "🍎",
   "Travel & Places": "🚙",
   "Activities": "⚽️",
-  "Objects": "💡"
+  "Objects": "💡",
+  "Flags": "🇺🇸",
+  "People & Body": "👤",
+  "Symbols": "❤️"
 };
 
 // DOM References
