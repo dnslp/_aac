@@ -23,7 +23,9 @@ const categoryIcons = {
   "Objects": "💡",
   "Flags": "🇺🇸",
   "People & Body": "👤",
-  "Symbols": "🛑"
+  "Symbols": "🛑",
+  "Toys": "🧩",
+
 };
 
 // DOM References
@@ -84,9 +86,9 @@ function initEventListeners() {
     appState.currentSize = newSize;
     applySizeToCardsAndIcons(newSize);
     saveAppStateToStorage();
-  
+
     // Show numeric value in #size-display
-    document.getElementById("size-display").textContent = newSize;
+
   
     // Re-auto-scale items if they're text
     reScaleAllText();
@@ -144,6 +146,12 @@ function buildCategorySections() {
 
       if (item.type === "svg") {
         symbolElem.innerHTML = item.symbol; // raw SVG
+      } else if (item.type === "image") {
+        const img = document.createElement("img");
+        img.src = item.symbol; // Use the `symbol` as the image URL
+        img.alt = item.label; // Set the `alt` attribute for accessibility
+        img.className = "item-image"; // Add a class for styling
+        symbolElem.appendChild(img);
       } else {
         symbolElem.textContent = item.symbol; // text (letters, emoji, numbers)
       }
@@ -161,7 +169,7 @@ function buildCategorySections() {
       itemsGrid.appendChild(card);
 
       // If it's text, auto-scale it to fit
-      if (item.type !== "svg") {
+      if (item.type !== "svg" && item.type !== "image") {
         setTimeout(() => {
           autoScaleText(symbolElem, card);
         }, 0);
@@ -172,7 +180,6 @@ function buildCategorySections() {
     mainContent.appendChild(section);
   });
 }
-
 function populateDock() {
   dock.innerHTML = "";
   const categories = getUniqueCategories();
@@ -215,10 +222,13 @@ function applyDockPosition(position) {
    Size & Auto-Scaling
 --------------------- */
 function applySizeToCardsAndIcons(sizeValue) {
-  const cardSize = sizeValue * 3.5;
-  document.documentElement.style.setProperty("--icon-size", sizeValue + "px");
-  document.documentElement.style.setProperty("--card-size", cardSize + "px");
+  const cardSize = sizeValue * 3.5; // Make cards proportional to slider
+  document.documentElement.style.setProperty("--card-size", `${cardSize}px`);
+
+  // Re-scale all symbols dynamically
+  reScaleAllText();
 }
+
 
 /**
  * Re-run autoScaleText on all .item-symbol elements that are text-based.
@@ -231,7 +241,7 @@ function reScaleAllText() {
     if (sym.querySelector("svg")) return;
 
     // Reset font-size to our base (calc(var(--card-size)*0.5)) so we have a starting point
-    sym.style.fontSize = "";
+
     // Then do an auto-scale pass
     setTimeout(() => {
       autoScaleText(sym, sym.parentElement);
@@ -243,29 +253,27 @@ function reScaleAllText() {
  * Auto-scale text so it fits within card bounds
  */
 function autoScaleText(textElem, containerElem) {
-  // Assume a base font size derived from the CSS (or calculate it)
-  let computedStyle = window.getComputedStyle(textElem);
-  let baseFontSize = parseInt(computedStyle.fontSize, 10);
-  textElem.style.fontSize = baseFontSize + "px";
-  let fontSize = baseFontSize;
-  
-  // Increase font-size while there's room (but be cautious not to overshoot)
-  while (textElem.scrollWidth < containerElem.clientWidth &&
-         textElem.scrollHeight < containerElem.clientHeight) {
-    fontSize += 1;
-    textElem.style.fontSize = fontSize + "px";
-    
-    // If after increasing, the text now overflows, step back one
-    if (textElem.scrollWidth > containerElem.clientWidth ||
-        textElem.scrollHeight > containerElem.clientHeight) {
-      fontSize -= 1;
-      textElem.style.fontSize = fontSize + "px";
-      break;
-    }
+  const maxFontSize = parseInt(window.getComputedStyle(containerElem).width, 10) * 0.5; // Max font size as half the width
+  let fontSize = maxFontSize;
+
+  textElem.style.fontSize = `${fontSize}px`;
+
+  // Shrink font size until it fits inside the container
+  while (
+    (textElem.scrollWidth > containerElem.clientWidth || 
+     textElem.scrollHeight > containerElem.clientHeight) &&
+    fontSize > 10 // Prevent font size from getting too small
+  ) {
+    fontSize -= 1;
+    textElem.style.fontSize = `${fontSize}px`;
   }
   
-  // Or, if you only ever want to scale down, you can leave the above loop out.
+  // // If text is too small, reset to the minimum readable size
+  // if (fontSize < 10) {
+  //   textElem.style.fontSize = "12px"; // Set a fallback minimum font size
+  // }
 }
+
 
 /* ---------------------
    Border & Background
@@ -309,6 +317,7 @@ document.getElementById('font-select').addEventListener('change', function() {
 
 function adjustFontSizeForSymbol(symbolElem) {
   let fontSize = parseFloat(window.getComputedStyle(symbolElem).fontSize);
+  console.log(fontSize)
   while (symbolElem.scrollWidth > symbolElem.offsetWidth || symbolElem.scrollHeight > symbolElem.offsetHeight) {
     fontSize -= 1; // Decrement the font size
     symbolElem.style.fontSize = `${fontSize}px`;

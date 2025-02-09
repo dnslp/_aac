@@ -389,27 +389,34 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       category: "Numbers",
       tags: ["OT"]
     },
-    {
-      type: "number",
-      symbol: "1,000",
-      label: "One Thousand",
-      category: "Numbers",
-      tags: ["OT"]
-    },
-    {
-      type: "number",
-      symbol: "10,000",
-      label: "Ten Thousand",
-      category: "Numbers",
-      tags: ["OT"]
-    },
-    {
-      type: "number",
-      symbol: "100,000",
-      label: "One Hundred Thousand",
-      category: "Numbers",
-      tags: ["OT"]
-    },
+    // {
+    //   type: "number",
+    //   symbol: "1,000",
+    //   label: "One Thousand",
+    //   category: "Numbers",
+    //   tags: ["OT"]
+    // },
+    // {
+    //   type: "number",
+    //   symbol: "10,000",
+    //   label: "Ten Thousand",
+    //   category: "Numbers",
+    //   tags: ["OT"]
+    // },
+    // {
+    //   type: "number",
+    //   symbol: "100,000",
+    //   label: "One Hundred Thousand",
+    //   category: "Numbers",
+    //   tags: ["OT"]
+    // },
+    // {
+    //   type: "number",
+    //   symbol: "1,000,000",
+    //   label: "One Million",
+    //   category: "Numbers",
+    //   tags: ["OT"]
+    // },  
         // 🔴 Red to Orange
   {
     type: "svg",
@@ -590,6 +597,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: ["OT"]
   },
 
+
   // ⚪ Neutral Shades
   {
     type: "svg",
@@ -619,13 +627,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: "Colors",
     tags: ["OT"]
   },
-    {
-      type: "number",
-      symbol: "1,000,000",
-      label: "One Million",
-      category: "Numbers",
-      tags: ["OT"]
-    },  
+
     {
       type: "emoji",
       symbol: "😀",
@@ -12071,6 +12073,347 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       label: "black square button",
       category: "Symbols",
       tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-body.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Body",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-arms.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Arms",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-ear.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Ear",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-eyes.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Eyes",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-feet.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Feet",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-glasses.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Glasses",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-hat.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Hat",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-mouth.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Mouth",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-mustache.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Mustache",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-nose.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Nose",
+    tags: []
+  },
+  {
+    symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-tongue.png",
+    type: "image",
+    category: "Toys",
+    label: "Mr. Potato Head Tongue",
+    tags: []
+  },
+  {
+    type: "image",
+    symbol: "./images/Proloquo2go/all-done.png",
+    label: "All Done",
+    category: "Proloquo2Go",
+    tags: [
+      "OT"
+    ]
+  },
+  {
+    symbol: "./images/Proloquo2go/Yes.png",
+    type: "image",
+    category: "Proloquo2Go",
+    label: "Yes",
+    tags: [
+      "OT"
+    ]
+  },
+  {
+    symbol: "./images/Proloquo2go/Maybe.png",
+    type: "image",
+    category: "Proloquo2Go",
+    label: "Maybe",
+    tags: [
+      "OT"
+    ]
+  },
+  {
+    symbol: "./images/Proloquo2go/No.png",
+    type: "image",
+    category: "Proloquo2Go",
+    label: "No",
+    tags: [
+      "OT"
+    ]
+  },
+  {
+    symbol: "./images/Proloquo2go/I-Dont-Know.png",
+    type: "image",
+    category: "Proloquo2Go",
+    label: "I Don't Know",
+    tags: [
+      "OT"
+    ]
+  },
+  {
+    symbol: "./images/Proloquo2go/more.png",
+    type: "image",
+    category: "Proloquo2Go",
+    label: "More",
+    tags: [
+      "OT"
+    ]
+  },
+  {
+    symbol: "./images/LAMP/all.png",
+    type: "image",
+    category: "LAMP",
+    label: "all",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/color.png",
+    type: "image",
+    category: "LAMP",
+    label: "color",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/come.png",
+    type: "image",
+    category: "LAMP",
+    label: "come",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/do.png",
+    type: "image",
+    category: "LAMP",
+    label: "do",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/drink.png",
+    type: "image",
+    category: "LAMP",
+    label: "drink",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/eat.png",
+    type: "image",
+    category: "LAMP",
+    label: "eat",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/end.png",
+    type: "image",
+    category: "LAMP",
+    label: "end",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/feel.png",
+    type: "image",
+    category: "LAMP",
+    label: "feel",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/follow.png",
+    type: "image",
+    category: "LAMP",
+    label: "follow",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/get.png",
+    type: "image",
+    category: "LAMP",
+    label: "get",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/go.png",
+    type: "image",
+    category: "LAMP",
+    label: "go",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/help.png",
+    type: "image",
+    category: "LAMP",
+    label: "help",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/live.png",
+    type: "image",
+    category: "LAMP",
+    label: "live",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/make.png",
+    type: "image",
+    category: "LAMP",
+    label: "make",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/more.png",
+    type: "image",
+    category: "LAMP",
+    label: "more",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/my.png",
+    type: "image",
+    category: "LAMP",
+    label: "my",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/need.png",
+    type: "image",
+    category: "LAMP",
+    label: "need",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/off.png",
+    type: "image",
+    category: "LAMP",
+    label: "off",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/play.png",
+    type: "image",
+    category: "LAMP",
+    label: "play",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/please.png",
+    type: "image",
+    category: "LAMP",
+    label: "please",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/put.png",
+    type: "image",
+    category: "LAMP",
+    label: "put",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/ride.png",
+    type: "image",
+    category: "LAMP",
+    label: "ride",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/sit.png",
+    type: "image",
+    category: "LAMP",
+    label: "sit",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/sleep.png",
+    type: "image",
+    category: "LAMP",
+    label: "sleep",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/some.png",
+    type: "image",
+    category: "LAMP",
+    label: "some",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/time.png",
+    type: "image",
+    category: "LAMP",
+    label: "time",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/turn.png",
+    type: "image",
+    category: "LAMP",
+    label: "turn",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/watch.png",
+    type: "image",
+    category: "LAMP",
+    label: "watch",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/wear.png",
+    type: "image",
+    category: "LAMP",
+    label: "wear",
+    tags: []
+  },
+  {
+    symbol: "./images/LAMP/work.png",
+    type: "image",
+    category: "LAMP",
+    label: "work",
+    tags: []
   },
   {
       type: "emoji",
