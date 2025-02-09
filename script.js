@@ -23,7 +23,7 @@ const categoryIcons = {
   "Objects": "💡",
   "Flags": "🇺🇸",
   "People & Body": "👤",
-  "Symbols": "❤️"
+  "Symbols": "🛑"
 };
 
 // DOM References
@@ -243,15 +243,28 @@ function reScaleAllText() {
  * Auto-scale text so it fits within card bounds
  */
 function autoScaleText(textElem, containerElem) {
-  let fontSize = parseInt(window.getComputedStyle(textElem).fontSize, 10);
-
-  // Keep shrinking until it fits or we hit a minimum
-  while ((textElem.scrollWidth > containerElem.clientWidth ||
-          textElem.scrollHeight > containerElem.clientHeight)
-         && fontSize > 10) {
-    fontSize -= 1;
+  // Assume a base font size derived from the CSS (or calculate it)
+  let computedStyle = window.getComputedStyle(textElem);
+  let baseFontSize = parseInt(computedStyle.fontSize, 10);
+  textElem.style.fontSize = baseFontSize + "px";
+  let fontSize = baseFontSize;
+  
+  // Increase font-size while there's room (but be cautious not to overshoot)
+  while (textElem.scrollWidth < containerElem.clientWidth &&
+         textElem.scrollHeight < containerElem.clientHeight) {
+    fontSize += 1;
     textElem.style.fontSize = fontSize + "px";
+    
+    // If after increasing, the text now overflows, step back one
+    if (textElem.scrollWidth > containerElem.clientWidth ||
+        textElem.scrollHeight > containerElem.clientHeight) {
+      fontSize -= 1;
+      textElem.style.fontSize = fontSize + "px";
+      break;
+    }
   }
+  
+  // Or, if you only ever want to scale down, you can leave the above loop out.
 }
 
 /* ---------------------
@@ -288,6 +301,19 @@ function applyBackgroundColor(bgValue) {
       break;
   }
   document.documentElement.style.setProperty("--app-background", colorStr);
+}
+
+document.getElementById('font-select').addEventListener('change', function() {
+  document.documentElement.style.setProperty('--font-family', this.value);
+});
+
+function adjustFontSizeForSymbol(symbolElem) {
+  let fontSize = parseFloat(window.getComputedStyle(symbolElem).fontSize);
+  while (symbolElem.scrollWidth > symbolElem.offsetWidth || symbolElem.scrollHeight > symbolElem.offsetHeight) {
+    fontSize -= 1; // Decrement the font size
+    symbolElem.style.fontSize = `${fontSize}px`;
+    if (fontSize < 10) break; // Prevents too small font size
+  }
 }
 
 /* ---------------------

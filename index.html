@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Emoji Speak - Apple-Like Design</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- Sticky Controls -->
@@ -32,6 +34,16 @@
   <div id="settings-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
     <div class="modal-content">
       <h2 id="settings-modal-title">Settings</h2>
+      <!-- Font Family Selector -->
+      <label for="font-select">Choose Font:</label>
+      <select id="font-select">
+        <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">Sans Serif
+        </option>
+        <option value="Georgia, 'Times New Roman', Times, serif">Serif</option>
+        <option value="'Courier New', Courier, monospace">Monospace</option>
+        <option value="OpenDyslexic">OpenDyslexia</option>
+      </select>
+
       <label for="dock-position">Dock Position:</label>
       <select id="dock-position">
         <option value="left">Left</option>
@@ -77,4 +89,5 @@
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
