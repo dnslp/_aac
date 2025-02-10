@@ -10506,7 +10506,20 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       category: "Objects",
       tags: []
   },
-
+  {
+      type: "emoji",
+      symbol: "🏧",
+      label: "ATM sign",
+      category: "Symbols",
+      tags: []
+  },
+  {
+      type: "emoji",
+      symbol: "🚮",
+      label: "litter in bin sign",
+      category: "Symbols",
+      tags: []
+  },
   {
       type: "emoji",
       symbol: "🚰",
@@ -10581,20 +10594,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       type: "emoji",
       symbol: "🛅",
       label: "left luggage",
-      category: "Symbols",
-      tags: []
-  },
-     {
-      type: "emoji",
-      symbol: "🏧",
-      label: "ATM sign",
-      category: "Symbols",
-      tags: []
-  },
-  {
-      type: "emoji",
-      symbol: "🚮",
-      label: "litter in bin sign",
       category: "Symbols",
       tags: []
   },
