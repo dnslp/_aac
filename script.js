@@ -22,7 +22,7 @@ const categoryIcons = {
   "Activities": "⚽️",
   "Objects": "💡",
   "Flags": "🇺🇸",
-  "People & Body": "👤",
+  "People & Body": "✋",
   "Symbols": "🛑",
   "Toys": "🧩",
 
