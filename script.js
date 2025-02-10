@@ -23,7 +23,7 @@ const categoryIcons = {
   "Objects": "💡",
   "Flags": "🇺🇸",
   "People & Body": "✋",
-  "Symbols": "🛑",
+  "Symbols": "✅",
   "Toys": "🧩",
 
 };
