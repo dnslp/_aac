@@ -763,7 +763,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
   },
   {
       type: "emoji",
-      symbol: "☺",
+      symbol: "☺️",
       label: "smiling face",
       category: "Smileys & Emotion",
       tags: []
@@ -5867,7 +5867,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
   },
   {
       type: "emoji",
-      symbol: "🫚",
+      symbol: "",
       label: "ginger root",
       category: "Food & Drink",
       tags: []
@@ -7547,14 +7547,14 @@ const SVG_SHAPE_TEMPLATE = (color) =>
   },
   {
       type: "emoji",
-      symbol: "⏱",
+      symbol: "⏱️",
       label: "stopwatch",
       category: "Travel & Places",
       tags: []
   },
   {
       type: "emoji",
-      symbol: "⏲",
+      symbol: "⏲️",
       label: "timer clock",
       category: "Travel & Places",
       tags: []
@@ -8016,14 +8016,14 @@ const SVG_SHAPE_TEMPLATE = (color) =>
   },
   {
       type: "emoji",
-      symbol: "❄",
+      symbol: "❄️",
       label: "snowflake",
       category: "Travel & Places",
       tags: []
   },
   {
       type: "emoji",
-      symbol: "☃",
+      symbol: "⛄️",
       label: "snowman",
       category: "Travel & Places",
       tags: []
@@ -8037,7 +8037,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
   },
   {
       type: "emoji",
-      symbol: "☄",
+      symbol: "☄️",
       label: "comet",
       category: "Travel & Places",
       tags: []
@@ -8555,28 +8555,28 @@ const SVG_SHAPE_TEMPLATE = (color) =>
   },
   {
       type: "emoji",
-      symbol: "♠",
+      symbol: "♠️",
       label: "spade suit",
       category: "Activities",
       tags: []
   },
   {
       type: "emoji",
-      symbol: "♥",
+      symbol: "♥️",
       label: "heart suit",
       category: "Activities",
       tags: []
   },
   {
       type: "emoji",
-      symbol: "♦",
+      symbol: "♦️",
       label: "diamond suit",
       category: "Activities",
       tags: []
   },
   {
       type: "emoji",
-      symbol: "♣",
+      symbol: "♣️",
       label: "club suit",
       category: "Activities",
       tags: []
