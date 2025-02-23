@@ -148,12 +148,12 @@ function buildCategorySections() {
         symbolElem.innerHTML = item.symbol; // raw SVG
       } else if (item.type === "image") {
         const img = document.createElement("img");
-        img.src = item.symbol; // Use the `symbol` as the image URL
-        img.alt = item.label; // Set the `alt` attribute for accessibility
-        img.className = "item-image"; // Add a class for styling
+        img.src = item.symbol;
+        img.alt = item.label;
+        img.className = "item-image";
         symbolElem.appendChild(img);
       } else {
-        symbolElem.textContent = item.symbol; // text (letters, emoji, numbers)
+        symbolElem.textContent = item.symbol;
       }
 
       const labelElem = document.createElement("div");
@@ -163,12 +163,15 @@ function buildCategorySections() {
       card.appendChild(symbolElem);
       card.appendChild(labelElem);
 
-      // TTS on click
-      card.addEventListener("click", () => speakLabel(item.label));
+      // When an item is clicked, speak its label and update the tags container
+      card.addEventListener("click", () => {
+        speakLabel(item.label);
+        updateHeaderTags(item.tags);
+      });
 
       itemsGrid.appendChild(card);
 
-      // If it's text, auto-scale it to fit
+      // Auto-scale text if needed
       if (item.type !== "svg" && item.type !== "image") {
         setTimeout(() => {
           autoScaleText(symbolElem, card);
@@ -178,6 +181,22 @@ function buildCategorySections() {
 
     section.appendChild(itemsGrid);
     mainContent.appendChild(section);
+  });
+}
+
+// Updated function to display tags inside the header.
+// The tags container is appended as a child of the header and will be positioned at its bottom.
+function updateHeaderTags(tags) {
+  const header = document.getElementById("controls");
+  let tagsContainer = header.querySelector("#tags-container");
+
+  tagsContainer.innerHTML = "";
+  tags.forEach(tag => {
+    const tagElem = document.createElement("span");
+    tagElem.className = "tag";
+    tagElem.textContent = tag;
+    tagElem.addEventListener("click", () => speakLabel(tag));
+    tagsContainer.appendChild(tagElem);
   });
 }
 function populateDock() {

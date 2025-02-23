@@ -27,7 +27,8 @@ body {
   background: var(--app-background);
   color: #333;
   min-height: 100vh;
-  margin: 0 3em
+  margin: 3em 3em;
+  padding-bottom: 5em;
 }
 
 :root {
@@ -110,7 +111,7 @@ select:focus {
   align-items: center;
   justify-content: center;
   transition: transform var(--transition-speed);
-  margin: 2em;
+  margin: 1em;
   overflow: scroll;
   border-radius: 10px;
 }
@@ -297,6 +298,33 @@ select:focus {
   height: 100%; /* Maintain aspect ratio */
   object-fit: contain; /* Ensure the entire image is visible */
   display: block; /* Eliminate extra spacing around images */
+}
+#tags-container {
+  top: 60px;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.25rem 1rem;
+
+
+}
+
+/* Styling for individual tags */
+#tags-container .tag {
+  background: #e0e0e0;
+  color: #333;
+  padding: 0.5rem 0.5rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#tags-container .tag:hover {
+  background: #d0d0d0;
 }
 
 /* =========================
