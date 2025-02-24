@@ -19568,8 +19568,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'engine',
       'fire',
       'truck',
-      'travel',
-      'fire engine',
       'red',
       'alarm'
     ],
@@ -19647,7 +19645,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'vehicle',
       'travel',
-      'transportation',
       'car',
       'taxi',
       'cab'
@@ -19749,15 +19746,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'transport-ground',
     label: 'sport utility vehicle',
     tags: [
-      'recreational',
-      'sport utility',
+      'SUV',
       'car',
       'travel',
       'automobile',
       'vehicle',
-      'transportation',
-      'sport',
-      'utility'
     ],
     shortcodes: [
       ':sport-utility-vehicle:'
@@ -19808,7 +19801,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'delivery',
       'truck',
       'car',
-      'transportation',
       'travel',
       'trucker',
       'driver'
@@ -19832,16 +19824,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1f69b',
     category: 'Travel & Places',
     subgroup: 'transport-ground',
-    label: 'articulated lorry',
+    label: 'semi truck',
     tags: [
-      'lorry',
       'semi',
       'truck',
       'delivery truck',
-      'car',
-      'transportation',
-      'travel',
-      'trucker',
       'truck driver'
     ],
     shortcodes: [
@@ -19869,9 +19856,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'tractor',
       'towing',
       'farm',
-      'farming',
       'field',
-      'acre'
     ],
     shortcodes: [
       ':tractor:'
@@ -20142,9 +20127,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'station',
       'traffic',
       'travel',
-      'bus stop',
-      'departure',
-      'arrive'
     ],
     shortcodes: [
       ':bus-stop:'
@@ -20241,11 +20223,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'diesel',
       'fuel',
-      'fuelpump',
       'gas',
       'pump',
       'station',
-      'transportation'
     ],
     shortcodes: [
       ':fuel-pump:'
@@ -20293,7 +20273,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'transport-ground',
     label: 'police car light',
     tags: [
-      'beacon',
       'car',
       'light',
       'police',
@@ -20326,7 +20305,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'red',
       'green',
       'yellow',
-      'traffic light'
     ],
     shortcodes: [
       ':horizontal-traffic-light:'
@@ -20355,7 +20333,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'red',
       'green',
       'yellow',
-      'vertical'
     ],
     shortcodes: [
       ':vertical-traffic-light:'
@@ -20378,10 +20355,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'transport-ground',
     label: 'stop sign',
     tags: [
-      'octagonal',
+      'octagon',
       'sign',
       'stop',
-      'signal',
       'warning'
     ],
     shortcodes: [
@@ -20433,15 +20409,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'anchor',
     tags: [
       'ship',
-      'tool',
       'boat',
       'travel',
       'sea',
-      'atlantic',
       'ocean',
       'water',
       'anchor',
-      'metal'
     ],
     shortcodes: [
       ':anchor:'
@@ -20492,17 +20465,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'sailboat',
     tags: [
       'boat',
-      'resort',
       'sea',
       'yacht',
-      'passengers',
       'ship',
       'travel',
-      'atlantic',
       'ocean',
       'water',
       'sail',
-      'sailboat'
     ],
     shortcodes: [
       ':sailboat:'
@@ -20549,11 +20518,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'speedboat',
     tags: [
       'boat',
-      'passengers',
       'ship',
-      'travel',
       'sea',
-      'atlantic',
       'ocean',
       'water',
       'speed'
@@ -20582,10 +20548,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'passenger',
       'ship',
       'boat',
-      'passengers',
-      'travel',
       'sea',
-      'atlantic',
       'ocean',
       'water'
     ],
@@ -20635,15 +20598,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'motor boat',
     tags: [
       'boat',
-      'motorboat',
-      'passengers',
+      'motor',
       'ship',
-      'travel',
       'sea',
-      'atlantic',
       'ocean',
       'water',
-      'motor'
     ],
     shortcodes: [
       ':motor-boat:'
@@ -20667,12 +20626,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'ship',
     tags: [
       'boat',
-      'passenger',
-      'passengers',
       'ship',
       'travel',
       'sea',
-      'atlantic',
       'ocean',
       'water'
     ],
@@ -20697,9 +20653,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'transport-air',
     label: 'airplane',
     tags: [
-      'aeroplane',
       'fly',
-      'airplane',
       'air',
       'sky',
       'travel',
@@ -20727,7 +20681,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'transport-air',
     label: 'small airplane',
     tags: [
-      'aeroplane',
       'airplane',
       'fly',
       'air',
@@ -20755,11 +20708,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'transport-air',
     label: 'airplane departure',
     tags: [
-      'aeroplane',
       'airplane',
-      'check-in',
       'departure',
-      'departures',
       'fly',
       'air',
       'sky',
@@ -20786,15 +20736,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'transport-air',
     label: 'airplane arrival',
     tags: [
-      'aeroplane',
       'airplane',
-      'arrivals',
-      'arriving',
       'landing',
       'fly',
       'air',
       'sky',
-      'travel',
       'arrive'
     ],
     shortcodes: [
@@ -20845,10 +20791,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'chair',
       'seat',
-      'lounge',
       'airplane',
       'sitting',
-      'comfort'
     ],
     shortcodes: [
       ':seat:'
@@ -20874,10 +20818,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'vehicle',
       'helicopter',
       'air',
-      'transportation',
       'sky',
       'fly',
-      'flying'
     ],
     shortcodes: [
       ':helicopter:'
@@ -20928,7 +20870,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'gondola',
       'mountain',
       'travel',
-      'high'
     ],
     shortcodes: [
       ':mountain-cableway:'
@@ -21008,7 +20949,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'galaxy',
       'adventure',
       'alien',
-      'transportation'
     ],
     shortcodes: [
       ':rocket:'
@@ -21035,7 +20975,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'alien',
       'space',
       'planets',
-      'adventures'
     ],
     shortcodes: [
       ':flying-saucer:'
@@ -21278,11 +21217,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'twelve o’clock',
     tags: [
-      '00',
-      '12',
       '12:00',
       'clock',
-      'o’clock',
       'twelve',
       'time'
     ],
@@ -21307,7 +21243,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'twelve-thirty',
     tags: [
-      '12',
       '12:30',
       'clock',
       'thirty',
@@ -21335,12 +21270,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'one o’clock',
     tags: [
-      '00',
-      '1',
       '1:00',
       'clock',
       'one',
-      'o’clock',
       'time'
     ],
     shortcodes: [
@@ -21364,7 +21296,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'one-thirty',
     tags: [
-      '1',
       '1:30',
       'clock',
       'one',
@@ -21392,11 +21323,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'two o’clock',
     tags: [
-      '00',
-      '2',
       '2:00',
       'clock',
-      'o’clock',
       'two',
       'time'
     ],
@@ -21421,7 +21349,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'two-thirty',
     tags: [
-      '2',
       '2:30',
       'clock',
       'thirty',
@@ -21449,11 +21376,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'three o’clock',
     tags: [
-      '00',
-      '3',
       '3:00',
       'clock',
-      'o’clock',
       'three',
       'time'
     ],
@@ -21478,7 +21402,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'three-thirty',
     tags: [
-      '3',
       '3:30',
       'clock',
       'thirty',
@@ -21506,12 +21429,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'four o’clock',
     tags: [
-      '00',
-      '4',
       '4:00',
       'clock',
       'four',
-      'o’clock',
       'time'
     ],
     shortcodes: [
@@ -21535,7 +21455,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'four-thirty',
     tags: [
-      '4',
       '4:30',
       'clock',
       'four',
@@ -21563,12 +21482,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'five o’clock',
     tags: [
-      '00',
-      '5',
       '5:00',
       'clock',
       'five',
-      'o’clock',
       'time'
     ],
     shortcodes: [
@@ -21592,7 +21508,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'five-thirty',
     tags: [
-      '5',
       '5:30',
       'clock',
       'five',
@@ -21620,11 +21535,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'six o’clock',
     tags: [
-      '00',
-      '6',
       '6:00',
       'clock',
-      'o’clock',
       'six',
       'time'
     ],
@@ -21649,7 +21561,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'six-thirty',
     tags: [
-      '6',
       '6:30',
       'clock',
       'six',
@@ -21677,8 +21588,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'seven o’clock',
     tags: [
-      '00',
-      '7',
       '7:00',
       'clock',
       'o’clock',
@@ -21706,7 +21615,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'seven-thirty',
     tags: [
-      '7',
       '7:30',
       'clock',
       'seven',
@@ -21734,12 +21642,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'eight o’clock',
     tags: [
-      '00',
-      '8',
       '8:00',
       'clock',
       'eight',
-      'o’clock',
       'time'
     ],
     shortcodes: [
@@ -21763,7 +21668,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'eight-thirty',
     tags: [
-      '8',
       '8:30',
       'clock',
       'eight',
@@ -21791,12 +21695,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'nine o’clock',
     tags: [
-      '00',
-      '9',
       '9:00',
       'clock',
       'nine',
-      'o’clock',
       'time'
     ],
     shortcodes: [
@@ -21820,7 +21721,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'nine-thirty',
     tags: [
-      '9',
       '9:30',
       'clock',
       'nine',
@@ -21848,11 +21748,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'ten o’clock',
     tags: [
-      '00',
-      '10',
       '10:00',
       'clock',
-      'o’clock',
       'ten',
       'time'
     ],
@@ -21877,7 +21774,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'ten-thirty',
     tags: [
-      '10',
       '10:30',
       'clock',
       'ten',
@@ -21905,12 +21801,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'eleven o’clock',
     tags: [
-      '00',
-      '11',
       '11:00',
       'clock',
       'eleven',
-      'o’clock',
       'time'
     ],
     shortcodes: [
@@ -21934,7 +21827,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'time',
     label: 'eleven-thirty',
     tags: [
-      '11',
       '11:30',
       'clock',
       'eleven',
@@ -22160,13 +22052,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'crescent',
       'moon',
-      'crescent moon',
-      'full moon',
       'night',
-      'night sky',
-      'celestial body',
       'planet',
-      'far away'
     ],
     shortcodes: [
       ':crescent-moon:'
@@ -22217,18 +22104,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'face',
       'moon',
-      'quarter',
-      'first quarter',
-      'half moon',
-      'full moon',
       'night',
-      'night sky',
-      'starry sky',
-      'light',
-      'moonlight',
-      'round',
-      'celestial bodies',
-      'sickle',
       'planet'
     ],
     shortcodes: [
@@ -22254,18 +22130,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'face',
       'moon',
-      'quarter',
-      'last quarter',
-      'half moon',
-      'full moon',
       'night',
-      'night sky',
-      'starry sky',
-      'light',
-      'moonlight',
-      'round',
-      'celestial bodies',
-      'sickle',
       'planet'
     ],
     shortcodes: [
@@ -22290,15 +22155,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'thermometer',
     tags: [
       'weather',
-      'temperatures',
-      'room temperatures',
+      'temperature',
       'degrees',
       'heat',
-      'warming',
       'fever',
       'cold',
-      'celsius',
-      'measure',
       'sick'
     ],
     shortcodes: [
@@ -22322,20 +22183,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sky-weather',
     label: 'sun',
     tags: [
-      'bright',
       'rays',
       'sunny',
-      'sun',
-      'sunrise',
-      'warm',
-      'sunbeams',
-      'feel good',
-      'beach',
-      'tanning',
-      'fire',
-      'fireball',
-      'hot',
-      'heavenly body'
+      'sunshine',
     ],
     shortcodes: [
       ':sunny:'
@@ -22358,16 +22208,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sky-weather',
     label: 'full moon face',
     tags: [
-      'bright',
       'face',
       'full',
       'moon',
-      'full moon',
-      'night',
-      'stars',
-      'moonlight',
-      'disc',
-      'no clouds'
     ],
     shortcodes: [
       ':moon-face-full:'
@@ -22396,15 +22239,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'face',
       'sun',
       'sunrise',
-      'warm',
-      'rays',
-      'beach',
-      'tanning',
-      'fire',
-      'fireball',
-      'hot',
-      'celestial bodies',
-      'star'
     ],
     shortcodes: [
       ':sun-with-face:'
@@ -22428,7 +22262,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'ringed planet',
     tags: [
       'saturn',
-      'saturnine'
+      'planet'
     ],
     shortcodes: [
       ':ringed-planet:'
@@ -22453,11 +22287,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'star',
       'shine',
-      'small planet',
       'sky',
-      'yellow',
       'sparkle',
-      'far away'
     ],
     shortcodes: [
       ':star:'
@@ -22480,20 +22311,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sky-weather',
     label: 'glowing star',
     tags: [
-      'glittery',
       'glow',
       'shining',
       'sparkle',
       'star',
-      'shine',
-      'bright',
-      'small planet',
-      'sky',
-      'yellow',
-      'far away',
-      'constellation',
-      'shooting star',
-      'milky way'
     ],
     shortcodes: [
       ':glowing-star:'
@@ -22519,16 +22340,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'falling',
       'shooting',
       'star',
-      'shooting star',
-      'sparkle',
-      'shine',
-      'bright',
-      'far away',
       'sky',
-      'star sky',
-      'night',
-      'wish',
-      'lightning'
     ],
     shortcodes: [
       ':shooting-star:'
@@ -22578,12 +22390,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'cloud',
       'cloudy',
       'rain',
-      'gray',
-      'misty',
-      'diffuse',
-      'sky',
-      'dream',
-      'fleecy clouds'
     ],
     shortcodes: [
       ':cloud:'
@@ -22609,11 +22415,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'cloud',
       'sun',
       'behind',
-      'appear',
-      'cloudy',
-      'cool',
-      'sunny',
-      'weather'
     ],
     shortcodes: [
       ':partly-sunny:'
@@ -22640,9 +22441,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'rain',
       'thunder',
       'lightning',
-      'weather',
       'storm',
-      'thunderstorm'
     ],
     shortcodes: [
       ':cloud-with-lightning-and-rain:'
@@ -22668,11 +22467,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'cloud',
       'sun',
       'behind',
-      'small',
-      'sunny',
-      'cloudy',
-      'rain',
-      'cool',
       'sky',
       'weather'
     ],
@@ -22700,11 +22494,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'cloud',
       'sun',
       'behind',
-      'large',
-      'gray',
-      'cloudy',
-      'rain',
-      'diffuse',
       'sky',
       'weather'
     ],
@@ -22733,10 +22522,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'rain',
       'sun',
       'behind',
-      'wet',
-      'rainy',
-      'cloudy',
-      'cool',
       'weather'
     ],
     shortcodes: [
@@ -22763,13 +22548,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'cloud',
       'rain',
       'raindrops',
-      'falling',
-      'down',
-      'wet',
-      'cool',
-      'cloudy',
-      'weather',
-      'stormy'
+      'storm'
     ],
     shortcodes: [
       ':rain-cloud:'
@@ -22795,11 +22574,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'cloud',
       'cold',
       'snow',
-      'falling',
-      'ice',
-      'wet',
-      'cloudy',
-      'stormy',
       'weather'
     ],
     shortcodes: [
@@ -22825,17 +22599,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'cloud',
       'lightning',
-      'glaring',
-      'wet',
-      'cold',
-      'cloudy',
-      'gray',
-      'weather',
-      'storm',
-      'current',
-      'voltage',
-      'light up',
-      'light'
+      'storm'
     ],
     shortcodes: [
       ':cloud-with-lightning:'
@@ -22858,14 +22622,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sky-weather',
     label: 'tornado',
     tags: [
-      'cloud',
       'whirlwind',
-      'tornado',
       'wind',
-      'blow',
-      'sky',
-      'dangerous',
-      'severe weather',
       'storm',
       'hurricane',
       'typhoon',
@@ -22919,11 +22677,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'cloud',
       'face',
       'wind',
-      'blowing',
-      'air',
-      'mouth',
-      'mother nature',
-      'sky'
     ],
     shortcodes: [
       ':wind-face:'
@@ -22953,11 +22706,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'whirl',
       'swirl',
       'spiral',
-      'funnel',
-      'rotation',
-      'rotate',
-      'air',
-      'turbulent'
     ],
     shortcodes: [
       ':cyclone:'
@@ -22984,12 +22732,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'rainbow',
       'color',
       'colorful',
-      'colors formed in the sky',
-      'sunbeams',
-      'sunlight',
-      'facet',
-      'sparkle',
-      'unicorn'
     ],
     shortcodes: [
       ':rainbow:'
@@ -23012,7 +22754,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sky-weather',
     label: 'closed umbrella',
     tags: [
-      'clothing',
       'rain',
       'umbrella'
     ],
@@ -23037,12 +22778,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sky-weather',
     label: 'umbrella',
     tags: [
-      'clothing',
       'rain',
       'purple',
       'umbrella',
-      'wet',
-      'drop',
       'raindrops'
     ],
     shortcodes: [
@@ -23066,15 +22804,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sky-weather',
     label: 'umbrella with rain drops',
     tags: [
-      'clothing',
-      'drop',
       'rain',
       'umbrella',
       'raindrops',
-      'wet',
-      'drops',
-      'windy',
-      'rain falling'
     ],
     shortcodes: [
       ':umbrella-in-rain:'
@@ -23127,12 +22859,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'lightning',
       'voltage',
       'zap',
-      'high voltage',
-      'storm',
-      'current',
-      'volts',
-      'lights',
-      'light'
     ],
     shortcodes: [
       ':electricity:',
@@ -23159,16 +22885,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'cold',
       'snow',
-      'snowflake',
       'ice',
-      'icy',
-      'wintry',
-      'snow storm',
-      'white',
-      'frosty',
-      'season',
-      'weather',
-      'melting'
     ],
     shortcodes: [
       ':snowflake:',
@@ -23221,10 +22938,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'snow',
       'snowman',
       'frosty',
-      'frosty the snowman',
       'olaf',
       'winter',
-      'not snowing'
     ],
     shortcodes: [
       ':snowman:'
@@ -23271,12 +22986,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'fire',
     tags: [
       'flame',
-      'tool',
-      'fire',
       'burn',
       'hot',
-      'high temperature',
-      'glow'
     ],
     shortcodes: [
       ':fire:',
@@ -23302,18 +23013,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'droplet',
     tags: [
       'cold',
-      'comic',
       'drop',
       'sweat',
-      'drops',
-      'droplets',
-      'raindrops',
       'wet',
-      'rain',
-      'fluid',
-      'liquid',
-      'puddle',
-      'pearl',
       'tear'
     ],
     shortcodes: [
@@ -23340,17 +23042,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'ocean',
       'water',
       'wave',
-      'salty',
       'sea',
-      'wet',
-      'cold',
-      'sun',
-      'beach',
-      'vacation',
-      'air',
-      'surf',
-      'sough',
-      'listen'
     ],
     shortcodes: [
       ':ocean:'
@@ -23664,7 +23356,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'doll',
       'festival',
       'japanese',
-      'japanese dolls'
     ],
     shortcodes: [
       ':Japanese-dolls:'
@@ -23796,7 +23487,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'decoration',
       'party',
       'girl',
-      'girly',
       'fashion'
     ],
     shortcodes: [
@@ -23821,7 +23511,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'wrapped gift',
     tags: [
       'box',
-      'celebration',
       'gift',
       'present',
       'wrapped',
@@ -23949,7 +23638,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'trophy',
     tags: [
       'prize',
-      'trophy',
       'championship',
       'winner',
       'gold cup',
@@ -24006,7 +23694,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'medal',
       'gold medal',
       '1st place medal',
-      'first place medal'
     ],
     shortcodes: [
       ':gold-medal:',
@@ -24035,7 +23722,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'silver',
       'silver medal',
       'second place',
-      'second place medal',
       '2nd place medal'
     ],
     shortcodes: [
@@ -24065,7 +23751,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'third',
       'bronze medal',
       'third place',
-      'third place medal',
       '3rd place medal'
     ],
     shortcodes: [
