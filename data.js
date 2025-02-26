@@ -29669,9 +29669,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'notes',
       'handwrite',
       'paper',
-      'pen',
-      'spiral block',
-      'college'
     ],
     shortcodes: [
       ':spiral-notepad:'
@@ -29994,7 +29991,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'triangle',
       'line',
       'measure',
-      'detail'
     ],
     shortcodes: [
       ':triangular-ruler:'
@@ -30051,7 +30047,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'file',
       'system',
       'organising',
-      'structure',
       'tidy'
     ],
     shortcodes: [
@@ -30725,7 +30720,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'libra',
       'scale',
       'zodiac',
-      'silver'
     ],
     shortcodes: [
       ':balance-scale:'
@@ -30825,7 +30819,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'crook',
       'curve',
       'ensnare',
-      'selling point',
       'fishing'
     ],
     shortcodes: [
@@ -32190,9 +32183,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'litter in bin sign',
     tags: [
       'litter',
-      'litter bin',
       'trash',
-      'bin',
       'garbage',
       'can',
       'throw',
@@ -32275,13 +32266,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'men’s room',
     tags: [
       'bathroom',
-      'lavatory',
       'man',
       'restroom',
       'toilet',
       'wc',
-      'guy',
-      'dude',
       'male'
     ],
     shortcodes: [
@@ -32306,13 +32294,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'women’s room',
     tags: [
       'bathroom',
-      'lavatory',
       'restroom',
       'toilet',
       'wc',
       'woman',
       'female',
-      'chick',
       'women'
     ],
     shortcodes: [
@@ -34677,7 +34663,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'mobile',
       'mode',
       'phone',
-      'telephone',
       'vibration',
       'silent mode'
     ],
@@ -35085,9 +35070,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       '!',
       'exclamation',
       'mark',
-      'outlined',
       'punctuation',
-      'white'
     ],
     shortcodes: [
       ':exclamation-mark-white:'
@@ -36067,7 +36050,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'abcd',
       'input',
-      'latin',
       'letters',
       'uppercase',
       'alphabet'
@@ -36095,7 +36077,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'abcd',
       'input',
-      'latin',
       'letters',
       'lowercase',
       'alphabet'
