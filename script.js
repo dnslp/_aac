@@ -8,7 +8,6 @@ let appState = {
   borderColor: "#ff0000",
   backgroundColor: "white",
   voiceName: null,
-  labelColor: "black", 
 };
 
 const categoryIcons = {
@@ -53,28 +52,27 @@ let availableVoices = [];
 window.addEventListener("DOMContentLoaded", () => {
   loadAppStateFromStorage();
 
+  // Initialize UI from appState
   dockPositionSelect.value = appState.dockPosition;
   sizeRange.value = appState.currentSize;
   borderStyleSelect.value = appState.borderStyle;
   borderColorInput.value = appState.borderColor;
   backgroundSelect.value = appState.backgroundColor;
-  labelColorSelect.value = appState.labelColor; // Set label color selection
 
   applyDockPosition(appState.dockPosition);
   applySizeToCardsAndIcons(appState.currentSize);
   applyBorderSettings();
   applyBackgroundColor(appState.backgroundColor);
-  applyLabelColor(); // Apply label color on load
 
   buildCategorySections();
   populateDock();
 
+  // Load voices for TTS
   loadVoices();
   speechSynthesis.onvoiceschanged = loadVoices;
 
   initEventListeners();
 });
-
 
 function initEventListeners() {
   dockPositionSelect.addEventListener("change", (e) => {
@@ -100,30 +98,18 @@ function initEventListeners() {
     settingsModal.classList.remove("hidden");
   });
 
-const labelColorSelect = document.getElementById("label-color-select");
-   function applyLabelColor() {
-  const labels = document.querySelectorAll(".item-label");
-  labels.forEach(label => {
-    label.style.color = appState.labelColor;
+  saveSettingsBtn.addEventListener("click", () => {
+    appState.borderStyle = borderStyleSelect.value;
+    appState.borderColor = borderColorInput.value;
+    appState.backgroundColor = backgroundSelect.value;
+    appState.voiceName = voiceSelect.value;
+
+    applyBorderSettings();
+    applyBackgroundColor(appState.backgroundColor);
+
+    saveAppStateToStorage();
+    settingsModal.classList.add("hidden");
   });
-}
-
-
-saveSettingsBtn.addEventListener("click", () => {
-  appState.borderStyle = borderStyleSelect.value;
-  appState.borderColor = borderColorInput.value;
-  appState.backgroundColor = backgroundSelect.value;
-  appState.voiceName = voiceSelect.value;
-  appState.labelColor = labelColorSelect.value; // <-- Store label color
-
-  applyBorderSettings();
-  applyBackgroundColor(appState.backgroundColor);
-  applyLabelColor(); // Apply label color update
-
-  saveAppStateToStorage();
-  settingsModal.classList.add("hidden");
-});
-
 
   closeSettingsBtn.addEventListener("click", () => {
     settingsModal.classList.add("hidden");
