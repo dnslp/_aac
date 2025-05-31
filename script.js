@@ -4,38 +4,49 @@
 let appState = {
   dockPosition: "bottom",
   currentSize: 32,
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
   borderStyle: "solid",
   borderColor: "#ff0000",
   backgroundColor: "white",
   voiceName: null,
+  visibleCategories: null,
+
+  // <<< NEW >>>
+  showHeaderSlider: false, // whether the slider appears in the header
 };
+
+// Temporary state while Settings modal is open:
+let tempSettings = { ...appState };
+
+// Dirty flag:
+let dirty = false;
 
 const categoryIcons = {
   "Smileys & Emotion": "😃",
   "Animals & Nature": "🐶",
-  "Alphabet": "🔤",
-  "Colors": "🎨",
-  "Shapes": "⬜",
-  "Numbers": "🔢",
+  Alphabet: "🔤",
+  Colors: "🎨",
+  Shapes: "⬜",
+  Numbers: "🔢",
   "Food & Drink": "🍎",
   "Travel & Places": "🚙",
-  "Activities": "⚽️",
-  "Objects": "💡",
-  "Flags": "🇺🇸",
+  Activities: "⚽️",
+  Objects: "💡",
+  Flags: "🇺🇸",
   "People & Body": "✋",
-  "Symbols": "✅",
-  "Toys": "🧩",
-
+  Symbols: "✅",
+  Toys: "🧩",
 };
 
 // DOM References
 const dock = document.getElementById("dock");
 const mainContent = document.getElementById("main-content");
 const dockPositionSelect = document.getElementById("dock-position");
-const sizeRange = document.getElementById("size-range");
+// <<< UPDATED >>> We removed the old #size-range reference.
+const fontSelect = document.getElementById("font-select");
 const settingsBtn = document.getElementById("settings-btn");
 
-// Modal + Settings
 const settingsModal = document.getElementById("settings-modal");
 const borderStyleSelect = document.getElementById("border-style-select");
 const borderColorInput = document.getElementById("border-color-input");
@@ -43,6 +54,27 @@ const backgroundSelect = document.getElementById("background-select");
 const voiceSelect = document.getElementById("voice-select");
 const saveSettingsBtn = document.getElementById("save-settings");
 const closeSettingsBtn = document.getElementById("close-settings");
+
+const confirmUnsavedModal = document.getElementById(
+  "confirm-unsaved-modal"
+);
+const confirmSaveBtn = document.getElementById("confirm-save");
+const confirmDiscardBtn = document.getElementById("confirm-discard");
+
+const toggleCategoriesBtn = document.getElementById("toggle-categories");
+const categoryVisibilityDiv = document.getElementById(
+  "category-visibility-section"
+);
+
+// <<< NEW >>> DOM references for the two sliders and the header-slider toggle
+const modalSizeRange = document.getElementById("modal-size-range");
+const headerSliderToggle = document.getElementById("header-slider-toggle");
+const headerSliderContainer = document.getElementById(
+  "header-slider-container"
+);
+
+// We’ll create “headerSizeRange” dynamically when needed:
+let headerSizeRange = null;
 
 let availableVoices = [];
 
@@ -52,178 +84,454 @@ let availableVoices = [];
 window.addEventListener("DOMContentLoaded", () => {
   loadAppStateFromStorage();
 
-  // Initialize UI from appState
+  // If visibleCategories is null, default to all categories.
+  if (!appState.visibleCategories) {
+    appState.visibleCategories = getUniqueCategories();
+    saveAppStateToStorage();
+  }
+
+  // <<< NEW >>> Ensure tempSettings also has showHeaderSlider
+  tempSettings = { ...appState };
+
+  // Initialize controls to appState
   dockPositionSelect.value = appState.dockPosition;
-  sizeRange.value = appState.currentSize;
+  modalSizeRange.value = appState.currentSize; // modal slider
+  fontSelect.value = appState.fontFamily;
   borderStyleSelect.value = appState.borderStyle;
   borderColorInput.value = appState.borderColor;
   backgroundSelect.value = appState.backgroundColor;
+  voiceSelect.value = appState.voiceName || "";
+  headerSliderToggle.checked = appState.showHeaderSlider; // checkbox state
 
+  // <<< NEW >>> Conditionally show/hide header slider
+  if (appState.showHeaderSlider) {
+    showHeaderSlider(); // function will create a header slider copy
+  } else {
+    headerSliderContainer.classList.add("hidden");
+  }
+
+  // Apply everything based on appState
+  applyFontFamily(appState.fontFamily);
   applyDockPosition(appState.dockPosition);
   applySizeToCardsAndIcons(appState.currentSize);
-  applyBorderSettings();
+  applyBorderSettings(appState.borderStyle, appState.borderColor);
   applyBackgroundColor(appState.backgroundColor);
 
-  buildCategorySections();
-  populateDock();
-
-  // Load voices for TTS
+  // Voice loading
+  window.speechSynthesis.addEventListener("voiceschanged", loadVoices);
   loadVoices();
-  speechSynthesis.onvoiceschanged = loadVoices;
+  applyVoiceSelection(appState.voiceName);
+
+  // Build the UI
+  buildCategorySections(appState.visibleCategories);
+  populateDock(appState.visibleCategories);
+  populateCategoryCheckboxes(appState.visibleCategories);
 
   initEventListeners();
 });
 
+/* ---------------------
+   Event Listeners
+--------------------- */
 function initEventListeners() {
+  // 1) Dock Position (live preview)
   dockPositionSelect.addEventListener("change", (e) => {
-    appState.dockPosition = e.target.value;
-    applyDockPosition(appState.dockPosition);
-    saveAppStateToStorage();
+    const newPos = e.target.value;
+    tempSettings.dockPosition = newPos;
+    applyDockPosition(newPos);
+    markDirty();
   });
 
-  sizeRange.addEventListener("input", (e) => {
+  // 2) Modal Size Slider (live preview)
+  modalSizeRange.addEventListener("input", (e) => {
     const newSize = parseInt(e.target.value, 10);
-    appState.currentSize = newSize;
+    tempSettings.currentSize = newSize;
     applySizeToCardsAndIcons(newSize);
-    saveAppStateToStorage();
+    markDirty();
 
-    // Show numeric value in #size-display
-
-  
-    // Re-auto-scale items if they're text
-    reScaleAllText();
+    // <<< NEW >>> If header slider exists, sync it
+    if (headerSizeRange) {
+      headerSizeRange.value = newSize;
+    }
   });
 
+  // 3) (Header slider listener attached in showHeaderSlider)
+
+  // 4) Font Family Selector (live preview)
+  fontSelect.addEventListener("change", (e) => {
+    const newFont = e.target.value;
+    tempSettings.fontFamily = newFont;
+    applyFontFamily(newFont);
+    markDirty();
+  });
+
+  // 5) Border Style & Color (live preview)
+  borderStyleSelect.addEventListener("change", (e) => {
+    const newStyle = e.target.value;
+    tempSettings.borderStyle = newStyle;
+    applyBorderSettings(tempSettings.borderStyle, tempSettings.borderColor);
+    markDirty();
+  });
+  borderColorInput.addEventListener("input", (e) => {
+    const newColor = e.target.value;
+    tempSettings.borderColor = newColor;
+    applyBorderSettings(tempSettings.borderStyle, tempSettings.borderColor);
+    markDirty();
+  });
+
+  // 6) Background Color (live preview)
+  backgroundSelect.addEventListener("change", (e) => {
+    const newBg = e.target.value;
+    tempSettings.backgroundColor = newBg;
+    applyBackgroundColor(newBg);
+    markDirty();
+  });
+
+  // 7) “Show slider in header” checkbox (live preview)
+  headerSliderToggle.addEventListener("change", (e) => {
+    const showIt = e.target.checked;
+    tempSettings.showHeaderSlider = showIt;
+    if (showIt) {
+      showHeaderSlider();
+    } else {
+      hideHeaderSlider();
+    }
+    markDirty();
+  });
+
+  // 8) Voice Selector (live preview)
+  voiceSelect.addEventListener("change", (e) => {
+    const newVoice = e.target.value;
+    tempSettings.voiceName = newVoice;
+    applyVoiceSelection(newVoice);
+    markDirty();
+  });
+
+  // 9) Open Settings Modal
   settingsBtn.addEventListener("click", () => {
+    dirty = false;
+
+    // Re-populate all controls from appState
+    dockPositionSelect.value = appState.dockPosition;
+    modalSizeRange.value = appState.currentSize;
+    fontSelect.value = appState.fontFamily;
+    borderStyleSelect.value = appState.borderStyle;
+    borderColorInput.value = appState.borderColor;
+    backgroundSelect.value = appState.backgroundColor;
+    voiceSelect.value = appState.voiceName || "";
+    headerSliderToggle.checked = appState.showHeaderSlider;
+    populateCategoryCheckboxes(appState.visibleCategories);
+
     settingsModal.classList.remove("hidden");
   });
 
+  // 10) Close Settings Modal (possibly show confirmation)
+  closeSettingsBtn.addEventListener("click", () => {
+    if (dirty) {
+      confirmUnsavedModal.classList.remove("hidden");
+    } else {
+      settingsModal.classList.add("hidden");
+    }
+  });
+
+  // 11) Save Settings inside Settings Modal
   saveSettingsBtn.addEventListener("click", () => {
-    appState.borderStyle = borderStyleSelect.value;
-    appState.borderColor = borderColorInput.value;
-    appState.backgroundColor = backgroundSelect.value;
-    appState.voiceName = voiceSelect.value;
-
-    applyBorderSettings();
-    applyBackgroundColor(appState.backgroundColor);
-
-    saveAppStateToStorage();
+    commitTempSettings();
     settingsModal.classList.add("hidden");
   });
 
-  closeSettingsBtn.addEventListener("click", () => {
+  // 12) Confirmation Modal Buttons
+  confirmSaveBtn.addEventListener("click", () => {
+    commitTempSettings();
+    confirmUnsavedModal.classList.add("hidden");
     settingsModal.classList.add("hidden");
+  });
+  confirmDiscardBtn.addEventListener("click", () => {
+    revertToAppState();
+    confirmUnsavedModal.classList.add("hidden");
+    settingsModal.classList.add("hidden");
+  });
+
+  // 13) Collapsible Category Visibility
+  toggleCategoriesBtn.addEventListener("click", () => {
+    const expanded = toggleCategoriesBtn.getAttribute("aria-expanded") === "true";
+    if (expanded) {
+      toggleCategoriesBtn.setAttribute("aria-expanded", "false");
+      toggleCategoriesBtn.textContent = "▶ Categories Visibility";
+      categoryVisibilityDiv.classList.add("hidden");
+    } else {
+      toggleCategoriesBtn.setAttribute("aria-expanded", "true");
+      toggleCategoriesBtn.textContent = "▼ Categories Visibility";
+      categoryVisibilityDiv.classList.remove("hidden");
+    }
+  });
+
+  // 14) Category Checkbox Changes (live hide/show)
+  categoryVisibilityDiv.addEventListener("change", (e) => {
+    if (e.target.matches("input[type=checkbox][data-category]")) {
+      const categoryName = e.target.getAttribute("data-category");
+      const isChecked = e.target.checked;
+
+      if (isChecked) {
+        if (!tempSettings.visibleCategories.includes(categoryName)) {
+          tempSettings.visibleCategories.push(categoryName);
+        }
+      } else {
+        tempSettings.visibleCategories = tempSettings.visibleCategories.filter(
+          (cat) => cat !== categoryName
+        );
+      }
+
+      buildCategorySections(tempSettings.visibleCategories);
+      populateDock(tempSettings.visibleCategories);
+      markDirty();
+    }
   });
 }
 
 /* ---------------------
-   Build Sections & Dock
+   Show/hide & sync header slider
 --------------------- */
-function buildCategorySections() {
+function showHeaderSlider() {
+  // If it already exists, just un-hide it:
+  if (headerSizeRange) {
+    headerSliderContainer.classList.remove("hidden");
+    return;
+  }
+
+  // Otherwise, create a copy of the modal slider but with a different id:
+  const wrapper = document.createElement("div");
+  wrapper.className = "slider-container";
+  wrapper.style.marginRight = "1rem";
+
+  // Create the “Aa” label + <input> just like in the modal, but with id="header-size-range"
+  const labelLeft = document.createElement("label");
+  labelLeft.setAttribute("for", "header-size-range");
+  labelLeft.textContent = "Aa";
+  wrapper.appendChild(labelLeft);
+
+  const inputEl = document.createElement("input");
+  inputEl.type = "range";
+  inputEl.id = "header-size-range";
+  inputEl.min = "30";
+  inputEl.max = "80";
+  inputEl.value = tempSettings.currentSize.toString();
+  wrapper.appendChild(inputEl);
+
+  const labelRight = document.createElement("label");
+  labelRight.setAttribute("for", "header-size-range");
+  labelRight.style.fontSize = "2.5em";
+  labelRight.textContent = "Aa";
+  wrapper.appendChild(labelRight);
+
+  // Append to header-slider-container
+  headerSliderContainer.appendChild(wrapper);
+  headerSliderContainer.classList.remove("hidden");
+
+  // Keep a reference for cleanup & syncing:
+  headerSizeRange = document.getElementById("header-size-range");
+
+  // 1) Copy CSS‐styles from #modal-size-range to #header-size-range
+  //    (Assumes your CSS has rules for #modal-size-range; we’ll “alias” them here:)
+  const modalRange = document.getElementById("modal-size-range");
+  headerSizeRange.style.cssText = modalRange.style.cssText;
+  // If you had WebKit/Firefox pseudo-rules for #modal-size-range::-webkit-slider-thumb, etc.,
+  // you’ll need identical CSS for #header-size-range in your stylesheet.
+
+  // 2) Add event listener to sync header slider → modal slider
+  headerSizeRange.addEventListener("input", (e) => {
+    const newSize = parseInt(e.target.value, 10);
+    tempSettings.currentSize = newSize;
+    applySizeToCardsAndIcons(newSize);
+    markDirty();
+
+    // Sync the modal slider:
+    modalSizeRange.value = newSize;
+  });
+
+  // 3) Sync modal slider → header slider (if someone drags the one in the modal)
+  //    (Already handled by modalSizeRange’s listener above.)
+}
+
+function hideHeaderSlider() {
+  if (headerSizeRange) {
+    headerSliderContainer.classList.add("hidden");
+  }
+}
+
+/* ---------------------
+   Dirty Tracking Helpers
+--------------------- */
+function markDirty() {
+  dirty = true;
+}
+
+function commitTempSettings() {
+  Object.assign(appState, tempSettings);
+
+  applyFontFamily(appState.fontFamily);
+  applyDockPosition(appState.dockPosition);
+  applySizeToCardsAndIcons(appState.currentSize);
+  applyBorderSettings(appState.borderStyle, appState.borderColor);
+  applyBackgroundColor(appState.backgroundColor);
+  applyVoiceSelection(appState.voiceName);
+  buildCategorySections(appState.visibleCategories);
+  populateDock(appState.visibleCategories);
+
+  // <<< NEW >>> Persist showHeaderSlider
+  if (appState.showHeaderSlider) {
+    showHeaderSlider();
+  } else {
+    hideHeaderSlider();
+  }
+
+  saveAppStateToStorage();
+  dirty = false;
+}
+
+function revertToAppState() {
+  applyFontFamily(appState.fontFamily);
+  applyDockPosition(appState.dockPosition);
+  applySizeToCardsAndIcons(appState.currentSize);
+  applyBorderSettings(appState.borderStyle, appState.borderColor);
+  applyBackgroundColor(appState.backgroundColor);
+  applyVoiceSelection(appState.voiceName);
+  buildCategorySections(appState.visibleCategories);
+  populateDock(appState.visibleCategories);
+
+  // <<< NEW >>> Revert header slider visibility
+  if (appState.showHeaderSlider) {
+    showHeaderSlider();
+  } else {
+    hideHeaderSlider();
+  }
+
+  tempSettings = { ...appState };
+  dirty = false;
+}
+
+/* ---------------------
+   Category Visibility Helpers
+--------------------- */
+function populateCategoryCheckboxes(visibleCategories) {
+  categoryVisibilityDiv.innerHTML = "";
+  const allCats = getUniqueCategories();
+  allCats.forEach((cat) => {
+    const label = document.createElement("label");
+    label.innerHTML = `
+      <input
+        type="checkbox"
+        data-category="${cat}"
+        ${visibleCategories.includes(cat) ? "checked" : ""}
+      >
+      ${cat}
+    `;
+    categoryVisibilityDiv.appendChild(label);
+  });
+}
+
+/* ---------------------
+   Build Sections & Dock (Filtered)
+--------------------- */
+function buildCategorySections(
+  allowedCategories = appState.visibleCategories
+) {
   mainContent.innerHTML = "";
-  const categories = getUniqueCategories();
+  getUniqueCategories()
+    .filter((cat) => allowedCategories.includes(cat))
+    .forEach((cat) => {
+      const section = document.createElement("section");
+      section.className = "category-section";
+      section.id = `section-${cat.replace(/\s+/g, "-").toLowerCase()}`;
 
-  categories.forEach((cat) => {
-    const section = document.createElement("section");
-    section.className = "category-section";
-    section.id = `section-${cat.replace(/\s+/g, "-").toLowerCase()}`;
+      const title = document.createElement("h2");
+      title.className = "section-title";
+      title.textContent = cat;
+      section.appendChild(title);
 
-    const title = document.createElement("h2");
-    title.className = "section-title";
-    title.textContent = cat;
-    section.appendChild(title);
+      const itemsGrid = document.createElement("div");
+      itemsGrid.className = "items-grid";
 
-    const itemsGrid = document.createElement("div");
-    itemsGrid.className = "items-grid";
+      const catItems = dataItems.filter((i) => i.category === cat);
+      catItems.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "item-card";
 
-    const catItems = dataItems.filter((i) => i.category === cat);
-    catItems.forEach((item) => {
-      const card = document.createElement("div");
-      card.className = "item-card";
+        const symbolElem = document.createElement("div");
+        symbolElem.className = "item-symbol";
 
-      const symbolElem = document.createElement("div");
-      symbolElem.className = "item-symbol";
+        if (item.type === "svg") {
+          symbolElem.innerHTML = item.symbol;
+        } else if (item.type === "image") {
+          const img = document.createElement("img");
+          img.src = item.symbol;
+          img.alt = item.label;
+          img.className = "item-image";
+          symbolElem.appendChild(img);
+        } else {
+          symbolElem.textContent = item.symbol;
+        }
 
-      if (item.type === "svg") {
-        symbolElem.innerHTML = item.symbol; // raw SVG
-      } else if (item.type === "image") {
-        const img = document.createElement("img");
-        img.src = item.symbol;
-        img.alt = item.label;
-        img.className = "item-image";
-        symbolElem.appendChild(img);
-      } else {
-        symbolElem.textContent = item.symbol;
-      }
+        const labelElem = document.createElement("div");
+        labelElem.className = "item-label";
+        labelElem.textContent = item.label;
 
-      const labelElem = document.createElement("div");
-      labelElem.className = "item-label";
-      labelElem.textContent = item.label;
+        card.appendChild(symbolElem);
+        card.appendChild(labelElem);
 
-      card.appendChild(symbolElem);
-      card.appendChild(labelElem);
+        card.addEventListener("click", () => {
+          speakLabel(item.label);
+          updateHeaderTags(item.tags);
+        });
 
-      // When an item is clicked, speak its label and update the tags container
-      card.addEventListener("click", () => {
-        speakLabel(item.label);
-        updateHeaderTags(item.tags);
+        itemsGrid.appendChild(card);
+
+        if (item.type !== "svg" && item.type !== "image") {
+          setTimeout(() => {
+            autoScaleText(symbolElem, symbolElem);
+          }, 0);
+        }
       });
 
-      itemsGrid.appendChild(card);
-
-      // Auto-scale text if needed
-      if (item.type !== "svg" && item.type !== "image") {
-        setTimeout(() => {
-          autoScaleText(symbolElem, card);
-        }, 0);
-      }
+      section.appendChild(itemsGrid);
+      mainContent.appendChild(section);
     });
-
-    section.appendChild(itemsGrid);
-    mainContent.appendChild(section);
-  });
 }
 
-// Updated function to display tags inside the header.
-// The tags container is appended as a child of the header and will be positioned at its bottom.
-function updateHeaderTags(tags) {
-  const header = document.getElementById("controls");
-  let tagsContainer = header.querySelector("#tags-container");
-
-  tagsContainer.innerHTML = "";
-  tags.forEach(tag => {
-    const tagElem = document.createElement("span");
-    tagElem.className = "tag";
-    tagElem.textContent = tag;
-    tagElem.addEventListener("click", () => speakLabel(tag));
-    tagsContainer.appendChild(tagElem);
-  });
-}
-function populateDock() {
+function populateDock(allowedCategories = appState.visibleCategories) {
   dock.innerHTML = "";
-  const categories = getUniqueCategories();
+  getUniqueCategories()
+    .filter((cat) => allowedCategories.includes(cat))
+    .forEach((cat) => {
+      const btn = document.createElement("button");
+      const icon = categoryIcons[cat] || cat[0];
+      btn.textContent = icon;
+      btn.title = cat;
 
-  categories.forEach((cat) => {
-    const btn = document.createElement("button");
-    const icon = categoryIcons[cat] || cat[0];
-    btn.textContent = icon;
-    btn.title = cat;
+      btn.addEventListener("click", () => {
+        const sectionId = `section-${cat.replace(/\s+/g, "-").toLowerCase()}`;
+        const sectionEl = document.getElementById(sectionId);
+        if (sectionEl) {
+          sectionEl.scrollIntoView({ behavior: "smooth" });
+        }
+      });
 
-    btn.addEventListener("click", () => {
-      const sectionId = `section-${cat.replace(/\s+/g, "-").toLowerCase()}`;
-      const sectionEl = document.getElementById(sectionId);
-      if (sectionEl) {
-        sectionEl.scrollIntoView({ behavior: "smooth" });
-      }
+      dock.appendChild(btn);
     });
-
-    dock.appendChild(btn);
-  });
 }
 
 /* ---------------------
-   Dock Position
+   Utility & TTS / Layout Helpers
 --------------------- */
+function getUniqueCategories() {
+  const cats = dataItems.map((i) => i.category);
+  return Array.from(new Set(cats));
+}
+
+function applyFontFamily(fontFam) {
+  document.documentElement.style.setProperty("--font-family", fontFam);
+}
+
 function applyDockPosition(position) {
   dock.classList.remove("dock-left", "dock-right", "dock-bottom", "dock-top");
   if (position === "left") {
@@ -237,137 +545,52 @@ function applyDockPosition(position) {
   }
 }
 
-/* ---------------------
-   Size & Auto-Scaling
---------------------- */
 function applySizeToCardsAndIcons(sizeValue) {
-  const cardSize = sizeValue * 3.5; // Make cards proportional to slider
+  const cardSize = sizeValue * 3.5;
   document.documentElement.style.setProperty("--card-size", `${cardSize}px`);
-
-  // Re-scale all symbols dynamically
   reScaleAllText();
 }
 
-
-/**
- * Re-run autoScaleText on all .item-symbol elements that are text-based.
- * Called after user adjusts size in real-time.
- */
 function reScaleAllText() {
   const symbols = document.querySelectorAll(".item-symbol");
-  symbols.forEach((sym) => {
-    // If sym has an <svg>, skip
-    if (sym.querySelector("svg")) return;
-
-    // Reset font-size to our base (calc(var(--card-size)*0.5)) so we have a starting point
-
-    // Then do an auto-scale pass
-    setTimeout(() => {
-      autoScaleText(sym, sym.parentElement);
-    }, 0);
-  });
+  // symbols.forEach((sym) => {
+  //   if (sym.querySelector("svg")) return;
+  //   // setTimeout(() => {
+  //   //   autoScaleText(sym, sym);
+  //   // }, 0);
+  // });
 }
 
-/**
- * Auto-scale text so it fits within card bounds
- */
 function autoScaleText(textElem, containerElem) {
-  const maxFontSize = parseInt(window.getComputedStyle(containerElem).width, 10) * 0.5; // Max font size as half the width
-  let fontSize = maxFontSize;
-
+  const containerWidth = containerElem.clientWidth;
+  const containerHeight = containerElem.clientHeight;
+  let fontSize = Math.floor(containerHeight * 0.8);
   textElem.style.fontSize = `${fontSize}px`;
 
-  // Shrink font size until it fits inside the container
   while (
-    (textElem.scrollWidth > containerElem.clientWidth || 
-     textElem.scrollHeight > containerElem.clientHeight) &&
-    fontSize > 10 // Prevent font size from getting too small
+    (textElem.scrollWidth > containerWidth ||
+      textElem.scrollHeight > containerHeight) &&
+    fontSize > 8
   ) {
     fontSize -= 1;
     textElem.style.fontSize = `${fontSize}px`;
   }
-  
-  // // If text is too small, reset to the minimum readable size
-  // if (fontSize < 10) {
-  //   textElem.style.fontSize = "12px"; // Set a fallback minimum font size
-  // }
 }
 
-
-/* ---------------------
-   Border & Background
---------------------- */
-function applyBorderSettings() {
-  document.documentElement.style.setProperty("--border-style", appState.borderStyle);
-  document.documentElement.style.setProperty("--border-color", appState.borderColor);
+function applyBorderSettings(style = appState.borderStyle, color = appState.borderColor) {
+  document.documentElement.style.setProperty("--border-style", style);
+  document.documentElement.style.setProperty("--border-color", color);
 }
 
-function applyBackgroundColor(bgValue) {
-  let colorStr = "#ffffff";
-  switch (bgValue) {
-    case "white":
-      colorStr = "#ffffff";
-      break;
-    case "lightgray":
-      colorStr = "lightgray";
-      break;
-    case "lightblue":
-      colorStr = "lightblue";
-      break;
-    case "lightpink":
-      colorStr = "lightpink";
-      break;
-    case "lightyellow":
-      colorStr = "lightyellow";
-      break;
-    case "rainbow":
-      colorStr = "linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet)";
-      break;
-    default:
-      colorStr = bgValue;
-      break;
-  }
-  document.documentElement.style.setProperty("--app-background", colorStr);
-}
-
-document.getElementById('font-select').addEventListener('change', function() {
-  document.documentElement.style.setProperty('--font-family', this.value);
-});
-
-function adjustFontSizeForSymbol(symbolElem) {
-  let fontSize = parseFloat(window.getComputedStyle(symbolElem).fontSize);
-  console.log(fontSize)
-  while (symbolElem.scrollWidth > symbolElem.offsetWidth || symbolElem.scrollHeight > symbolElem.offsetHeight) {
-    fontSize -= 1; // Decrement the font size
-    symbolElem.style.fontSize = `${fontSize}px`;
-    if (fontSize < 10) break; // Prevents too small font size
-  }
-}
-
-/* ---------------------
-   TTS
---------------------- */
-function speakLabel(label) {
-  if ("speechSynthesis" in window) {
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(label);
-
-    if (appState.voiceName && availableVoices.length > 0) {
-      const selectedVoice = availableVoices.find((v) => v.name === appState.voiceName);
-      if (selectedVoice) {
-        utterance.voice = selectedVoice;
-      }
-    }
-    utterance.lang = "en-US";
-    window.speechSynthesis.speak(utterance);
+function applyBackgroundColor(color) {
+  if (color === "rainbow") {
+    document.body.style.background =
+      "linear-gradient(90deg, red, orange, yellow, green, cyan, blue, indigo, violet)";
   } else {
-    console.warn("This browser does not support TTS.");
+    document.body.style.background = color;
   }
 }
 
-/* ---------------------
-   Voices & Storage
---------------------- */
 function loadVoices() {
   const allVoices = window.speechSynthesis.getVoices();
   availableVoices = allVoices.filter((v) => v.lang.startsWith("en"));
@@ -380,8 +603,10 @@ function loadVoices() {
     voiceSelect.appendChild(option);
   });
 
-  // Set or default
-  if (appState.voiceName) {
+  if (
+    appState.voiceName &&
+    availableVoices.some((v) => v.name === appState.voiceName)
+  ) {
     voiceSelect.value = appState.voiceName;
   } else if (availableVoices.length > 0) {
     appState.voiceName = availableVoices[0].name;
@@ -389,18 +614,51 @@ function loadVoices() {
   }
 }
 
-function loadAppStateFromStorage() {
-  const saved = JSON.parse(localStorage.getItem("dockAppStateV3"));
-  if (saved) {
-    appState = { ...appState, ...saved };
+function applyVoiceSelection(voiceName) {
+  // For live preview, we just store it in tempSettings.
+  // When speakLabel() is called, it uses tempSettings.voiceName to pick the correct voice.
+}
+
+function speakLabel(text) {
+  if (!("speechSynthesis" in window)) return;
+  const utterance = new SpeechSynthesisUtterance(text);
+  const selectedVoiceName = voiceSelect.value || appState.voiceName;
+  const found = availableVoices.find((v) => v.name === selectedVoiceName);
+  if (found) {
+    utterance.voice = found;
   }
+  speechSynthesis.speak(utterance);
+}
+
+function updateHeaderTags(tags) {
+  const header = document.getElementById("controls");
+  let tagsContainer = header.querySelector("#tags-container");
+  tagsContainer.innerHTML = "";
+  tags.forEach((tag) => {
+    const tagElem = document.createElement("span");
+    tagElem.className = "tag";
+    tagElem.textContent = tag;
+    tagElem.addEventListener("click", () => speakLabel(tag));
+    tagsContainer.appendChild(tagElem);
+  });
 }
 
 function saveAppStateToStorage() {
-  localStorage.setItem("dockAppStateV3", JSON.stringify(appState));
+  localStorage.setItem("emojiSpeakAppState", JSON.stringify(appState));
 }
 
-function getUniqueCategories() {
-  const catSet = new Set(dataItems.map((item) => item.category));
-  return Array.from(catSet);
+function loadAppStateFromStorage() {
+  const saved = localStorage.getItem("emojiSpeakAppState");
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      Object.keys(appState).forEach((key) => {
+        if (parsed[key] !== undefined) {
+          appState[key] = parsed[key];
+        }
+      });
+    } catch (e) {
+      console.error("Failed to parse saved state:", e);
+    }
+  }
 }

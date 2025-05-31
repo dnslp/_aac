@@ -18051,34 +18051,33 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🏣',
-    hexcode: '1f3e3',
-    category: 'Travel & Places',
-    subgroup: 'place-building',
-    label: 'Japanese post office',
-    tags: [
-      'japanese',
-      'japanese post office',
-      'post',
-      'delivery',
-      'mailing',
-      'communication'
-    ],
-    shortcodes: [
-      ':Japanese-post-office:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 3523,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🏣',
+  //   hexcode: '1f3e3',
+  //   category: 'Travel & Places',
+  //   subgroup: 'place-building',
+  //   label: 'Japanese post office',
+  //   tags: [
+
+  //     'post',
+  //     'delivery',
+  //     'mailing',
+  //     'communication'
+  //   ],
+  //   shortcodes: [
+  //     ':Japanese-post-office:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 3523,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
   {
     type: 'emoji',
     symbol: '🏤',
@@ -23243,32 +23242,32 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🎋',
-    hexcode: '1f38b',
-    category: 'Activities',
-    subgroup: 'event',
-    label: 'tanabata tree',
-    tags: [
-      'banner',
-      'celebration',
-      'japanese',
-      'tree'
-    ],
-    shortcodes: [
-      ':tanabata-tree:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 3758,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🎋',
+  //   hexcode: '1f38b',
+  //   category: 'Activities',
+  //   subgroup: 'event',
+  //   label: 'tanabata tree',
+  //   tags: [
+  //     'banner',
+  //     'celebration',
+  //     'japanese',
+  //     'tree'
+  //   ],
+  //   shortcodes: [
+  //     ':tanabata-tree:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 3758,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
   {
     type: 'emoji',
     symbol: '🎍',
@@ -35250,58 +35249,58 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '📛',
-    hexcode: '1f4db',
-    category: 'Symbols',
-    subgroup: 'other-symbol',
-    label: 'name badge',
-    tags: [
-      'badge',
-      'name'
-    ],
-    shortcodes: [
-      ':name-badge:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4321,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🔰',
-    hexcode: '1f530',
-    category: 'Symbols',
-    subgroup: 'other-symbol',
-    label: 'Japanese symbol for beginner',
-    tags: [
-      'beginner',
-      'chevron',
-      'japanese',
-      'japanese symbol for beginner',
-      'leaf'
-    ],
-    shortcodes: [
-      ':Japanese-symbol-for-beginner:',
-      ':beginner:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4322,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+  // {
+  //   type: 'emoji',
+  //   symbol: '📛',
+  //   hexcode: '1f4db',
+  //   category: 'Symbols',
+  //   subgroup: 'other-symbol',
+  //   label: 'name badge',
+  //   tags: [
+  //     'badge',
+  //     'name'
+  //   ],
+  //   shortcodes: [
+  //     ':name-badge:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4321,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🔰',
+  //   hexcode: '1f530',
+  //   category: 'Symbols',
+  //   subgroup: 'other-symbol',
+  //   label: 'Japanese symbol for beginner',
+  //   tags: [
+  //     'beginner',
+  //     'chevron',
+  //     'japanese',
+  //     'japanese symbol for beginner',
+  //     'leaf'
+  //   ],
+  //   shortcodes: [
+  //     ':Japanese-symbol-for-beginner:',
+  //     ':beginner:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4322,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
   {
     type: 'emoji',
     symbol: '⭕️',
@@ -36139,390 +36138,390 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🅰️',
-    hexcode: '1f170',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'A button (blood type)',
-    tags: [
-      'a',
-      'a button (blood type)',
-      'blood type'
-    ],
-    shortcodes: [
-      ':a-button:',
-      ':blood-type-a:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4378,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆎',
-    hexcode: '1f18e',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'AB button (blood type)',
-    tags: [
-      'ab',
-      'ab button (blood type)',
-      'blood type'
-    ],
-    shortcodes: [
-      ':ab-button:',
-      ':blood-type-ab:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4379,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🅱️',
-    hexcode: '1f171',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'B button (blood type)',
-    tags: [
-      'b',
-      'b button (blood type)',
-      'blood type'
-    ],
-    shortcodes: [
-      ':b-button:',
-      ':blood-type-b:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4381,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆑',
-    hexcode: '1f191',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'CL button',
-    tags: [
-      'cl',
-      'cl button'
-    ],
-    shortcodes: [
-      ':cl-button:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4382,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆒',
-    hexcode: '1f192',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'COOL button',
-    tags: [
-      'cool',
-      'cool button',
-      'popular',
-      'nice'
-    ],
-    shortcodes: [
-      ':cool:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4383,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆓',
-    hexcode: '1f193',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'FREE button',
-    tags: [
-      'free',
-      'free button'
-    ],
-    shortcodes: [
-      ':free:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4384,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: 'ℹ️',
-    hexcode: '2139',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'information',
-    tags: [
-      'i',
-      'advice',
-      'info'
-    ],
-    shortcodes: [
-      ':information:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4386,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆔',
-    hexcode: '1f194',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'ID button',
-    tags: [
-      'id',
-      'id button',
-      'identity',
-      'id card'
-    ],
-    shortcodes: [
-      ':id-button:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4387,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: 'Ⓜ️',
-    hexcode: '24c2',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'circled M',
-    tags: [
-      'circle',
-      'circled m',
-      'm'
-    ],
-    shortcodes: [
-      ':metro-sign:',
-      ':circled-m:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4389,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆕',
-    hexcode: '1f195',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'NEW button',
-    tags: [
-      'new',
-      'new button',
-      'modern',
-      'recent'
-    ],
-    shortcodes: [
-      ':new:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4390,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆖',
-    hexcode: '1f196',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'NG button',
-    tags: [
-      'ng',
-      'ng button'
-    ],
-    shortcodes: [
-      ':ng:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4391,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🅾️',
-    hexcode: '1f17e',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'O button (blood type)',
-    tags: [
-      'blood type',
-      'o',
-      'o button (blood type)'
-    ],
-    shortcodes: [
-      ':o-button:',
-      ':blood-type-o:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4393,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆗',
-    hexcode: '1f197',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'OK button',
-    tags: [
-      'ok',
-      'ok button',
-      'okay'
-    ],
-    shortcodes: [
-      ':ok-button:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4394,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🅿️',
-    hexcode: '1f17f',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'P button',
-    tags: [
-      'p',
-      'p button',
-      'parking',
-      'place',
-      'drive'
-    ],
-    shortcodes: [
-      ':Parking:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4396,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🆘',
-    hexcode: '1f198',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'SOS button',
-    tags: [
-      'help',
-      'sos',
-      'sos button',
-      'emergency',
-      'warning'
-    ],
-    shortcodes: [
-      ':sos:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4397,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🅰️',
+  //   hexcode: '1f170',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'A button (blood type)',
+  //   tags: [
+  //     'a',
+  //     'a button (blood type)',
+  //     'blood type'
+  //   ],
+  //   shortcodes: [
+  //     ':a-button:',
+  //     ':blood-type-a:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4378,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆎',
+  //   hexcode: '1f18e',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'AB button (blood type)',
+  //   tags: [
+  //     'ab',
+  //     'ab button (blood type)',
+  //     'blood type'
+  //   ],
+  //   shortcodes: [
+  //     ':ab-button:',
+  //     ':blood-type-ab:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4379,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🅱️',
+  //   hexcode: '1f171',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'B button (blood type)',
+  //   tags: [
+  //     'b',
+  //     'b button (blood type)',
+  //     'blood type'
+  //   ],
+  //   shortcodes: [
+  //     ':b-button:',
+  //     ':blood-type-b:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4381,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆑',
+  //   hexcode: '1f191',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'CL button',
+  //   tags: [
+  //     'cl',
+  //     'cl button'
+  //   ],
+  //   shortcodes: [
+  //     ':cl-button:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4382,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆒',
+  //   hexcode: '1f192',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'COOL button',
+  //   tags: [
+  //     'cool',
+  //     'cool button',
+  //     'popular',
+  //     'nice'
+  //   ],
+  //   shortcodes: [
+  //     ':cool:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4383,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆓',
+  //   hexcode: '1f193',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'FREE button',
+  //   tags: [
+  //     'free',
+  //     'free button'
+  //   ],
+  //   shortcodes: [
+  //     ':free:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4384,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: 'ℹ️',
+  //   hexcode: '2139',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'information',
+  //   tags: [
+  //     'i',
+  //     'advice',
+  //     'info'
+  //   ],
+  //   shortcodes: [
+  //     ':information:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4386,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆔',
+  //   hexcode: '1f194',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'ID button',
+  //   tags: [
+  //     'id',
+  //     'id button',
+  //     'identity',
+  //     'id card'
+  //   ],
+  //   shortcodes: [
+  //     ':id-button:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4387,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: 'Ⓜ️',
+  //   hexcode: '24c2',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'circled M',
+  //   tags: [
+  //     'circle',
+  //     'circled m',
+  //     'm'
+  //   ],
+  //   shortcodes: [
+  //     ':metro-sign:',
+  //     ':circled-m:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4389,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆕',
+  //   hexcode: '1f195',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'NEW button',
+  //   tags: [
+  //     'new',
+  //     'new button',
+  //     'modern',
+  //     'recent'
+  //   ],
+  //   shortcodes: [
+  //     ':new:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4390,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆖',
+  //   hexcode: '1f196',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'NG button',
+  //   tags: [
+  //     'ng',
+  //     'ng button'
+  //   ],
+  //   shortcodes: [
+  //     ':ng:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4391,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🅾️',
+  //   hexcode: '1f17e',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'O button (blood type)',
+  //   tags: [
+  //     'blood type',
+  //     'o',
+  //     'o button (blood type)'
+  //   ],
+  //   shortcodes: [
+  //     ':o-button:',
+  //     ':blood-type-o:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4393,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆗',
+  //   hexcode: '1f197',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'OK button',
+  //   tags: [
+  //     'ok',
+  //     'ok button',
+  //     'okay'
+  //   ],
+  //   shortcodes: [
+  //     ':ok-button:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4394,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🅿️',
+  //   hexcode: '1f17f',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'P button',
+  //   tags: [
+  //     'p',
+  //     'p button',
+  //     'parking',
+  //     'place',
+  //     'drive'
+  //   ],
+  //   shortcodes: [
+  //     ':Parking:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4396,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🆘',
+  //   hexcode: '1f198',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'SOS button',
+  //   tags: [
+  //     'help',
+  //     'sos',
+  //     'sos button',
+  //     'emergency',
+  //     'warning'
+  //   ],
+  //   shortcodes: [
+  //     ':sos:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4397,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
   {
     type: 'emoji',
     symbol: '🆙',
@@ -36575,467 +36574,467 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🈁',
-    hexcode: '1f201',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “here” button',
-    tags: [
-      'japanese',
-      'japanese “here” button',
-      'katakana',
-      '“here”',
-      'ココ'
-    ],
-    shortcodes: [
-      ':here:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4400,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈂️',
-    hexcode: '1f202',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “service charge” button',
-    tags: [
-      'japanese',
-      'japanese “service charge” button',
-      'katakana',
-      '“service charge”',
-      'サ'
-    ],
-    shortcodes: [
-      ':service-charge:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4402,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈷️',
-    hexcode: '1f237',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “monthly amount” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “monthly amount” button',
-      '“monthly amount”',
-      '月'
-    ],
-    shortcodes: [
-      ':monthly-amount:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4404,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈶',
-    hexcode: '1f236',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “not free of charge” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “not free of charge” button',
-      '“not free of charge”',
-      '有'
-    ],
-    shortcodes: [
-      ':not-free-of-charge:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4405,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈯️',
-    hexcode: '1f22f',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “reserved” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “reserved” button',
-      '“reserved”',
-      '指'
-    ],
-    shortcodes: [
-      ':reserved:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4406,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🉐',
-    hexcode: '1f250',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “bargain” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “bargain” button',
-      '“bargain”',
-      '得'
-    ],
-    shortcodes: [
-      ':bargain:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4407,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈹',
-    hexcode: '1f239',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “discount” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “discount” button',
-      '“discount”',
-      '割'
-    ],
-    shortcodes: [
-      ':discount:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4408,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈚️',
-    hexcode: '1f21a',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “free of charge” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “free of charge” button',
-      '“free of charge”',
-      '無'
-    ],
-    shortcodes: [
-      ':free-of-charge:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4409,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈲',
-    hexcode: '1f232',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “prohibited” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “prohibited” button',
-      '“prohibited”',
-      '禁'
-    ],
-    shortcodes: [
-      ':prohibited-button:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4410,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🉑',
-    hexcode: '1f251',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “acceptable” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “acceptable” button',
-      '“acceptable”',
-      '可'
-    ],
-    shortcodes: [
-      ':accept:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4411,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈸',
-    hexcode: '1f238',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “application” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “application” button',
-      '“application”',
-      '申'
-    ],
-    shortcodes: [
-      ':application:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4412,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈴',
-    hexcode: '1f234',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “passing grade” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “passing grade” button',
-      '“passing grade”',
-      '合'
-    ],
-    shortcodes: [
-      ':passing-grade:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4413,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈳',
-    hexcode: '1f233',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “vacancy” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “vacancy” button',
-      '“vacancy”',
-      '空'
-    ],
-    shortcodes: [
-      ':vacancy:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4414,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '㊗️',
-    hexcode: '3297',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “congratulations” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “congratulations” button',
-      '“congratulations”',
-      '祝',
-      'compliments'
-    ],
-    shortcodes: [
-      ':congratulations:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4416,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '㊙️',
-    hexcode: '3299',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “secret” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “secret” button',
-      '“secret”',
-      '秘',
-      'mysterious'
-    ],
-    shortcodes: [
-      ':secret:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4418,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈺',
-    hexcode: '1f23a',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “open for business” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “open for business” button',
-      '“open for business”',
-      '営'
-    ],
-    shortcodes: [
-      ':open-for-business:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4419,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🈵',
-    hexcode: '1f235',
-    category: 'Symbols',
-    subgroup: 'alphanum',
-    label: 'Japanese “no vacancy” button',
-    tags: [
-      'ideograph',
-      'japanese',
-      'japanese “no vacancy” button',
-      '“no vacancy”',
-      '満'
-    ],
-    shortcodes: [
-      ':no-vacancy:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 4420,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈁',
+  //   hexcode: '1f201',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “here” button',
+  //   tags: [
+  //     'japanese',
+  //     'japanese “here” button',
+  //     'katakana',
+  //     '“here”',
+  //     'ココ'
+  //   ],
+  //   shortcodes: [
+  //     ':here:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4400,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈂️',
+  //   hexcode: '1f202',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “service charge” button',
+  //   tags: [
+  //     'japanese',
+  //     'japanese “service charge” button',
+  //     'katakana',
+  //     '“service charge”',
+  //     'サ'
+  //   ],
+  //   shortcodes: [
+  //     ':service-charge:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4402,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈷️',
+  //   hexcode: '1f237',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “monthly amount” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “monthly amount” button',
+  //     '“monthly amount”',
+  //     '月'
+  //   ],
+  //   shortcodes: [
+  //     ':monthly-amount:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4404,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈶',
+  //   hexcode: '1f236',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “not free of charge” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “not free of charge” button',
+  //     '“not free of charge”',
+  //     '有'
+  //   ],
+  //   shortcodes: [
+  //     ':not-free-of-charge:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4405,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈯️',
+  //   hexcode: '1f22f',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “reserved” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “reserved” button',
+  //     '“reserved”',
+  //     '指'
+  //   ],
+  //   shortcodes: [
+  //     ':reserved:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4406,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🉐',
+  //   hexcode: '1f250',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “bargain” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “bargain” button',
+  //     '“bargain”',
+  //     '得'
+  //   ],
+  //   shortcodes: [
+  //     ':bargain:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4407,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈹',
+  //   hexcode: '1f239',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “discount” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “discount” button',
+  //     '“discount”',
+  //     '割'
+  //   ],
+  //   shortcodes: [
+  //     ':discount:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4408,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈚️',
+  //   hexcode: '1f21a',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “free of charge” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “free of charge” button',
+  //     '“free of charge”',
+  //     '無'
+  //   ],
+  //   shortcodes: [
+  //     ':free-of-charge:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4409,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈲',
+  //   hexcode: '1f232',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “prohibited” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “prohibited” button',
+  //     '“prohibited”',
+  //     '禁'
+  //   ],
+  //   shortcodes: [
+  //     ':prohibited-button:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4410,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🉑',
+  //   hexcode: '1f251',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “acceptable” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “acceptable” button',
+  //     '“acceptable”',
+  //     '可'
+  //   ],
+  //   shortcodes: [
+  //     ':accept:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4411,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈸',
+  //   hexcode: '1f238',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “application” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “application” button',
+  //     '“application”',
+  //     '申'
+  //   ],
+  //   shortcodes: [
+  //     ':application:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4412,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈴',
+  //   hexcode: '1f234',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “passing grade” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “passing grade” button',
+  //     '“passing grade”',
+  //     '合'
+  //   ],
+  //   shortcodes: [
+  //     ':passing-grade:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4413,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈳',
+  //   hexcode: '1f233',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “vacancy” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “vacancy” button',
+  //     '“vacancy”',
+  //     '空'
+  //   ],
+  //   shortcodes: [
+  //     ':vacancy:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4414,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '㊗️',
+  //   hexcode: '3297',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “congratulations” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “congratulations” button',
+  //     '“congratulations”',
+  //     '祝',
+  //     'compliments'
+  //   ],
+  //   shortcodes: [
+  //     ':congratulations:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4416,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '㊙️',
+  //   hexcode: '3299',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “secret” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “secret” button',
+  //     '“secret”',
+  //     '秘',
+  //     'mysterious'
+  //   ],
+  //   shortcodes: [
+  //     ':secret:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4418,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈺',
+  //   hexcode: '1f23a',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “open for business” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “open for business” button',
+  //     '“open for business”',
+  //     '営'
+  //   ],
+  //   shortcodes: [
+  //     ':open-for-business:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4419,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
+  // {
+  //   type: 'emoji',
+  //   symbol: '🈵',
+  //   hexcode: '1f235',
+  //   category: 'Symbols',
+  //   subgroup: 'alphanum',
+  //   label: 'Japanese “no vacancy” button',
+  //   tags: [
+  //     'ideograph',
+  //     'japanese',
+  //     'japanese “no vacancy” button',
+  //     '“no vacancy”',
+  //     '満'
+  //   ],
+  //   shortcodes: [
+  //     ':no-vacancy:'
+  //   ],
+  //   emoticons: [],
+  //   directional: false,
+  //   variation: false,
+  //   variationBase: null,
+  //   unicode: 0.6,
+  //   order: 4420,
+  //   skintone: null,
+  //   skintoneCombination: null,
+  //   skintoneBase: null
+  // },
   {
     type: 'emoji',
     symbol: '🔴',
