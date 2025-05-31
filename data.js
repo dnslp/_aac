@@ -9495,8 +9495,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'man',
       'woman',
       'together',
-      'heterosexual',
-      'straight'
     ],
     shortcodes: [
       ':holding-hands-woman-and-man:'
@@ -14007,10 +14005,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1f34a',
     category: 'Food & Drink',
     subgroup: 'food-fruit',
-    label: 'tangerine',
+    label: 'orange',
     tags: [
       'fruit',
-      'orange'
+      'tangerine',
+      'mandarin'
     ],
     shortcodes: [
       ':tangerine:',
@@ -14132,9 +14131,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'red apple',
     tags: [
+            'red',
       'apple',
       'fruit',
-      'red'
+
     ],
     shortcodes: [
       ':red-apple:'
@@ -14157,9 +14157,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'green apple',
     tags: [
+            'green',
       'apple',
       'fruit',
-      'green'
+
     ],
     shortcodes: [
       ':green-apple:'
@@ -14231,7 +14232,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'cherries',
     tags: [
-      'berries',
       'cherry',
       'fruit',
       'red'
@@ -14280,10 +14280,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: 'Food & Drink',
     subgroup: 'food-fruit',
     label: 'blueberries',
-    tags: [
-      'berry',
-      'bilberry',
+    tags: [      
       'blue',
+      'berry',
+
       'blueberry'
     ],
     shortcodes: [
@@ -14381,7 +14381,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'coconut',
     tags: [
-      'palm',
+      'tropical',
       'piña colada',
       'nut'
     ],
@@ -14408,7 +14408,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'food',
       'fruit',
-      'avocado'
+      'avocado',
+      'guacamole'
     ],
     shortcodes: [
       ':avocado:'
@@ -14457,7 +14458,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'potato',
     tags: [
       'food',
-      'vegetable'
+      'vegetable',
+  
     ],
     shortcodes: [
       ':potato:'
@@ -14481,7 +14483,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'carrot',
     tags: [
       'food',
-      'vegetable'
+      'vegetable',
+      'orange'
     ],
     shortcodes: [
       ':carrot:'
@@ -14507,7 +14510,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'corn',
       'ear',
       'maize',
-      'maze',
       'yellow'
     ],
     shortcodes: [
@@ -14532,6 +14534,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'hot pepper',
     tags: [
       'hot',
+      'spicy',
       'pepper',
       'red'
     ],
@@ -14556,7 +14559,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'bell pepper',
     tags: [
-      'capsicum',
       'pepper',
       'vegetable'
     ],
@@ -14980,7 +14982,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'breakfast',
       'crêpe',
-      'food',
       'hotcake',
       'pancake'
     ],
@@ -15006,7 +15007,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'waffle',
     tags: [
       'breakfast',
-      'indecisive',
       'iron'
     ],
     shortcodes: [
@@ -16357,7 +16357,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'celebration',
       'dessert',
       'pastry',
-      'sweet'
     ],
     shortcodes: [
       ':birthday-cake:'
@@ -16801,13 +16800,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'cocktail glass',
     tags: [
-      'bar',
       'cocktail',
       'drink',
       'glass',
-      'classic',
       'alcohol',
-      'elegant',
       'party'
     ],
     shortcodes: [
@@ -16831,11 +16827,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'tropical drink',
     tags: [
-      'bar',
       'drink',
       'tropical',
       'cocktail',
-      'glass',
       'party',
       'summer'
     ],
@@ -16860,13 +16854,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'beer mug',
     tags: [
-      'bar',
       'beer',
       'drink',
       'mug',
-      'german',
-      'alcohol',
-      'bavaria',
       'party'
     ],
     shortcodes: [
@@ -16926,7 +16916,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'drink',
       'glass',
       'party',
-      'secco'
     ],
     shortcodes: [
       ':clinking-glasses:'
@@ -16954,8 +16943,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'shot',
       'tumbler',
       'whisky',
-      'alcohol',
-      'classic'
     ],
     shortcodes: [
       ':tumbler-glass:'
@@ -17058,10 +17045,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'beverage box',
     tags: [
       'beverage',
+            'juice',
       'box',
-      'juice',
       'straw',
-      'sweet'
     ],
     shortcodes: [
       ':beverage-box:'
@@ -17325,12 +17311,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'earth',
       'europe',
       'globe',
-      'globe showing europe-africa',
       'world',
-      'geographic',
       'continent',
-      'global',
-      'planet'
     ],
     shortcodes: [
       ':globe-showing-Europe-Africa:'
@@ -17356,12 +17338,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'americas',
       'earth',
       'globe',
-      'globe showing americas',
       'world',
-      'geographic',
-      'continent',
-      'global',
-      'planet'
     ],
     shortcodes: [
       ':globe-showing-Americas:'
@@ -17388,12 +17365,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'australia',
       'earth',
       'globe',
-      'globe showing asia-australia',
       'world',
-      'geographic',
-      'continent',
-      'global',
-      'planet'
     ],
     shortcodes: [
       ':globe-showing-Asia-Australia:'
@@ -17420,11 +17392,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'globe',
       'meridians',
       'world',
-      'geographic',
-      'continent',
-      'global',
-      'planet',
-      'grid'
     ],
     shortcodes: [
       ':globe-with-meridians:'
@@ -17504,7 +17471,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'magnetic',
       'navigation',
       'orienteering',
-      'wayfinding',
       'direction'
     ],
     shortcodes: [
@@ -17534,10 +17500,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'landscape',
       'nature',
       'hiking',
-      'climbing',
-      'white',
-      'outdoor',
-      'adventure'
     ],
     shortcodes: [
       ':snow-mountain:'
@@ -17565,8 +17527,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'nature',
       'hiking',
       'climbing',
-      'outdoor',
-      'adventure'
     ],
     shortcodes: [
       ':mountain:'
@@ -17595,8 +17555,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'landscape',
       'nature',
       'fire',
-      'smoke',
-      'hot'
     ],
     shortcodes: [
       ':volcano:'
@@ -17678,10 +17636,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'umbrella',
       'nature',
       'summer',
-      'sun',
       'sand',
       'water',
-      'holidays'
     ],
     shortcodes: [
       ':beach:'
@@ -17734,13 +17690,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'desert',
       'island',
-      'sun',
-      'lonely',
       'sand',
       'water',
       'stranded',
       'palm',
-      'nature'
     ],
     shortcodes: [
       ':desert-island:'
@@ -18249,8 +18202,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'hotel',
       'love',
       'building',
-      'sex',
-      'affair'
     ],
     shortcodes: [
       ':love-hotel:'
@@ -32342,9 +32293,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'wc',
       'unisex',
       'restroom',
-      'male',
-      'woman',
-      'female'
     ],
     shortcodes: [
       ':restroom:'
@@ -32399,7 +32347,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'lavatory',
       'restroom',
       'toilet',
-      'water',
       'wc'
     ],
     shortcodes: [
@@ -34812,7 +34759,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'multiplication',
       'sign',
       'x',
-      '×',
       'wrong'
     ],
     shortcodes: [
@@ -34996,7 +34942,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'exclamation question mark',
     tags: [
       '!',
-      '!?',
       '?',
       'exclamation',
       'interrobang',

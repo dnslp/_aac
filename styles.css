@@ -27,7 +27,6 @@ body {
   background: var(--app-background);
   color: #333;
   min-height: 100vh;
-  margin: 3em 3em;
   padding-bottom: 5em;
 }
 
@@ -200,6 +199,7 @@ select:focus {
   margin: 1rem auto;
   max-width: 1200px; /* or any container width you like */
   padding-top: 1rem;
+  margin: 2em 2em;
 }
 
 /* Adjust margins if dock is on left/right to avoid overlap */
@@ -224,7 +224,7 @@ select:focus {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  padding-top: 4em;
+  padding-top: .5em;
 }
 
 /* =========================
@@ -261,12 +261,13 @@ select:focus {
 /* The item-symbol might be text or an inline SVG */
 /* Adjust the item-symbol to fill and scale dynamically */
 .item-symbol {
+    flex: 0 0 65%;  
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: calc(var(--card-size) * 0.5); /* Scale font size relative to card size */
   width: 100%; /* Take full width */
-  height: 100%; /* Take full height */
+  height: 650%; /* Take full height */
   overflow: hidden; /* Prevent overflowing content */
   line-height: 1;
   transition: font-size 0.2s ease, transform 0.2s ease;
@@ -286,11 +287,14 @@ select:focus {
 }
 
 .item-label {
-  font-size: 100% !important;
-  margin-top: 0.25rem;
+  /* font-size: 100% !important; */
+   flex: 0 0 35%;  
+  font-size: calc(var(--card-size) * 0.1);
+  /* margin-top: 0.25rem; */
   text-align: center;
   color: #555;
-  padding: 10px;
+  /* padding: 10px; */
+  overflow-wrap: break-word;
 }
 
 .item-image {
