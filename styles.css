@@ -52,6 +52,7 @@ body {
   z-index: 999;
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   /* subtle glassy effect */
   display: flex;
   justify-content: space-between;
@@ -118,6 +119,7 @@ select:focus {
   z-index: 999;
   background-color: rgb(125 123 123 / 25%);
   backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   border: 1px solid #ddd;
   display: flex;
   align-items: center;
@@ -417,6 +419,7 @@ font-size: calc(var(--card-size) * 0.5) !important;  /* Scale font size relative
     border-radius: 20px;
       background-color: rgb(125 123 123 / 1%);
   backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .modal-content label{
