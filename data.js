@@ -541,7 +541,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#8A2BE2"),
-    label: "Blue Violet",
+    label: "Purple",
     category: "Colors",
     tags: []
   },
