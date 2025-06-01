@@ -6545,11 +6545,7 @@ const dataItems = [
       'comic',
       'flex',
       'muscle',
-      'flexed biceps',
-      'flexed',
-      'feats of strength',
       'strength',
-      'feats',
       'strong'
     ],
     shortcodes: [
@@ -6576,6 +6572,7 @@ const dataItems = [
     subgroup: 'body-parts',
     label: 'mechanical arm',
     tags: [
+      'arm',
       'accessibility',
       'prosthetic'
     ],
@@ -6600,6 +6597,7 @@ const dataItems = [
     subgroup: 'body-parts',
     label: 'mechanical leg',
     tags: [
+      'leg',
       'accessibility',
       'prosthetic'
     ],
@@ -6624,6 +6622,7 @@ const dataItems = [
     subgroup: 'body-parts',
     label: 'leg',
     tags: [
+      'leg',
       'kick',
       'limb'
     ],
@@ -6648,6 +6647,7 @@ const dataItems = [
     subgroup: 'body-parts',
     label: 'foot',
     tags: [
+      'foot',
       'kick',
       'stomp'
     ],
@@ -6698,6 +6698,7 @@ const dataItems = [
     subgroup: 'body-parts',
     label: 'ear with hearing aid',
     tags: [
+      'ear',
       'accessibility',
       'hard of hearing'
     ],
@@ -6879,7 +6880,10 @@ const dataItems = [
     tags: [
       'eye',
       'face',
-      'eyes'
+      'eyes',
+      'look',
+      'see'
+
     ],
     shortcodes: [
       ':eyes:'
@@ -6904,7 +6908,8 @@ const dataItems = [
     tags: [
       'body',
       'eye',
-      'face'
+      'face',
+      'see'
     ],
     shortcodes: [
       ':eye:'
@@ -6929,6 +6934,7 @@ const dataItems = [
     tags: [
       'body',
       'tongue',
+      'taste',
       'kiss',
       'lick',
       'licking'
@@ -7007,6 +7013,7 @@ const dataItems = [
     subgroup: 'person',
     label: 'baby',
     tags: [
+      'baby',
       'young',
       'human',
       'person'
@@ -7032,9 +7039,8 @@ const dataItems = [
     subgroup: 'person',
     label: 'child',
     tags: [
-      'gender-neutral',
-      'unspecified gender',
-      'young',
+      'child',
+      'kid',
       'human',
       'person'
     ],
@@ -7060,8 +7066,6 @@ const dataItems = [
     label: 'person',
     tags: [
       'adult',
-      'gender-neutral',
-      'unspecified gender',
       'human',
       'person'
     ],
@@ -7087,7 +7091,7 @@ const dataItems = [
     label: 'person: blond hair',
     tags: [
       'blond',
-      'blond-haired person',
+      'person',
       'hair'
     ],
     shortcodes: [
@@ -7139,10 +7143,8 @@ const dataItems = [
     label: 'person: red hair',
     tags: [
       'adult',
-      'gender-neutral',
       'person',
       'red hair',
-      'unspecified gender'
     ],
     shortcodes: [
       ':red-hair:'
@@ -7167,9 +7169,7 @@ const dataItems = [
     tags: [
       'adult',
       'curly hair',
-      'gender-neutral',
       'person',
-      'unspecified gender'
     ],
     shortcodes: [
       ':curly-hair:'
@@ -7193,9 +7193,7 @@ const dataItems = [
     label: 'person: white hair',
     tags: [
       'adult',
-      'gender-neutral',
       'person',
-      'unspecified gender',
       'white hair'
     ],
     shortcodes: [
@@ -7221,9 +7219,7 @@ const dataItems = [
     tags: [
       'adult',
       'bald',
-      'gender-neutral',
       'person',
-      'unspecified gender'
     ],
     shortcodes: [
       ':bald:'
@@ -7247,9 +7243,9 @@ const dataItems = [
     label: 'older person',
     tags: [
       'adult',
-      'gender-neutral',
+
       'old',
-      'unspecified gender',
+
       'human',
       'person'
     ],
@@ -7366,7 +7362,6 @@ const dataItems = [
       'gesture',
       'hand',
       'ok',
-      'person gesturing ok',
       'human',
       'head',
       'face'
@@ -7395,7 +7390,6 @@ const dataItems = [
       'hand',
       'help',
       'information',
-      'sassy',
       'tipping',
       'human',
       'head',
