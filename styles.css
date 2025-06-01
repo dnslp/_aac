@@ -277,18 +277,30 @@ select:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid gray;
+   border: 2px solid rgba(128, 128, 128, 0.528);
 
 }
 
+
 .item-card:hover {
   background-color: #f0f0f0;
-  outline: 2px var(--border-style) var(--border-color);
+  outline: 3px var(--border-style) var(--border-color);
 }
 
 .item-card:focus {
   outline: var(--focus-outline);
 }
+
+/* Highlighted cards */
+.item-card.highlighted {
+ /* outline: 8px solid rgba(128, 128, 128, 0.2); */
+ border: 6px solid rgba(0, 0, 0, 0.62);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+
+
 
 /* The item-symbol might be text or an inline SVG */
 /* Adjust the item-symbol to fill and scale dynamically */
@@ -305,9 +317,14 @@ font-size: calc(var(--card-size) * 0.5) !important;  /* Scale font size relative
   overflow: hidden;
   /* Prevent overflowing content */
   line-height: 1;
-  transition: font-size 0.2s ease, transform 0.2s ease;
-}
+  /* transition: font-size 0.2s ease, transform 0.2s ease; */
+    word-break: break-all;
 
+}
+/* If the .item-symbol also has .small-number, shrink it to 30% instead of 50% */
+.item-symbol.small-number {
+  font-size: calc(var(--card-size) * 0.2) !important;
+}
 
 /* .item-symbol:hover {
   transform: scale(1.1);
@@ -370,6 +387,36 @@ font-size: calc(var(--card-size) * 0.5) !important;  /* Scale font size relative
 #tags-container .tag:hover {
   background: #d0d0d0;
 }
+
+/* Tag pills in the header */
+#tags-container {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.25rem 1rem;
+  overflow-x: auto;
+}
+
+#tags-container .tag {
+  background: #e0e0e0;
+  color: #333;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#tags-container .tag:hover {
+  background: #d0d0d0;
+}
+#tags-container .tag.active {
+  background: #007aff;
+  color: #fff;
+  font-weight: 600;
+}
+
+
 
 /* =========================
    Settings Modal

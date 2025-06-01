@@ -4,447 +4,472 @@
  * - Some letters
  * You can expand this with numbers, shapes, images, etc.
  */
-const SVG_SHAPE_TEMPLATE = (color) => 
+const SVG_SHAPE_TEMPLATE = (color) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="40" fill="${color}" stroke="black" stroke-width="3"/>
   </svg>`;
 
- const dataItems = [
-    {
-      type: "letter",
-      symbol: "Aa",
-      label: "A",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Bb",
-      label: "B",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Cc",
-      label: "C",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Dd",
-      label: "D",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Ee",
-      label: "E",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Ff",
-      label: "F",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Gg",
-      label: "G",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Hh",
-      label: "H",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Ii",
-      label: "I",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Jj",
-      label: "J",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Kk",
-      label: "K",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Ll",
-      label: "L",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Mm",
-      label: "M",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Nn",
-      label: "N",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Oo",
-      label: "O",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Pp",
-      label: "P",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Qq",
-      label: "Q",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Rr",
-      label: "R",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Ss",
-      label: "S",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Tt",
-      label: "T",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Uu",
-      label: "U",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Vv",
-      label: "V",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Ww",
-      label: "W",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Xx",
-      label: "X",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Yy",
-      label: "Y",
-      category: "Alphabet",
-      tags: []
-    },
-    {
-      type: "letter",
-      symbol: "Zz",
-      label: "Z",
-      category: "Alphabet",
-      tags: []
-    },  
-  
-    {
-      type: "number",
-      symbol: "1",
-      label: "One",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "2",
-      label: "Two",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "3",
-      label: "Three",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "4",
-      label: "Four",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "5",
-      label: "Five",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "6",
-      label: "Six",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "7",
-      label: "Seven",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "8",
-      label: "Eight",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "9",
-      label: "Nine",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "10",
-      label: "Ten",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "11",
-      label: "Eleven",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "12",
-      label: "Twelve",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "13",
-      label: "Thirteen",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "14",
-      label: "Fourteen",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "15",
-      label: "Fifteen",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "16",
-      label: "Sixteen",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "17",
-      label: "Seventeen",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "18",
-      label: "Eighteen",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "19",
-      label: "Nineteen",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "20",
-      label: "Twenty",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "30",
-      label: "Thirty",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "40",
-      label: "Forty",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "50",
-      label: "Fifty",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "60",
-      label: "Sixty",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "70",
-      label: "Seventy",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "80",
-      label: "Eighty",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "90",
-      label: "Ninety",
-      category: "Numbers",
-      tags: []
-    },
-    {
-      type: "number",
-      symbol: "100",
-      label: "One Hundred",
-      category: "Numbers",
-      tags: []
-    },
-    // {
-    //   type: "number",
-    //   symbol: "1,000",
-    //   label: "One Thousand",
-    //   category: "Numbers",
-    //   tags: []
-    // },
-    // {
-    //   type: "number",
-    //   symbol: "10,000",
-    //   label: "Ten Thousand",
-    //   category: "Numbers",
-    //   tags: []
-    // },
-    // {
-    //   type: "number",
-    //   symbol: "100,000",
-    //   label: "One Hundred Thousand",
-    //   category: "Numbers",
-    //   tags: []
-    // },
-    // {
-    //   type: "number",
-    //   symbol: "1,000,000",
-    //   label: "One Million",
-    //   category: "Numbers",
-    //   tags: []
-    // },  
-        // 🔴 Red to Orange
+const dataItems = [
+  {
+    type: "letter",
+    symbol: "Aa",
+    label: "A",
+    category: "Alphabet",
+    tags: ["A", "a", "alphabet", "letter", 'vowel']
+  },
+  {
+    type: "letter",
+    symbol: "Bb",
+    label: "B",
+    category: "Alphabet",
+    tags: ["B", "b", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Cc",
+    label: "C",
+    category: "Alphabet",
+    tags: ["C", "c", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Dd",
+    label: "D",
+    category: "Alphabet",
+    tags: ["D", "d", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Ee",
+    label: "E",
+    category: "Alphabet",
+    tags: ["E", "e", "alphabet", "letter", 'vowel']
+  },
+  {
+    type: "letter",
+    symbol: "Ff",
+    label: "F",
+    category: "Alphabet",
+    tags: ["F", "f", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Gg",
+    label: "G",
+    category: "Alphabet",
+    tags: ["G", "g", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Hh",
+    label: "H",
+    category: "Alphabet",
+    tags: ["H", "h", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Ii",
+    label: "I",
+    category: "Alphabet",
+    tags: ["I", "i", "alphabet", "letter", 'vowel']
+  },
+  {
+    type: "letter",
+    symbol: "Jj",
+    label: "J",
+    category: "Alphabet",
+    tags: ["J", "j", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Kk",
+    label: "K",
+    category: "Alphabet",
+    tags: ["K", "k", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Ll",
+    label: "L",
+    category: "Alphabet",
+    tags: ["L", "l", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Mm",
+    label: "M",
+    category: "Alphabet",
+    tags: ["M", "m", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Nn",
+    label: "N",
+    category: "Alphabet",
+    tags: ["N", "n", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Oo",
+    label: "O",
+    category: "Alphabet",
+    tags: ["O", "o", "alphabet", "letter", 'vowel']
+  },
+  {
+    type: "letter",
+    symbol: "Pp",
+    label: "P",
+    category: "Alphabet",
+    tags: ["P", "p", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Qq",
+    label: "Q",
+    category: "Alphabet",
+    tags: ["Q", "q", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Rr",
+    label: "R",
+    category: "Alphabet",
+    tags: ["R", "r", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Ss",
+    label: "S",
+    category: "Alphabet",
+    tags: ["S", "s", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Tt",
+    label: "T",
+    category: "Alphabet",
+    tags: ["T", "t", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Uu",
+    label: "U",
+    category: "Alphabet",
+    tags: ["U", "u", "alphabet", "letter", 'vowel']
+  },
+  {
+    type: "letter",
+    symbol: "Vv",
+    label: "V",
+    category: "Alphabet",
+    tags: ["V", "v", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Ww",
+    label: "W",
+    category: "Alphabet",
+    tags: ["W", "w", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Xx",
+    label: "X",
+    category: "Alphabet",
+    tags: ["X", "x", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Yy",
+    label: "Y",
+    category: "Alphabet",
+    tags: ["Y", "y", "alphabet", "letter", 'vowel', 'consonant']
+  },
+  {
+    type: "letter",
+    symbol: "Zz",
+    label: "Z",
+    category: "Alphabet",
+    tags: ["Z", "z", "alphabet", "letter", 'consonant']
+  },
+  {
+    type: "number",
+    symbol: "0",
+    label: "Zero",
+    category: "Numbers",
+    tags: ["nothing", "even", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "1",
+    label: "One",
+    category: "Numbers",
+    tags: ["unit", "odd", "prime", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "2",
+    label: "Two",
+    category: "Numbers",
+    tags: ["unit", "even", "prime", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "3",
+    label: "Three",
+    category: "Numbers",
+    tags: ["unit", "odd", "prime", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "4",
+    label: "Four",
+    category: "Numbers",
+    tags: ["unit", "even", "composite", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "5",
+    label: "Five",
+    category: "Numbers",
+    tags: ["unit", "odd", "prime", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "6",
+    label: "Six",
+    category: "Numbers",
+    tags: ["unit", "even", "composite", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "7",
+    label: "Seven",
+    category: "Numbers",
+    tags: ["unit", "odd", "prime", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "8",
+    label: "Eight",
+    category: "Numbers",
+    tags: ["unit", "even", "composite", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "9",
+    label: "Nine",
+    category: "Numbers",
+    tags: ["unit", "odd", "composite", "single-digit"]
+  },
+  {
+    type: "number",
+    symbol: "10",
+    label: "Ten",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "11",
+    label: "Eleven",
+    category: "Numbers",
+    tags: ["two-digit", "odd", "prime"]
+  },
+  {
+    type: "number",
+    symbol: "12",
+    label: "Twelve",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "13",
+    label: "Thirteen",
+    category: "Numbers",
+    tags: ["two-digit", "odd", "prime"]
+  },
+  {
+    type: "number",
+    symbol: "14",
+    label: "Fourteen",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "15",
+    label: "Fifteen",
+    category: "Numbers",
+    tags: ["two-digit", "odd", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "16",
+    label: "Sixteen",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "17",
+    label: "Seventeen",
+    category: "Numbers",
+    tags: ["two-digit", "odd", "prime"]
+  },
+  {
+    type: "number",
+    symbol: "18",
+    label: "Eighteen",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "19",
+    label: "Nineteen",
+    category: "Numbers",
+    tags: ["two-digit", "odd", "prime"]
+  },
+  {
+    type: "number",
+    symbol: "20",
+    label: "Twenty",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "30",
+    label: "Thirty",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "40",
+    label: "Forty",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "50",
+    label: "Fifty",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "60",
+    label: "Sixty",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "70",
+    label: "Seventy",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "80",
+    label: "Eighty",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "90",
+    label: "Ninety",
+    category: "Numbers",
+    tags: ["two-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "100",
+    label: "One Hundred",
+    category: "Numbers",
+    tags: ["three-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "1,000",
+    label: "One Thousand",
+    category: "Numbers",
+    tags: ["four-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "10,000",
+    label: "Ten Thousand",
+    category: "Numbers",
+    tags: ["five-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "100,000",
+    label: "One Hundred Thousand",
+    category: "Numbers",
+    tags: ["six-digit", "even", "composite"]
+  },
+  {
+    type: "number",
+    symbol: "1,000,000",
+    label: "One Million",
+    category: "Numbers",
+    tags: ["seven-digit", "even", "composite"]
+  },
+
+  // 🔴 Red to Orange
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#FF0000"),
     label: "Red",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "primary",   // pigment primary
+      "red"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#FF4500"),
     label: "Orange Red",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "tertiary",  // between Red and Orange
+      "red",
+      "orange"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#FF7F00"),
     label: "Deep Orange",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "tertiary",  // between Red and Orange
+      "red",
+      "orange"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#FFA500"),
     label: "Orange",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "secondary", // pigment secondary (Red + Yellow)
+      "orange"
+    ]
   },
 
   // 🟡 Orange to Yellow-Green
@@ -453,28 +478,47 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     symbol: SVG_SHAPE_TEMPLATE("#FFD700"),
     label: "Golden Yellow",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "tertiary",  // between Orange and Yellow
+      "yellow",
+      "orange"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#FFFF00"),
     label: "Yellow",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "primary",   // pigment primary
+      "yellow"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#ADFF2F"),
     label: "Yellow Green",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // between Yellow and Green
+      "yellow",
+      "green"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#7FFF00"),
     label: "Chartreuse",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary", // pigment secondary (Yellow + Blue = Green; this is a yellowish-green)
+      "green",
+      "yellow"
+    ]
   },
 
   // 🟢 Green to Cyan
@@ -483,28 +527,47 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     symbol: SVG_SHAPE_TEMPLATE("#00FF00"),
     label: "Green",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "secondary", // pigment secondary (Blue + Yellow)
+      "green"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#32CD32"),
     label: "Lime Green",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // between Green and Yellow
+      "green",
+      "blue"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#00FA9A"),
     label: "Spring Green",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // between Green and Cyan (but in pigment model, Cyan is a digital hue; treat as cool tertiary)
+      "green",
+      "blue"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#00FFFF"),
     label: "Cyan",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // not a pigment secondary—cyan is digital; classify as tertiary blue-green
+      "blue",
+      "green"
+    ]
   },
 
   // 🔵 Cyan to Blue
@@ -513,28 +576,46 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     symbol: SVG_SHAPE_TEMPLATE("#00BFFF"),
     label: "Deep Sky Blue",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // between Blue and Cyan (digital hue)
+      "blue",
+      "cyan"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#1E90FF"),
     label: "Dodger Blue",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // a lighter blue between Blue and Cyan
+      "blue"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#0000FF"),
     label: "Blue",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "primary",   // pigment primary
+      "blue"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#4B0082"),
     label: "Indigo",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // between Blue and Purple
+      "blue",
+      "purple"
+    ]
   },
 
   // 🟣 Blue to Violet & Magenta
@@ -543,28 +624,48 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     symbol: SVG_SHAPE_TEMPLATE("#8A2BE2"),
     label: "Purple",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "secondary", // pigment secondary (Red + Blue)
+      "purple"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#9400D3"),
     label: "Violet",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // between Blue and Purple
+      "purple",
+      "blue"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#EE82EE"),
     label: "Lavender",
     category: "Colors",
-    tags: []
+    tags: [
+      "cool",
+      "tertiary",  // a tint of Purple
+      "light",
+      "pastel",
+      "purple"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#FF00FF"),
     label: "Magenta",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "tertiary",  // digital tint of Red + Blue 
+      "magenta",
+      "fuchsia"
+    ]
   },
 
   // 🟤 Red-Violet to Earth Tones
@@ -573,30 +674,51 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     symbol: SVG_SHAPE_TEMPLATE("#C71585"),
     label: "Rose",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "tertiary",  // between Red and Purple
+      "red",
+      "purple",
+      "pink"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#DC143C"),
     label: "Crimson",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "secondary", // strong Red variant often treated like a secondary
+      "red",
+      "dark"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#800000"),
     label: "Maroon",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "red",
+      "dark",
+      "burgundy",
+      "earth"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#A52A2A"),
     label: "Brown",
     category: "Colors",
-    tags: []
+    tags: [
+      "warm",
+      "earth",
+      "brown",
+      "neutral"
+    ]
   },
-
 
   // ⚪ Neutral Shades
   {
@@ -604,30 +726,45 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     symbol: SVG_SHAPE_TEMPLATE("#D2B48C"),
     label: "Tan",
     category: "Colors",
-    tags: []
+    tags: [
+      "neutral",
+      "brown",
+      "light",
+      "earth"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#808080"),
     label: "Gray",
     category: "Colors",
-    tags: []
+    tags: [
+      "neutral",
+      "gray"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#000000"),
     label: "Black",
     category: "Colors",
-    tags: []
+    tags: [
+      "neutral",
+      "black",
+      "dark"
+    ]
   },
   {
     type: "svg",
     symbol: SVG_SHAPE_TEMPLATE("#FFFFFF"),
     label: "White",
     category: "Colors",
-    tags: []
+    tags: [
+      "neutral",
+      "white",
+      "light"
+    ]
   },
-
   {
     type: 'emoji',
     symbol: '😀',
@@ -9938,9 +10075,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'monkey',
       'jungle',
       'ape',
-      'evolution',
       'primate',
-      'africa'
+      'wild'
     ],
     shortcodes: [
       ':monkey-face:'
@@ -9967,7 +10103,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'jungle',
       'ape',
       'evolution',
-      'primate'
+      'primate',
+      'wild'
     ],
     shortcodes: [
       ':monkey:'
@@ -9993,7 +10130,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'gorilla',
       'monkey',
       'primate',
-      'evolution'
+      'evolution',
+      'wild'
     ],
     shortcodes: [
       ':gorilla:'
@@ -10016,7 +10154,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'orangutan',
     tags: [
-      'ape'
+      'ape',
+      'primate',
+      'wild',
+      'jungle',
+      'rainforest'
     ],
     shortcodes: [
       ':orangutan:'
@@ -10071,7 +10213,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'pet',
       'puppy',
-      'doggy'
+      'doggy',
+      'canine'
     ],
     shortcodes: [
       ':dog:'
@@ -10096,7 +10239,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'accessibility',
       'blind',
-      'guide'
+      'guide',
+      'service',
+      'dog'
     ],
     shortcodes: [
       ':guide-dog:'
@@ -10121,8 +10266,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'accessibility',
       'assistance',
+      'service',
       'dog',
-      'service'
     ],
     shortcodes: [
       ':service-dog:'
@@ -10145,7 +10290,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'poodle',
     tags: [
-      'dog'
+      'dog',
+      'pet',
+      'fluffy'
     ],
     shortcodes: [
       ':poodle:'
@@ -10169,9 +10316,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'wolf',
     tags: [
       'face',
-      'pack',
+      'howl',
       'wild',
-      'free',
       'forest',
       'dog'
     ],
@@ -10224,7 +10370,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'raccoon',
     tags: [
       'curious',
-      'sly'
+      'sly',
+      "nocturnal", "wild",
     ],
     shortcodes: [
       ':raccoon:'
@@ -10252,7 +10399,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'pet',
       'kitty',
       'kitten',
-      'miau'
+      'whiskers'
     ],
     shortcodes: [
       ':cat-face:'
@@ -10277,10 +10424,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'cat',
     tags: [
+      'cat',
       'pet',
       'kitty',
       'kitten',
-      'miau'
+      'purr'
     ],
     shortcodes: [
       ':cat:'
@@ -10303,10 +10451,15 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'black cat',
     tags: [
-      'black',
+
       'cat',
+      'black',
+
+      'kitty',
+      'kitten',
+      'purr',
       'unlucky',
-      'bad luck'
+      'bad luck',
     ],
     shortcodes: [
       ':black-cat:'
@@ -10330,10 +10483,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'lion',
     tags: [
       'face',
-      'leo',
-      'zodiac',
+      'mane',
       'king',
-      'simba',
       'royal',
       'wild',
       'cat'
@@ -10468,10 +10619,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'moose',
     tags: [
-      'animal',
+      'moose',
       'antlers',
       'elk',
-      'mammal'
+      'mammal',
+      'wild'
     ],
     shortcodes: [
       ':moose:'
@@ -10494,8 +10646,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'donkey',
     tags: [
-      'animal',
-      'ass',
+      'farm',
       'burro',
       'mammal',
       'mule',
@@ -10522,7 +10673,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'horse',
     tags: [
-      'equestrian',
+      'farm',
       'racehorse',
       'racing',
       'riding',
@@ -10553,8 +10704,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'fabulous',
       'magical',
       'rainbow',
-      'schwäbisch',
-      'gmünd'
+      'fantasy'
     ],
     shortcodes: [
       ':unicorn:'
@@ -10580,7 +10730,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'stripe',
       'horse',
       'black',
-      'white'
+      'white',
+      'wild'
     ],
     shortcodes: [
       ':zebra:'
@@ -10606,7 +10757,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'deer',
       'forest',
       'hunt',
-      'antler'
+      'antler',
+      'wild'
     ],
     shortcodes: [
       ':deer:'
@@ -10631,7 +10783,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'buffalo',
       'herd',
-      'wisent'
+      'wild'
     ],
     shortcodes: [
       ':bison:'
@@ -10658,11 +10810,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'face',
       'farm',
       'milk',
-      'beef',
-      'grass',
       'dairy',
       'horns',
-      'cheese'
     ],
     shortcodes: [
       ':cow-face:'
@@ -10688,13 +10837,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'ox',
     tags: [
       'bull',
-      'taurus',
-      'zodiac',
       'strong',
       'farm',
-      'acre',
       'horns',
-      'beef'
+      'beef',
+      'cow'
     ],
     shortcodes: [
       ':ox:'
@@ -10717,11 +10864,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'water buffalo',
     tags: [
-      'buffalo',
       'water',
+      'buffalo',
+
       'black',
       'horns',
-      'beef'
+      'wild'
     ],
     shortcodes: [
       ':water-buffalo:'
@@ -10748,7 +10896,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'farm',
       'milk',
       'beef',
-      'grass',
       'dairy',
       'horns',
       'cheese'
@@ -10779,7 +10926,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'pork',
       'farm',
       'pink',
-      'meat',
       'oink'
     ],
     shortcodes: [
@@ -10803,7 +10949,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'pig',
     tags: [
-      'sow',
+      'pig',
       'pork',
       'farm',
       'pink',
@@ -10833,10 +10979,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'pig',
       'wild',
-      'strong',
+      'oink',
       'forest',
       'angry',
-      'teeth',
       'tusk'
     ],
     shortcodes: [
@@ -10864,7 +11009,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'nose',
       'pig',
       'smell',
-      'socket'
+      'oink'
     ],
     shortcodes: [
       ':snout:'
@@ -10887,14 +11032,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'ram',
     tags: [
-      'aries',
       'male',
       'sheep',
-      'zodiac',
       'horns',
-      'grass',
       'hooves',
-      'wool'
+      'wool',
+      'farm',
+      'bah'
     ],
     shortcodes: [
       ':ram:'
@@ -10920,10 +11064,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'female',
       'sheep',
       'horns',
-      'grass',
       'hooves',
       'wool',
-      'farm'
+      'farm',
+      'bah'
     ],
     shortcodes: [
       ':sheep:',
@@ -10947,12 +11091,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'goat',
     tags: [
-      'capricorn',
-      'zodiac',
       'horns',
       'farm',
       'milk',
-      'cheese'
+      'cheese',
+      'bah'
     ],
     shortcodes: [
       ':goat:'
@@ -10975,13 +11118,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'camel',
     tags: [
-      'dromedary',
+      'camel',
       'hump',
       'desert',
       'oasis',
-      'sahara',
-      'sun',
-      'hot'
+
     ],
     shortcodes: [
       ':camel:'
@@ -11004,14 +11145,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'two-hump camel',
     tags: [
-      'bactrian',
       'camel',
       'hump',
       'desert',
       'oasis',
-      'sahara',
-      'sun',
-      'hot'
     ],
     shortcodes: [
       ':bactrian-camel:'
@@ -11035,9 +11172,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'llama',
     tags: [
       'alpaca',
-      'guanaco',
-      'vicuña',
-      'wool'
+      'wool',
+      'farm'
     ],
     shortcodes: [
       ':llama:'
@@ -11091,7 +11227,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'big',
       'wrinkles',
       'trunk',
-      'töröö'
+      'wild'
+
     ],
     shortcodes: [
       ':elephant:'
@@ -11114,10 +11251,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'mammoth',
     tags: [
-      'extinction',
+      'exctinct',
       'large',
       'tusk',
-      'woolly'
+      'woolly',
+      'prehistoric'
     ],
     shortcodes: [
       ':mammoth:'
@@ -11140,10 +11278,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'rhinoceros',
     tags: [
-      'rhinoceros',
       'rhino',
       'horn',
-      'africa'
+      'africa',
+      'endagered'
     ],
     shortcodes: [
       ':rhino:',
@@ -11167,7 +11305,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'hippopotamus',
     tags: [
-      'hippo'
+      'hippo',
+      'wild',
+      'water',
+      'big'
     ],
     shortcodes: [
       ':hippo:'
@@ -11190,11 +11331,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'mouse face',
     tags: [
-      'face',
       'mouse',
+      'face',
+
       'cute',
       'whiskers',
-      'tiny',
       'rodent'
     ],
     shortcodes: [
@@ -11222,7 +11363,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'small',
       'cute',
       'whiskers',
-      'tiny',
       'rodent'
     ],
     shortcodes: [
@@ -11252,7 +11392,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'rodent',
       'plaque',
       'fleas',
-      'canal',
       'garbage'
     ],
     shortcodes: [
@@ -11279,7 +11418,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'face',
       'pet',
       'rodent',
-      'fat',
       'fluffy',
       'corn'
     ],
@@ -11310,10 +11448,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'rabbit',
       'rodent',
       'teeth',
-      'cute',
       'ears',
-      'hopping',
-      'easter'
     ],
     shortcodes: [
       ':rabbit-face:'
@@ -11340,10 +11475,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'pet',
       'rodent',
       'teeth',
-      'cute',
       'ears',
       'hopping',
-      'easter'
     ],
     shortcodes: [
       ':rabbit:'
@@ -11367,7 +11500,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'chipmunk',
     tags: [
       'squirrel',
-      'alvin'
+      'rodent',
+      'wild'
     ],
     shortcodes: [
       ':chipmunk:'
@@ -11390,7 +11524,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'beaver',
     tags: [
-      'dam'
+      'dam',
+      'wild',
+      'rodent',
+      'wood',
+      'river'
     ],
     shortcodes: [
       ':beaver:'
@@ -11414,7 +11552,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'hedgehog',
     tags: [
       'spiny',
-      'prickly'
+      'prickly',
+      'wild'
     ],
     shortcodes: [
       ':hedgehog:'
@@ -11437,8 +11576,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'bat',
     tags: [
+      'night',
+      'fly',
       'vampire',
-      'batman',
       'dracula'
     ],
     shortcodes: [
@@ -11465,7 +11605,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'bear',
     tags: [
       'face',
-      'brown'
+      'brown',
+      'wild'
     ],
     shortcodes: [
       ':bear-face:'
@@ -11495,7 +11636,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'white',
       'ice',
       'animal',
-      'ursa'
     ],
     shortcodes: [
       ':polar-bear:'
@@ -11520,11 +11660,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'face',
       'marsupial',
-      'grey',
-      'fluffy',
+      'wild',
       'eucalyptus',
       'australia',
-      'clingy'
     ],
     shortcodes: [
       ':koala:'
@@ -11548,9 +11686,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'panda',
     tags: [
       'face',
-      'kawaii',
+      'bear',
       'cute',
-      'japan'
+      'bamboo'
     ],
     shortcodes: [
       ':panda:'
@@ -11573,8 +11711,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-mammal',
     label: 'sloth',
     tags: [
+      'slow',
       'lazy',
-      'slow'
+      'wild',
+      'tree'
     ],
     shortcodes: [
       ':sloth:'
@@ -11598,7 +11738,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'otter',
     tags: [
       'fishing',
-      'playful'
+      'playful',
+      'wild',
+      'river'
     ],
     shortcodes: [
       ':otter:'
@@ -11723,7 +11865,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bird',
     label: 'turkey',
     tags: [
-      'bird'
+      'bird',
+      'gobble',
+      'farm',
+      'thanksgiving'
     ],
     shortcodes: [
       ':turkey:'
@@ -11746,8 +11891,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bird',
     label: 'chicken',
     tags: [
+      'face',
       'bird',
-      'egg'
+      'egg',
+      'cluck',
+      'farm'
     ],
     shortcodes: [
       ':chicken:'
@@ -11770,8 +11918,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bird',
     label: 'rooster',
     tags: [
-      'bird',
-      'egg'
+      'chicken',
+      'farm',
+      'poultry'
     ],
     shortcodes: [
       ':rooster:'
@@ -11824,7 +11973,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'baby',
       'bird',
       'chick',
-      'small',
+      'farm',
       'egg'
     ],
     shortcodes: [
@@ -11850,6 +11999,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'baby',
       'bird',
+      'farm',
       'chick'
     ],
     shortcodes: [
@@ -11875,7 +12025,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'bird',
       'fly',
-      'colourful'
+      'pigeon'
     ],
     shortcodes: [
       ':bird:'
@@ -11898,7 +12048,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bird',
     label: 'penguin',
     tags: [
-      'bird'
+      'bird',
+      'ice',
+      'swim',
+      'flightless'
     ],
     shortcodes: [
       ':penguin:'
@@ -11925,7 +12078,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'bird',
       'fly',
-      'peace'
+      'peace',
+      'symbol'
     ],
     shortcodes: [
       ':peace:',
@@ -11950,7 +12104,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'eagle',
     tags: [
       'bird',
-      'fly'
+      'fly',
+      'wild'
     ],
     shortcodes: [
       ':eagle:'
@@ -11975,7 +12130,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'bird',
       'water',
-      'fly'
+      'fly',
+      'quack',
+      'farm',
+      'poultry'
     ],
     shortcodes: [
       ':duck:'
@@ -11999,7 +12157,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'swan',
     tags: [
       'bird',
-      'cygnet',
+      'graceful',
+      'honk',
       'ugly duckling'
     ],
     shortcodes: [
@@ -12024,7 +12183,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'owl',
     tags: [
       'bird',
-      'wise'
+      'wise',
+      'hoo',
+      'nocturnal'
     ],
     shortcodes: [
       ':owl:'
@@ -12047,9 +12208,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bird',
     label: 'dodo',
     tags: [
-      'extinction',
-      'large',
-      'mauritius'
+      'exctinct',
+      'bird',
     ],
     shortcodes: [
       ':dodo:'
@@ -12098,9 +12258,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bird',
     label: 'flamingo',
     tags: [
-      'flamboyant',
+      'pink',
+      'wetland',
       'tropical',
-      'flamingo'
+      'flamingo',
+      'wild'
     ],
     shortcodes: [
       ':flamingo:'
@@ -12124,7 +12286,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'peacock',
     tags: [
       'bird',
-      'ostentatious',
+      'feathers',
       'peahen',
       'proud'
     ],
@@ -12151,7 +12313,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'bird',
       'pirate',
-      'talk'
+      'talk',
+      'wild'
     ],
     shortcodes: [
       ':parrot:'
@@ -12174,7 +12337,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bird',
     label: 'wing',
     tags: [
-      'angelic',
+      'angel',
       'aviation',
       'bird',
       'flying',
@@ -12205,7 +12368,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'black',
       'crow',
       'raven',
-      'rook'
     ],
     shortcodes: [
       ':black-bird:'
@@ -12256,7 +12418,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'face',
       'jump',
-      'green'
+      'green',
+      'toad'
     ],
     shortcodes: [
       ':frog:'
@@ -12280,7 +12443,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'crocodile',
     tags: [
       'crocodile',
-      'dinosaur'
+      'alligator',
+      'reptile',
+      'swim',
+      'wild'
     ],
     shortcodes: [
       ':crocodile:'
@@ -12303,11 +12469,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-reptile',
     label: 'turtle',
     tags: [
-      'terrapin',
       'tortoise',
       'slow',
       'water',
-      'sand'
+      'reptile'
     ],
     shortcodes: [
       ':turtle:'
@@ -12332,7 +12497,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'reptile',
       'fast',
-      'small'
+      'small',
+      'wild'
     ],
     shortcodes: [
       ':lizard:'
@@ -12355,11 +12521,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-reptile',
     label: 'snake',
     tags: [
-      'bearer',
-      'ophiuchus',
       'serpent',
-      'zodiac',
-      'wriggle',
+      'reptile',
+      'slither',
       'fast'
     ],
     shortcodes: [
@@ -12414,7 +12578,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'fairy tale',
       'fire',
-      'fly'
+      'fly',
+      'mythical'
     ],
     shortcodes: [
       ':dragon:'
@@ -12437,10 +12602,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-reptile',
     label: 'sauropod',
     tags: [
+      'dinosaur',
       'brachiosaurus',
       'brontosaurus',
-      'diplodocus',
-      'dinosaur'
+      'extinct',
+      'prehistoric'
     ],
     shortcodes: [
       ':dinosaur:'
@@ -12463,9 +12629,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-reptile',
     label: 'T-Rex',
     tags: [
-      't-rex',
       'tyrannosaurus rex',
-      'dinosaur'
+      'dinosaur',
+      'extinct',
+      'prehistoric'
     ],
     shortcodes: [
       ':t-rex:'
@@ -12489,9 +12656,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'spouting whale',
     tags: [
       'face',
-      'spouting',
+      'spout',
       'whale',
-      'cetacean',
       'swim',
       'animal',
       'water'
@@ -12518,10 +12684,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'whale',
     tags: [
       'whale',
-      'cetacean',
       'swim',
       'animal',
-      'water'
+      'water',
+      'marine'
     ],
     shortcodes: [
       ':humpback-whale:'
@@ -12544,11 +12710,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-marine',
     label: 'dolphin',
     tags: [
-      'flipper',
-      'cetacean',
       'swim',
       'animal',
-      'water'
+      'smart',
+      'water',
+      'marine'
     ],
     shortcodes: [
       ':dolphin:'
@@ -12571,7 +12737,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-marine',
     label: 'seal',
     tags: [
-      'sea lion'
+      'sea lion',
+      'marine',
+      'wild',
+      'bark'
     ],
     shortcodes: [
       ':seal:'
@@ -12594,11 +12763,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-marine',
     label: 'fish',
     tags: [
-      'pisces',
-      'zodiac',
       'swim',
       'animal',
-      'water'
+      'water',
+      'marine'
     ],
     shortcodes: [
       ':fish:'
@@ -12627,7 +12795,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'tropical',
       'swim',
       'animal',
-      'water'
+      'water',
+      'marine'
     ],
     shortcodes: [
       ':tropical-fish:'
@@ -12653,7 +12822,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'fish',
       'swim',
       'animal',
-      'water'
+      'water',
+      'marine'
     ],
     shortcodes: [
       ':blowfish:'
@@ -12679,7 +12849,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'fish',
       'swim',
       'animal',
-      'water'
+      'water',
+      'marine'
     ],
     shortcodes: [
       ':shark:'
@@ -12702,10 +12873,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-marine',
     label: 'octopus',
     tags: [
-      'octopus',
+      'marine',
       'swim',
       'animal',
-      'water'
+      'water',
+      'smart'
     ],
     shortcodes: [
       ':octopus:'
@@ -12756,7 +12928,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'coral',
     tags: [
       'ocean',
-      'reef'
+      'reef',
+      'marine',
+      'plant'
     ],
     shortcodes: [
       ':coral:'
@@ -12779,9 +12953,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-marine',
     label: 'jellyfish',
     tags: [
-      'burn',
-      'invertebrate',
+
       'jelly',
+      'fish',
       'marine',
       'ouch',
       'stinger'
@@ -12807,7 +12981,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'snail',
     tags: [
-      'snail'
+      'snail',
+      'shell',
+      'slow'
     ],
     shortcodes: [
       ':snail:'
@@ -12831,7 +13007,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'butterfly',
     tags: [
       'insect',
-      'pretty'
+      'pretty',
+      'garden',
+      'fly'
     ],
     shortcodes: [
       ':butterfly:'
@@ -12856,7 +13034,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'bug',
     tags: [
-      'insect'
+      'insect',
+      'catepillar',
+      'garden',
+      'butterfly'
     ],
     shortcodes: [
       ':bug:'
@@ -12879,7 +13060,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'ant',
     tags: [
-      'insect'
+      'insect',
+      'bug',
+      'sand',
+      'colony'
     ],
     shortcodes: [
       ':ant:'
@@ -12903,7 +13087,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'honeybee',
     tags: [
       'bee',
-      'insect'
+      'insect',
+      'honey',
+      'buzz'
     ],
     shortcodes: [
       ':bee:'
@@ -12927,7 +13113,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'beetle',
     tags: [
       'bug',
-      'insect'
+      'insect',
+      'fly'
     ],
     shortcodes: [
       ':beetle:'
@@ -12948,12 +13135,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1f41e',
     category: 'Animals & Nature',
     subgroup: 'animal-bug',
-    label: 'lady beetle',
+    label: 'ladybug',
     tags: [
       'beetle',
       'insect',
+      'fly',
       'ladybird',
-      'ladybug'
+      'lady beetle'
     ],
     shortcodes: [
       ':lady-bug:'
@@ -12976,7 +13164,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'cricket',
     tags: [
-      'grasshopper'
+      'insect',
+      'grasshopper',
+      'chirp',
+      'night'
     ],
     shortcodes: [
       ':cricket:'
@@ -13000,6 +13191,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'cockroach',
     tags: [
       'insect',
+      'bug',
       'pest',
       'roach'
     ],
@@ -13024,7 +13216,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'spider',
     tags: [
-      'insect'
+      'spider',
+      'insect',
+      'web',
+      'weave'
     ],
     shortcodes: [
       ':spider:'
@@ -13048,7 +13243,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'spider web',
     tags: [
       'spider',
-      'web'
+      'web',
+      'weave',
+      'catch'
     ],
     shortcodes: [
       ':spider-web:'
@@ -13071,8 +13268,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'scorpion',
     tags: [
-      'scorpio',
-      'zodiac'
+      'stinger',
+      'dangerous'
     ],
     shortcodes: [
       ':scorpion:'
@@ -13095,10 +13292,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'mosquito',
     tags: [
-      'disease',
-      'fever',
-      'malaria',
+      'insect',
       'pest',
+      'disease',
+      'malaria',
+      'fly',
       'virus'
     ],
     shortcodes: [
@@ -13122,6 +13320,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'fly',
     tags: [
+      'fly',
+      'insect',
       'disease',
       'maggot',
       'pest',
@@ -13148,9 +13348,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'animal-bug',
     label: 'worm',
     tags: [
-      'annelid',
+      'insect',
+
       'earthworm',
-      'parasite'
+      'parasite',
+      'garden'
     ],
     shortcodes: [
       ':worm:'
@@ -13176,8 +13378,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'amoeba',
       'bacteria',
       'virus',
-      'corona',
-      'covid-19'
+      'covid'
     ],
     shortcodes: [
       ':microbe:',
@@ -13254,7 +13455,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-flower',
     label: 'white flower',
     tags: [
-      'flower'
+      'flower',
+      'correct'
     ],
     shortcodes: [
       ':white-flower:'
@@ -13277,8 +13479,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-flower',
     label: 'lotus',
     tags: [
-      'buddhism',
       'flower',
+      'buddhism',
+
       'hinduism',
       'purity'
     ],
@@ -13303,6 +13506,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-flower',
     label: 'rosette',
     tags: [
+      'flower',
       'plant'
     ],
     shortcodes: [
@@ -13331,7 +13535,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'red',
       'nature',
       'present',
-      'valentines day'
     ],
     shortcodes: [
       ':rose:'
@@ -13361,7 +13564,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'rose',
       'red',
       'sad',
-      'plant'
     ],
     shortcodes: [
       ':wilted-flower:'
@@ -13385,7 +13587,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'hibiscus',
     tags: [
       'flower',
-      'pink'
+      'pink',
+      'tea'
     ],
     shortcodes: [
       ':hibiscus:'
@@ -13408,10 +13611,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-flower',
     label: 'sunflower',
     tags: [
-      'flower',
       'sun',
+      'flower',
+
       'yellow',
-      'summer'
+      'summer',
+      'seeds'
     ],
     shortcodes: [
       ':sunflower:'
@@ -13461,7 +13666,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'flower',
       'pink',
-      'eastern'
+      'spring'
     ],
     shortcodes: [
       ':tulip:'
@@ -13487,7 +13692,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'bluebonnet',
       'flower',
       'lavender',
-      'lupine',
       'snapdragon'
     ],
     shortcodes: [
@@ -13511,7 +13715,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-other',
     label: 'seedling',
     tags: [
-      'young',
       'farming',
       'growing',
       'green',
@@ -13541,12 +13744,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-other',
     label: 'potted plant',
     tags: [
-      'boring',
       'grow',
       'house',
       'nurturing',
       'plant',
-      'useless'
     ],
     shortcodes: [
       ':potted-plant:'
@@ -13571,8 +13772,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'tree',
       'green',
+      'needles',
       'fir',
-      'plant'
+      'plant',
+      'forest'
     ],
     shortcodes: [
       ':evergreen-tree:'
@@ -13596,10 +13799,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'deciduous tree',
     tags: [
       'deciduous',
-      'shedding',
+      'leaves',
       'tree',
       'green',
-      'plant'
+      'plant',
+      'forest'
     ],
     shortcodes: [
       ':deciduous-tree:'
@@ -13627,7 +13831,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'sea',
       'vacation',
       'beach',
-      'relax'
     ],
     shortcodes: [
       ':palm-tree:'
@@ -13655,7 +13858,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'sun',
       'warm',
       'hot',
-      'texas'
+      'needles'
     ],
     shortcodes: [
       ':cactus:'
@@ -13757,10 +13960,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       '4',
       'clover',
-      'four',
-      'four-leaf clover',
       'leaf',
-      'luck',
+      'lucky',
       'leaves',
       'green',
       'plant'
@@ -13787,7 +13988,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-other',
     label: 'maple leaf',
     tags: [
-      'falling',
       'leaf',
       'maple',
       'autumn',
@@ -13816,7 +14016,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'fallen leaf',
     tags: [
       'falling',
-      'leaf'
+      'leaf',
+      'leaves',
+      'autumn'
     ],
     shortcodes: [
       ':fallen-leaf:'
@@ -13865,7 +14067,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-other',
     label: 'empty nest',
     tags: [
-      'nesting'
+      'nesting',
+      'bird',
+      'tree'
     ],
     shortcodes: [
       ':nest:'
@@ -13888,7 +14092,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'plant-other',
     label: 'nest with eggs',
     tags: [
-      'nesting'
+      'nesting',
+      'bird',
+      'eggs',
+      'tree'
     ],
     shortcodes: [
       ':nest-with-eggs:'
@@ -13912,7 +14119,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'mushroom',
     tags: [
       'toadstool',
-      'mushroom'
+      'fungus',
     ],
     shortcodes: [
       ':mushroom:'
@@ -13936,11 +14143,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'grapes',
     tags: [
       'fruit',
-      'grape'
+      'purple',
+      'vine',
+      'snack',
+      'wine-grape'
     ],
-    shortcodes: [
-      ':grapes:'
-    ],
+    shortcodes: [':grapes:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -13951,29 +14159,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🍈',
-    hexcode: '1f348',
-    category: 'Food & Drink',
-    subgroup: 'food-fruit',
-    label: 'melon',
-    tags: [
-      'fruit'
-    ],
-    shortcodes: [
-      ':melon:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 3348,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+
   {
     type: 'emoji',
     symbol: '🍉',
@@ -13983,12 +14169,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'watermelon',
     tags: [
       'fruit',
-      'melon',
-      'red'
+      'red',
+      'green',
+      'summer',
+      'sweet',
+      'seeds'
     ],
-    shortcodes: [
-      ':watermelon:'
-    ],
+    shortcodes: [':watermelon:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14008,14 +14195,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'orange',
     tags: [
       'fruit',
-      'tangerine',
-      'mandarin'
+      'orange',
+      'citrus',
+      'juice',
+      'vitamin-c',
+      'snack'
     ],
-    shortcodes: [
-      ':tangerine:',
-      ':orange:',
-      ':mandarin:'
-    ],
+    shortcodes: [':tangerine:', ':orange:', ':mandarin:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14034,13 +14220,14 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'lemon',
     tags: [
-      'citrus',
       'fruit',
-      'yellow'
+      'yellow',
+      'citrus',
+      'sour',
+      'zest',
+      'lemonade'
     ],
-    shortcodes: [
-      ':lemon:'
-    ],
+    shortcodes: [':lemon:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14060,11 +14247,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'banana',
     tags: [
       'fruit',
-      'yellow'
+      'yellow',
+      'tropical',
+      'snack',
+      'potassium'
     ],
-    shortcodes: [
-      ':banana:'
-    ],
+    shortcodes: [':banana:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14084,11 +14272,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'pineapple',
     tags: [
       'fruit',
-      'tropical'
+      'yellow',
+      'tropical',
+      'spiky',
+      'sweet',
+      'pizza-topper'
     ],
-    shortcodes: [
-      ':pineapple:'
-    ],
+    shortcodes: [':pineapple:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14108,11 +14298,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'mango',
     tags: [
       'fruit',
-      'tropical'
+      'orange',
+      'tropical',
+      'sweet',
+      'juicy'
     ],
-    shortcodes: [
-      ':mango:'
-    ],
+    shortcodes: [':mango:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14131,14 +14322,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'red apple',
     tags: [
-            'red',
-      'apple',
       'fruit',
-
+      'red',
+      'crisp',
+      'pie',
+      'cider'
     ],
-    shortcodes: [
-      ':red-apple:'
-    ],
+    shortcodes: [':red-apple:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14157,14 +14347,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'green apple',
     tags: [
-            'green',
-      'apple',
       'fruit',
-
+      'green',
+      'tart',
+      'crisp',
+      'cider'
     ],
-    shortcodes: [
-      ':green-apple:'
-    ],
+    shortcodes: [':green-apple:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14184,11 +14373,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'pear',
     tags: [
       'fruit',
-      'green'
+      'green',
+      'sweet',
+      'cider'
     ],
-    shortcodes: [
-      ':pear:'
-    ],
+    shortcodes: [':pear:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14209,11 +14398,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'fruit',
       'pink',
-      'red'
+      'orange',
+      'stone-fruit',
+      'sweet',
+      'juicy'
     ],
-    shortcodes: [
-      ':peach:'
-    ],
+    shortcodes: [':peach:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14232,13 +14422,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'cherries',
     tags: [
-      'cherry',
       'fruit',
-      'red'
+      'red',
+      'berry',
+      'stone-fruit',
+      'sweet'
     ],
-    shortcodes: [
-      ':cherries:'
-    ],
+    shortcodes: [':cherries:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14257,12 +14447,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'strawberry',
     tags: [
+      'fruit',
+      'red',
       'berry',
-      'fruit'
+      'dessert',
+      'sweet'
     ],
-    shortcodes: [
-      ':strawberry:'
-    ],
+    shortcodes: [':strawberry:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14280,15 +14471,14 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: 'Food & Drink',
     subgroup: 'food-fruit',
     label: 'blueberries',
-    tags: [      
+    tags: [
+      'fruit',
       'blue',
       'berry',
-
-      'blueberry'
+      'antioxidant',
+      'sweet'
     ],
-    shortcodes: [
-      ':blueberries:'
-    ],
+    shortcodes: [':blueberries:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14307,20 +14497,69 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'kiwi fruit',
     tags: [
-      'food',
       'fruit',
-      'kiwi',
-      'green'
+      'green',
+      'tropical',
+      'fuzzy-skin',
+      'tart'
     ],
-    shortcodes: [
-      ':kiwi-fruit:'
-    ],
+    shortcodes: [':kiwi-fruit:'],
     emoticons: [],
     directional: false,
     variation: false,
     variationBase: null,
     unicode: 3,
     order: 3362,
+    skintone: null,
+    skintoneCombination: null,
+    skintoneBase: null
+  },
+  {
+    type: 'emoji',
+    symbol: '🥥',
+    hexcode: '1f965',
+    category: 'Food & Drink',
+    subgroup: 'food-fruit',
+    label: 'coconut',
+    tags: [
+      'fruit',
+      'tropical',
+      'nut',
+      'piña-colada',
+      'brown'
+    ],
+    shortcodes: [':coconut:'],
+    emoticons: [],
+    directional: false,
+    variation: false,
+    variationBase: null,
+    unicode: 5,
+    order: 3365,
+    skintone: null,
+    skintoneCombination: null,
+    skintoneBase: null
+  },
+  {
+    type: 'emoji',
+    symbol: '🍈',
+    hexcode: '1f348',
+    category: 'Food & Drink',
+    subgroup: 'food-fruit',
+    label: 'melon',
+    tags: [
+      'fruit',
+      'green',
+      'melon',
+      'sweet',
+      'summer'
+    ],
+    shortcodes: [':melon:'],
+    emoticons: [],
+    directional: false,
+    variation: false,
+    variationBase: null,
+    unicode: 0.6,
+    order: 3348,
     skintone: null,
     skintoneCombination: null,
     skintoneBase: null
@@ -14335,11 +14574,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'fruit',
       'vegetable',
-      'red'
+      'red',
+      'savory',
+      'salad'
     ],
-    shortcodes: [
-      ':tomato:'
-    ],
+    shortcodes: [':tomato:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14358,11 +14597,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-fruit',
     label: 'olive',
     tags: [
-      'food'
+      'fruit',
+      'vegetable',
+      'green',
+      'oil',
+      'mediterranean'
     ],
-    shortcodes: [
-      ':olive:'
-    ],
+    shortcodes: [':olive:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14373,31 +14614,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🥥',
-    hexcode: '1f965',
-    category: 'Food & Drink',
-    subgroup: 'food-fruit',
-    label: 'coconut',
-    tags: [
-      'tropical',
-      'piña colada',
-      'nut'
-    ],
-    shortcodes: [
-      ':coconut:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 5,
-    order: 3365,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+
   {
     type: 'emoji',
     symbol: '🥑',
@@ -14406,14 +14623,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'avocado',
     tags: [
-      'food',
       'fruit',
-      'avocado',
+      'vegetable',
+      'green',
+      'creamy',
       'guacamole'
     ],
-    shortcodes: [
-      ':avocado:'
-    ],
+    shortcodes: [':avocado:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14432,13 +14648,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'eggplant',
     tags: [
-      'aubergine',
       'vegetable',
-      'purple'
+      'purple',
+      'aubergine',
+      'savory',
+      'grill'
     ],
-    shortcodes: [
-      ':eggplant:'
-    ],
+    shortcodes: [':eggplant:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14457,13 +14673,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'potato',
     tags: [
-      'food',
       'vegetable',
-  
+      'starchy',
+      'brown',
+      'fried',
+      'mashed'
     ],
-    shortcodes: [
-      ':potato:'
-    ],
+    shortcodes: [':potato:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14482,13 +14698,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'carrot',
     tags: [
-      'food',
       'vegetable',
-      'orange'
+      'orange',
+      'crunchy',
+      'root',
+      'soup'
     ],
-    shortcodes: [
-      ':carrot:'
-    ],
+    shortcodes: [':carrot:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14507,14 +14723,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'ear of corn',
     tags: [
-      'corn',
-      'ear',
+      'vegetable',
+      'yellow',
       'maize',
-      'yellow'
+      'cob',
+      'buttered'
     ],
-    shortcodes: [
-      ':ear-of-corn:'
-    ],
+    shortcodes: [':ear-of-corn:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14533,14 +14748,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'hot pepper',
     tags: [
-      'hot',
+      'vegetable',
       'spicy',
-      'pepper',
-      'red'
+      'red',
+      'chili',
+      'capsaicin'
     ],
-    shortcodes: [
-      ':hot-pepper:'
-    ],
+    shortcodes: [':hot-pepper:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14559,12 +14773,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'bell pepper',
     tags: [
-      'pepper',
-      'vegetable'
+      'vegetable',
+      'green',
+      'capsicum',
+      'sweet',
+      'roast'
     ],
-    shortcodes: [
-      ':bell-pepper:'
-    ],
+    shortcodes: [':bell-pepper:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14583,13 +14798,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'cucumber',
     tags: [
-      'food',
-      'pickle',
-      'vegetable'
+      'vegetable',
+      'green',
+      'crunchy',
+      'salad',
+      'pickle'
     ],
-    shortcodes: [
-      ':cucumber:'
-    ],
+    shortcodes: [':cucumber:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14608,14 +14823,15 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'leafy green',
     tags: [
-      'bok choy',
-      'cabbage',
+      'vegetable',
+      'green',
+      'lettuce',
       'kale',
-      'lettuce'
+      'bok-choy',
+      'cabbage',
+      'salad'
     ],
-    shortcodes: [
-      ':leafy-green:'
-    ],
+    shortcodes: [':leafy-green:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14634,11 +14850,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'broccoli',
     tags: [
-      'wild cabbage'
+      'vegetable',
+      'green',
+      'cruciferous',
+      'steamed',
+      'stew'
     ],
-    shortcodes: [
-      ':broccoli:'
-    ],
+    shortcodes: [':broccoli:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14657,11 +14875,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'garlic',
     tags: [
-      'flavoring'
+      'vegetable',
+      'flavoring',
+      'aromatic',
+      'bulb',
+      'savory'
     ],
-    shortcodes: [
-      ':garlic:'
-    ],
+    shortcodes: [':garlic:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14680,11 +14900,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'onion',
     tags: [
-      'flavoring'
+      'vegetable',
+      'flavoring',
+      'layered',
+      'savory'
     ],
-    shortcodes: [
-      ':onion:'
-    ],
+    shortcodes: [':onion:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14703,14 +14924,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'peanuts',
     tags: [
-      'food',
+      'legume',
       'nut',
-      'peanut',
-      'vegetable'
+      'snack',
+      'butter',
+      'salty'
     ],
-    shortcodes: [
-      ':peanuts:'
-    ],
+    shortcodes: [':peanuts:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14729,13 +14949,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'beans',
     tags: [
-      'food',
-      'kidney',
-      'legume'
+      'legume',
+      'protein',
+      'stew',
+      'healthy',
+      'kidney-bean'
     ],
-    shortcodes: [
-      ':beans:'
-    ],
+    shortcodes: [':beans:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14754,11 +14974,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'chestnut',
     tags: [
-      'plant'
+      'nut',
+      'plant',
+      'roasted',
+      'sweet',
+      'autumn'
     ],
-    shortcodes: [
-      ':chestnut:'
-    ],
+    shortcodes: [':chestnut:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14777,13 +14999,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'ginger root',
     tags: [
-      'beer',
+      'spice',
+      'aromatic',
       'root',
-      'spice'
+      'tea',
+      'hot'
     ],
-    shortcodes: [
-      ':ginger:'
-    ],
+    shortcodes: [':ginger:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14802,16 +15024,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-vegetable',
     label: 'pea pod',
     tags: [
-      'beans',
-      'edamame',
+      'vegetable',
+      'green',
       'legume',
-      'pea',
       'pod',
-      'vegetable'
+      'fresh'
     ],
-    shortcodes: [
-      ':pea-pod:'
-    ],
+    shortcodes: [':pea-pod:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14830,11 +15049,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'bread',
     tags: [
-      'loaf'
+      'grain',
+      'loaf',
+      'bakery',
+      'staple',
+      'sandwich'
     ],
-    shortcodes: [
-      ':bread:'
-    ],
+    shortcodes: [':bread:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14853,15 +15074,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'croissant',
     tags: [
-      'bread',
+      'grain',
+      'pastry',
       'breakfast',
-      'food',
-      'french',
-      'roll'
+      'buttery',
+      'french'
     ],
-    shortcodes: [
-      ':croissant:'
-    ],
+    shortcodes: [':croissant:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14880,14 +15099,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'baguette bread',
     tags: [
-      'baguette',
+      'grain',
       'bread',
-      'food',
-      'french'
+      'bakery',
+      'french',
+      'crusty'
     ],
-    shortcodes: [
-      ':baguette-bread:'
-    ],
+    shortcodes: [':baguette-bread:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14906,14 +15124,15 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'flatbread',
     tags: [
-      'arepa',
-      'lavash',
+      'grain',
+      'bread',
+      'wrap',
+      'bread',
       'naan',
-      'pita'
+      'pita',
+      'arepa'
     ],
-    shortcodes: [
-      ':flatbread:'
-    ],
+    shortcodes: [':flatbread:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14932,11 +15151,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'pretzel',
     tags: [
-      'twisted'
+      'grain',
+      'snack',
+      'salty',
+      'twisted',
+      'bakery'
     ],
-    shortcodes: [
-      ':pretzel:'
-    ],
+    shortcodes: [':pretzel:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14955,13 +15176,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'bagel',
     tags: [
-      'bakery',
+      'grain',
+      'bread',
       'breakfast',
+      'dough',
       'schmear'
     ],
-    shortcodes: [
-      ':bagel:'
-    ],
+    shortcodes: [':bagel:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -14980,14 +15201,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'pancakes',
     tags: [
+      'grain',
       'breakfast',
-      'crêpe',
-      'hotcake',
-      'pancake'
+      'sweet',
+      'stack',
+      'syrup'
     ],
-    shortcodes: [
-      ':pancakes:'
-    ],
+    shortcodes: [':pancakes:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15006,12 +15226,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'waffle',
     tags: [
+      'grain',
       'breakfast',
-      'iron'
+      'sweet',
+      'iron',
+      'grid'
     ],
-    shortcodes: [
-      ':waffle:'
-    ],
+    shortcodes: [':waffle:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15030,11 +15251,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'cheese wedge',
     tags: [
-      'cheese'
+      'dairy',
+      'yellow',
+      'slice',
+      'savory',
+      'pizza'
     ],
-    shortcodes: [
-      ':cheese-wedge:'
-    ],
+    shortcodes: [':cheese-wedge:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15053,12 +15276,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'meat on bone',
     tags: [
+      'meat',
       'bone',
-      'meat'
+      'grill',
+      'barbecue',
+      'savory'
     ],
-    shortcodes: [
-      ':meat-on-bone:'
-    ],
+    shortcodes: [':meat-on-bone:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15077,15 +15301,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'poultry leg',
     tags: [
-      'bone',
-      'chicken',
+      'meat',
+      'poultry',
       'drumstick',
-      'leg',
-      'poultry'
+      'fried',
+      'savory'
     ],
-    shortcodes: [
-      ':poultry-leg:'
-    ],
+    shortcodes: [':poultry-leg:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15104,14 +15326,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'cut of meat',
     tags: [
-      'chop',
-      'lambchop',
-      'porkchop',
-      'steak'
+      'meat',
+      'steak',
+      'beef',
+      'grill',
+      'savory'
     ],
-    shortcodes: [
-      ':cut-of-meat:'
-    ],
+    shortcodes: [':cut-of-meat:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15130,13 +15351,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'bacon',
     tags: [
+      'meat',
       'breakfast',
-      'food',
-      'meat'
+      'salty',
+      'crispy'
     ],
-    shortcodes: [
-      ':bacon:'
-    ],
+    shortcodes: [':bacon:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15155,11 +15375,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'hamburger',
     tags: [
+      'meat',
+      'sandwich',
+      'beef',
+      'fast-food',
       'burger'
     ],
-    shortcodes: [
-      ':hamburger:'
-    ],
+    shortcodes: [':hamburger:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15178,12 +15400,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'french fries',
     tags: [
-      'french',
-      'fries'
+      'vegetable',
+      'fried',
+      'potato',
+      'fast-food',
+      'snack'
     ],
-    shortcodes: [
-      ':french-fries:'
-    ],
+    shortcodes: [':french-fries:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15202,12 +15425,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'pizza',
     tags: [
+      'grain',
       'cheese',
-      'slice'
+      'tomato',
+      'slice',
+      'fast-food'
     ],
-    shortcodes: [
-      ':pizza:'
-    ],
+    shortcodes: [':pizza:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15226,13 +15450,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'hot dog',
     tags: [
-      'frankfurter',
-      'hotdog',
-      'sausage'
+      'meat',
+      'sausage',
+      'barbecue',
+      'fast-food',
+      'grain'
     ],
-    shortcodes: [
-      ':hot-dog:'
-    ],
+    shortcodes: [':hot-dog:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15251,11 +15475,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'sandwich',
     tags: [
-      'bread'
+      'grain',
+      'bread',
+      'meat',
+      'lunch',
+      'deli'
     ],
-    shortcodes: [
-      ':sandwich:'
-    ],
+    shortcodes: [':sandwich:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15274,11 +15500,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'taco',
     tags: [
-      'mexican'
+      'grain',
+      'meat',
+      'mexican',
+      'spicy',
+      'street-food'
     ],
-    shortcodes: [
-      ':taco:'
-    ],
+    shortcodes: [':taco:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15297,12 +15525,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'burrito',
     tags: [
+      'grain',
+      'meat',
       'mexican',
-      'wrap'
+      'wrap',
+      'street-food'
     ],
-    shortcodes: [
-      ':burrito:'
-    ],
+    shortcodes: [':burrito:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15321,12 +15550,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'tamale',
     tags: [
+      'grain',
+      'meat',
       'mexican',
-      'wrapped'
+      'wrapped',
+      'corn'
     ],
-    shortcodes: [
-      ':tamale:'
-    ],
+    shortcodes: [':tamale:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15345,16 +15575,14 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'stuffed flatbread',
     tags: [
+      'grain',
+      'meat',
+      'middle-eastern',
       'falafel',
-      'flatbread',
-      'food',
       'gyro',
-      'kebab',
-      'stuffed'
+      'wrap'
     ],
-    shortcodes: [
-      ':stuffed-flatbread:'
-    ],
+    shortcodes: [':stuffed-flatbread:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15373,14 +15601,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'falafel',
     tags: [
+      'legume',
+      'middle-eastern',
+      'vegetarian',
       'chickpea',
-      'meatball',
-      'hummus',
-      'pita'
+      'snack'
     ],
-    shortcodes: [
-      ':falafel:'
-    ],
+    shortcodes: [':falafel:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15399,12 +15626,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'egg',
     tags: [
+      'protein',
       'breakfast',
-      'food'
+      'protein',
+      'white',
+      'shell'
     ],
-    shortcodes: [
-      ':egg:'
-    ],
+    shortcodes: [':egg:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15426,11 +15654,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'breakfast',
       'egg',
       'frying',
-      'pan'
+      'pan',
+      'savory'
     ],
-    shortcodes: [
-      ':cooking:'
-    ],
+    shortcodes: [':cooking:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15449,15 +15676,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'shallow pan of food',
     tags: [
-      'casserole',
-      'food',
-      'paella',
+      'cooked',
       'pan',
-      'shallow'
+      'stew',
+      'paella',
+      'savory'
     ],
-    shortcodes: [
-      ':shallow-pan-of-food:'
-    ],
+    shortcodes: [':shallow-pan-of-food:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15476,12 +15701,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'pot of food',
     tags: [
+      'cooked',
       'pot',
-      'stew'
+      'stew',
+      'soup',
+      'comfort-food'
     ],
-    shortcodes: [
-      ':pot-of-food:'
-    ],
+    shortcodes: [':pot-of-food:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15500,15 +15726,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'fondue',
     tags: [
+      'cooked',
       'cheese',
       'chocolate',
       'melted',
-      'pot',
-      'swiss'
+      'dipping'
     ],
-    shortcodes: [
-      ':fondue:'
-    ],
+    shortcodes: [':fondue:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15529,11 +15753,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'breakfast',
       'cereal',
-      'congee'
+      'congee',
+      'bowl',
+      'spoon'
     ],
-    shortcodes: [
-      ':bowl-with-spoon:'
-    ],
+    shortcodes: [':bowl-with-spoon:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15552,13 +15776,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'green salad',
     tags: [
-      'food',
+      'vegetable',
       'green',
-      'salad'
+      'salad',
+      'healthy',
+      'fresh'
     ],
-    shortcodes: [
-      ':green-salad:'
-    ],
+    shortcodes: [':green-salad:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15577,11 +15801,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'popcorn',
     tags: [
-      'popcorn'
+      'snack',
+      'corn',
+      'buttery',
+      'movie'
     ],
-    shortcodes: [
-      ':popcorn:'
-    ],
+    shortcodes: [':popcorn:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15600,11 +15825,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'butter',
     tags: [
-      'dairy'
+      'dairy',
+      'spread',
+      'yellow',
+      'baking'
     ],
-    shortcodes: [
-      ':butter:'
-    ],
+    shortcodes: [':butter:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15624,11 +15850,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'salt',
     tags: [
       'condiment',
+      'white',
+      'seasoning',
       'shaker'
     ],
-    shortcodes: [
-      ':salt:'
-    ],
+    shortcodes: [':salt:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15647,11 +15873,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-prepared',
     label: 'canned food',
     tags: [
-      'can'
+      'canned',
+      'preserved',
+      'staple'
     ],
-    shortcodes: [
-      ':canned-food:'
-    ],
+    shortcodes: [':canned-food:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15670,12 +15896,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'bento box',
     tags: [
-      'bento',
-      'box'
+      'rice',
+      'asian',
+      'box',
+      'lunch',
+      'japanese'
     ],
-    shortcodes: [
-      ':bento-box:'
-    ],
+    shortcodes: [':bento-box:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15694,12 +15921,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'rice cracker',
     tags: [
+      'rice',
+      'asian',
       'cracker',
-      'rice'
+      'snack',
+      'gluten-free'
     ],
-    shortcodes: [
-      ':rice-cracker:'
-    ],
+    shortcodes: [':rice-cracker:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15718,13 +15946,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'rice ball',
     tags: [
-      'ball',
-      'japanese',
-      'rice'
+      'rice',
+      'asian',
+      'snack',
+      'portable',
+      'japanese'
     ],
-    shortcodes: [
-      ':rice-ball:'
-    ],
+    shortcodes: [':rice-ball:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15743,12 +15971,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'cooked rice',
     tags: [
-      'cooked',
-      'rice'
+      'rice',
+      'asian',
+      'staple',
+      'white',
+      'grain'
     ],
-    shortcodes: [
-      ':cooked-rice:'
-    ],
+    shortcodes: [':cooked-rice:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15767,12 +15996,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'curry rice',
     tags: [
+      'rice',
+      'asian',
       'curry',
-      'rice'
+      'spicy',
+      'comfort-food'
     ],
-    shortcodes: [
-      ':curry-rice:'
-    ],
+    shortcodes: [':curry-rice:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15791,14 +16021,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'steaming bowl',
     tags: [
-      'bowl',
       'noodle',
+      'asian',
       'ramen',
-      'steaming'
+      'soup',
+      'hot'
     ],
-    shortcodes: [
-      ':steaming-bowl:'
-    ],
+    shortcodes: [':steaming-bowl:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15817,11 +16046,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'spaghetti',
     tags: [
-      'pasta'
+      'pasta',
+      'italian',
+      'noodle',
+      'tomato',
+      'cheese'
     ],
-    shortcodes: [
-      ':spaghetti:'
-    ],
+    shortcodes: [':spaghetti:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15840,13 +16071,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'roasted sweet potato',
     tags: [
-      'potato',
+      'vegetable',
+      'orange',
+      'sweet',
       'roasted',
-      'sweet'
+      'asian'
     ],
-    shortcodes: [
-      ':roasted-sweet-potato:'
-    ],
+    shortcodes: [':roasted-sweet-potato:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15865,14 +16096,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'oden',
     tags: [
-      'kebab',
       'seafood',
+      'japanese',
       'skewer',
-      'stick'
+      'soup',
+      'fish-cake'
     ],
-    shortcodes: [
-      ':oden:'
-    ],
+    shortcodes: [':oden:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15891,11 +16121,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'sushi',
     tags: [
-      'sushi'
+      'rice',
+      'japanese',
+      'seafood',
+      'raw',
+      'roll'
     ],
-    shortcodes: [
-      ':sushi:'
-    ],
+    shortcodes: [':sushi:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15914,14 +16146,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'fried shrimp',
     tags: [
+      'seafood',
       'fried',
+      'tempura',
       'prawn',
-      'shrimp',
-      'tempura'
+      'crispy'
     ],
-    shortcodes: [
-      ':fried-shrimp:'
-    ],
+    shortcodes: [':fried-shrimp:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15940,14 +16171,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'fish cake with swirl',
     tags: [
-      'cake',
-      'fish',
+      'processed',
+      'seafood',
       'pastry',
-      'swirl'
+      'fish',
+      'japanese'
     ],
-    shortcodes: [
-      ':fish-cake-with-swirl:'
-    ],
+    shortcodes: [':fish-cake-with-swirl:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15966,13 +16196,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'moon cake',
     tags: [
-      'autumn',
+      'dessert',
+      'asian',
+      'pastry',
       'festival',
-      'yuèbǐng'
+      'sweet'
     ],
-    shortcodes: [
-      ':moon-cake:'
-    ],
+    shortcodes: [':moon-cake:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -15992,14 +16222,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'dango',
     tags: [
       'dessert',
-      'japanese',
+      'asian',
+      'snack',
       'skewer',
-      'stick',
       'sweet'
     ],
-    shortcodes: [
-      ':dango:'
-    ],
+    shortcodes: [':dango:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16018,15 +16246,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'dumpling',
     tags: [
-      'empanada',
-      'gyōza',
-      'jiaozi',
-      'pierogi',
-      'potsticker'
+      'asian',
+      'savory',
+      'steamed',
+      'wrapper',
+      'snack'
     ],
-    shortcodes: [
-      ':dumpling:'
-    ],
+    shortcodes: [':dumpling:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16045,11 +16271,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'fortune cookie',
     tags: [
+      'dessert',
+      'asian',
+      'snack',
       'prophecy'
     ],
-    shortcodes: [
-      ':fortune-cookie:'
-    ],
+    shortcodes: [':fortune-cookie:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16068,11 +16295,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-asian',
     label: 'takeout box',
     tags: [
-      'oyster pail'
+      'asian',
+      'container',
+      'oyster-pail',
+      'takeout',
+      'snack'
     ],
-    shortcodes: [
-      ':takeout-box:'
-    ],
+    shortcodes: [':takeout-box:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16091,12 +16320,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-marine',
     label: 'crab',
     tags: [
-      'cancer',
-      'zodiac'
+      'seafood',
+      'shellfish',
+      'red',
+      'luxury',
+      'pinch'
     ],
-    shortcodes: [
-      ':crab:'
-    ],
+    shortcodes: [':crab:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16115,13 +16345,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-marine',
     label: 'lobster',
     tags: [
-      'bisque',
-      'claws',
-      'seafood'
+      'seafood',
+      'shellfish',
+      'red',
+      'evian',
+      'luxury'
     ],
-    shortcodes: [
-      ':lobster:'
-    ],
+    shortcodes: [':lobster:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16140,16 +16370,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-marine',
     label: 'shrimp',
     tags: [
-      'food',
+      'seafood',
       'shellfish',
-      'small',
-      'swim',
-      'animal',
-      'water'
+      'pink',
+      'cocktail',
+      'fried'
     ],
-    shortcodes: [
-      ':shrimp:'
-    ],
+    shortcodes: [':shrimp:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16168,18 +16395,14 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-marine',
     label: 'squid',
     tags: [
-      'food',
-      'molusc',
-      'swim',
-      'animal',
-      'water'
+      'seafood',
+      'mollusk',
+      'white',
+      'grill',
+      'chaotchi'
     ],
-    shortcodes: [
-      ':squid:'
-    ],
-    emoticons: [
-      'くコ:彡'
-    ],
+    shortcodes: [':squid:'],
+    emoticons: ['くコ:彡'],
     directional: false,
     variation: false,
     variationBase: null,
@@ -16197,13 +16420,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-marine',
     label: 'oyster',
     tags: [
-      'diving',
+      'seafood',
+      'shellfish',
+      'raw',
       'pearl',
-      'shell'
+      'briny'
     ],
-    shortcodes: [
-      ':oyster:'
-    ],
+    shortcodes: [':oyster:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16222,16 +16445,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'soft ice cream',
     tags: [
-      'cream',
+      'dairy',
       'dessert',
-      'ice',
-      'icecream',
-      'soft',
-      'sweet'
+      'cold',
+      'sweet',
+      'vanilla'
     ],
-    shortcodes: [
-      ':soft-ice-cream:'
-    ],
+    shortcodes: [':soft-ice-cream:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16251,13 +16471,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'shaved ice',
     tags: [
       'dessert',
-      'ice',
-      'shaved',
-      'sweet'
+      'cold',
+      'flavored',
+      'sweet',
+      'summer'
     ],
-    shortcodes: [
-      ':shaved-ice:'
-    ],
+    shortcodes: [':shaved-ice:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16276,14 +16495,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'ice cream',
     tags: [
-      'cream',
+      'dairy',
       'dessert',
-      'ice',
-      'sweet'
+      'cold',
+      'sweet',
+      'cone'
     ],
-    shortcodes: [
-      ':ice-cream:'
-    ],
+    shortcodes: [':ice-cream:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16302,14 +16520,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'doughnut',
     tags: [
-      'breakfast',
       'dessert',
-      'donut',
-      'sweet'
+      'fried',
+      'breakfast',
+      'sweet',
+      'circle'
     ],
-    shortcodes: [
-      ':doughnut:'
-    ],
+    shortcodes: [':doughnut:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16329,11 +16546,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'cookie',
     tags: [
       'dessert',
-      'sweet'
+      'baked',
+      'sweet',
+      'snack'
     ],
-    shortcodes: [
-      ':cookie:'
-    ],
+    shortcodes: [':cookie:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16352,15 +16569,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'birthday cake',
     tags: [
-      'birthday',
-      'cake',
-      'celebration',
       'dessert',
-      'pastry',
+      'celebration',
+      'cake',
+      'sweet',
+      'party'
     ],
-    shortcodes: [
-      ':birthday-cake:'
-    ],
+    shortcodes: [':birthday-cake:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16379,15 +16594,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'shortcake',
     tags: [
-      'cake',
       'dessert',
-      'pastry',
-      'slice',
-      'sweet'
+      'cake',
+      'sweet',
+      'slice'
     ],
-    shortcodes: [
-      ':shortcake:'
-    ],
+    shortcodes: [':shortcake:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16406,12 +16618,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'cupcake',
     tags: [
+      'dessert',
       'bakery',
-      'sweet'
+      'sweet',
+      'cupcake'
     ],
-    shortcodes: [
-      ':cupcake:'
-    ],
+    shortcodes: [':cupcake:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16430,12 +16642,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'pie',
     tags: [
-      'filling',
-      'pastry'
+      'dessert',
+      'pastry',
+      'sweet',
+      'slice'
     ],
-    shortcodes: [
-      ':pie:'
-    ],
+    shortcodes: [':pie:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16454,14 +16666,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'chocolate bar',
     tags: [
-      'bar',
-      'chocolate',
       'dessert',
-      'sweet'
+      'sweet',
+      'candy',
+      'bar'
     ],
-    shortcodes: [
-      ':chocolate-bar:'
-    ],
+    shortcodes: [':chocolate-bar:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16481,11 +16691,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'candy',
     tags: [
       'dessert',
-      'sweet'
+      'sweet',
+      'snack',
+      'treat'
     ],
-    shortcodes: [
-      ':candy:'
-    ],
+    shortcodes: [':candy:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16506,11 +16716,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'candy',
       'dessert',
-      'sweet'
+      'sweet',
+      'stick'
     ],
-    shortcodes: [
-      ':lollipop:'
-    ],
+    shortcodes: [':lollipop:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16531,11 +16740,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'dessert',
       'pudding',
-      'sweet'
+      'sweet',
+      'cream'
     ],
-    shortcodes: [
-      ':custard:'
-    ],
+    shortcodes: [':custard:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16554,14 +16762,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'food-sweet',
     label: 'honey pot',
     tags: [
-      'honey',
-      'honeypot',
-      'pot',
-      'sweet'
+      'dessert',
+      'sweet',
+      'spread',
+      'bee'
     ],
-    shortcodes: [
-      ':honey-pot:'
-    ],
+    shortcodes: [':honey-pot:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16580,15 +16786,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'baby bottle',
     tags: [
-      'baby',
-      'bottle',
       'drink',
+      'baby',
       'milk',
-      'sweet'
+      'bottle',
+      'feeding'
     ],
-    shortcodes: [
-      ':baby-bottle:'
-    ],
+    shortcodes: [':baby-bottle:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16608,12 +16812,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'glass of milk',
     tags: [
       'drink',
+      'dairy',
+      'white',
       'glass',
-      'milk'
+      'breakfast'
     ],
-    shortcodes: [
-      ':glass-of-milk:'
-    ],
+    shortcodes: [':glass-of-milk:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16632,16 +16836,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'hot beverage',
     tags: [
-      'beverage',
-      'coffee',
       'drink',
+      'coffee',
+      'tea',
       'hot',
-      'steaming',
-      'tea'
+      'morning'
     ],
-    shortcodes: [
-      ':hot-beverage:'
-    ],
+    shortcodes: [':hot-beverage:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16661,12 +16862,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'teapot',
     tags: [
       'drink',
+      'tea',
       'pot',
-      'tea'
+      'ceramic',
+      'afternoon'
     ],
-    shortcodes: [
-      ':teapot:'
-    ],
+    shortcodes: [':teapot:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16685,17 +16886,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'teacup without handle',
     tags: [
-      'beverage',
-      'cup',
       'drink',
       'tea',
-      'teacup',
-      'glass',
+      'cup',
+      'ceramic',
       'hot'
     ],
-    shortcodes: [
-      ':teacup-without-handle:'
-    ],
+    shortcodes: [':teacup-without-handle:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16714,15 +16911,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'sake',
     tags: [
-      'bar',
-      'beverage',
-      'bottle',
-      'cup',
-      'drink'
+      'drink',
+      'alcohol',
+      'rice',
+      'japanese',
+      'ceramic'
     ],
-    shortcodes: [
-      ':sake:'
-    ],
+    shortcodes: [':sake:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16741,18 +16936,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'bottle with popping cork',
     tags: [
-      'bar',
-      'bottle',
-      'cork',
       'drink',
-      'popping',
-      'party',
-      'celebrate',
-      'event'
+      'alcohol',
+      'celebration',
+      'sparkling',
+      'party'
     ],
-    shortcodes: [
-      ':bottle-with-popping-cork:'
-    ],
+    shortcodes: [':bottle-with-popping-cork:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16771,17 +16961,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'wine glass',
     tags: [
-      'bar',
-      'beverage',
       'drink',
-      'glass',
-      'wine',
-      'classic',
-      'alcohol'
+      'alcohol',
+      'red',
+      'white',
+      'bar'
     ],
-    shortcodes: [
-      ':wine-glass:'
-    ],
+    shortcodes: [':wine-glass:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16800,15 +16986,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'cocktail glass',
     tags: [
-      'cocktail',
       'drink',
-      'glass',
       'alcohol',
-      'party'
+      'cocktail',
+      'party',
+      'glass'
     ],
-    shortcodes: [
-      ':cocktail-glass:'
-    ],
+    shortcodes: [':cocktail-glass:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16828,14 +17012,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'tropical drink',
     tags: [
       'drink',
+      'alcohol',
       'tropical',
-      'cocktail',
-      'party',
-      'summer'
+      'summer',
+      'fruit'
     ],
-    shortcodes: [
-      ':tropical-drink:'
-    ],
+    shortcodes: [':tropical-drink:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16854,14 +17036,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'beer mug',
     tags: [
-      'beer',
       'drink',
+      'alcohol',
+      'bar',
       'mug',
-      'party'
+      'lager'
     ],
-    shortcodes: [
-      ':beer-mug:'
-    ],
+    shortcodes: [':beer-mug:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16880,19 +17061,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'clinking beer mugs',
     tags: [
-      'bar',
-      'beer',
-      'clink',
       'drink',
-      'mug',
-      'german',
-      'party',
       'alcohol',
-      'bavaria'
+      'bar',
+      'cheers',
+      'party'
     ],
-    shortcodes: [
-      ':clinking-beer-mugs:'
-    ],
+    shortcodes: [':clinking-beer-mugs:'],
     emoticons: [],
     directional: false,
     variation: false,
@@ -16911,20 +17086,18 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'clinking glasses',
     tags: [
-      'celebrate',
-      'clink',
       'drink',
-      'glass',
-      'party',
+      'alcohol',
+      'champagne',
+      'toast',
+      'celebration'
     ],
-    shortcodes: [
-      ':clinking-glasses:'
-    ],
+    shortcodes: [':clinking-glasses:'],
     emoticons: [],
     directional: false,
     variation: false,
     variationBase: null,
-    unicode: 3,
+    unicode: 4,
     order: 3466,
     skintone: null,
     skintoneCombination: null,
@@ -16938,126 +17111,18 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'tumbler glass',
     tags: [
-      'glass',
-      'liquor',
-      'shot',
-      'tumbler',
-      'whisky',
-    ],
-    shortcodes: [
-      ':tumbler-glass:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 3,
-    order: 3467,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🫗',
-    hexcode: '1fad7',
-    category: 'Food & Drink',
-    subgroup: 'drink',
-    label: 'pouring liquid',
-    tags: [
       'drink',
-      'empty',
-      'glass',
-      'spill'
+      'alcohol',
+      'whiskey',
+      'on-the-rocks'
     ],
-    shortcodes: [
-      ':pour:'
-    ],
+    shortcodes: [':tumbler-glass:'],
     emoticons: [],
     directional: false,
     variation: false,
     variationBase: null,
-    unicode: 14,
-    order: 3468,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🥤',
-    hexcode: '1f964',
-    category: 'Food & Drink',
-    subgroup: 'drink',
-    label: 'cup with straw',
-    tags: [
-      'juice',
-      'soda',
-      'beverage',
-      'fastfood'
-    ],
-    shortcodes: [
-      ':cup-with-straw:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 5,
-    order: 3469,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🧋',
-    hexcode: '1f9cb',
-    category: 'Food & Drink',
-    subgroup: 'drink',
-    label: 'bubble tea',
-    tags: [
-      'bubble',
-      'milk',
-      'pearl',
-      'tea'
-    ],
-    shortcodes: [
-      ':bubble-tea:',
-      ':milk-tea:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 13,
-    order: 3470,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🧃',
-    hexcode: '1f9c3',
-    category: 'Food & Drink',
-    subgroup: 'drink',
-    label: 'beverage box',
-    tags: [
-      'beverage',
-            'juice',
-      'box',
-      'straw',
-    ],
-    shortcodes: [
-      ':beverage-box:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 12,
-    order: 3471,
+    unicode: 4,
+    order: 3467,
     skintone: null,
     skintoneCombination: null,
     skintoneBase: null
@@ -17070,235 +17135,49 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'drink',
     label: 'mate',
     tags: [
-      'drink'
+      'drink',
+      'tea',
+      'south-american',
+      'herbal',
+      'warm'
     ],
-    shortcodes: [
-      ':mate:'
-    ],
+    shortcodes: [':mate:'],
     emoticons: [],
     directional: false,
     variation: false,
     variationBase: null,
     unicode: 12,
-    order: 3472,
+    order: 3468,
     skintone: null,
     skintoneCombination: null,
     skintoneBase: null
   },
   {
     type: 'emoji',
-    symbol: '🧊',
-    hexcode: '1f9ca',
+    symbol: '🧋',
+    hexcode: '1f9cb',
     category: 'Food & Drink',
     subgroup: 'drink',
-    label: 'ice',
+    label: 'bubble tea',
     tags: [
-      'cold',
-      'ice cube',
-      'iceberg',
-      'isometric'
+      'drink',
+      'tea',
+      'taiwanese',
+      'sweet',
+      'tapioca'
     ],
-    shortcodes: [
-      ':ice-cube:'
-    ],
+    shortcodes: [':bubble-tea:'],
     emoticons: [],
     directional: false,
     variation: false,
     variationBase: null,
     unicode: 12,
-    order: 3473,
+    order: 3469,
     skintone: null,
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🥢',
-    hexcode: '1f962',
-    category: 'Food & Drink',
-    subgroup: 'dishware',
-    label: 'chopsticks',
-    tags: [
-      'hashi',
-      'sticks',
-      'eat',
-      'chopstick'
-    ],
-    shortcodes: [
-      ':chopsticks:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 5,
-    order: 3474,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🍽️',
-    hexcode: '1f37d',
-    category: 'Food & Drink',
-    subgroup: 'dishware',
-    label: 'fork and knife with plate',
-    tags: [
-      'cooking',
-      'fork',
-      'knife',
-      'plate',
-      'eat'
-    ],
-    shortcodes: [
-      ':fork-and-knife-with-plate:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.7,
-    order: 3476,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🍴',
-    hexcode: '1f374',
-    category: 'Food & Drink',
-    subgroup: 'dishware',
-    label: 'fork and knife',
-    tags: [
-      'cooking',
-      'cutlery',
-      'fork',
-      'knife',
-      'eat'
-    ],
-    shortcodes: [
-      ':fork-and-knife:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 3477,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🥄',
-    hexcode: '1f944',
-    category: 'Food & Drink',
-    subgroup: 'dishware',
-    label: 'spoon',
-    tags: [
-      'tableware',
-      'metal',
-      'spoon',
-      'eat'
-    ],
-    shortcodes: [
-      ':spoon:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 3,
-    order: 3478,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🔪',
-    hexcode: '1f52a',
-    category: 'Food & Drink',
-    subgroup: 'dishware',
-    label: 'kitchen knife',
-    tags: [
-      'cooking',
-      'hocho',
-      'knife',
-      'tool',
-      'weapon',
-      'eat'
-    ],
-    shortcodes: [
-      ':kitchen-knife:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 0.6,
-    order: 3479,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🫙',
-    hexcode: '1fad9',
-    category: 'Food & Drink',
-    subgroup: 'dishware',
-    label: 'jar',
-    tags: [
-      'condiment',
-      'container',
-      'empty',
-      'sauce',
-      'store'
-    ],
-    shortcodes: [
-      ':jar:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 14,
-    order: 3480,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
-  {
-    type: 'emoji',
-    symbol: '🏺',
-    hexcode: '1f3fa',
-    category: 'Food & Drink',
-    subgroup: 'dishware',
-    label: 'amphora',
-    tags: [
-      'aquarius',
-      'cooking',
-      'drink',
-      'jug',
-      'zodiac'
-    ],
-    shortcodes: [
-      ':amphora:'
-    ],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 1,
-    order: 3481,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+
   {
     type: 'emoji',
     symbol: '🌍️',
@@ -23755,9 +23634,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'ball',
       'baseball',
-      'white',
-      'american',
       'game',
+      'sport',
       'ball game',
       'team sports'
     ],
@@ -23784,7 +23662,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'ball',
       'glove',
-      'underarm'
+      'underarm',
+      'ball game',
+      'sport',
+      'team sports'
     ],
     shortcodes: [
       ':softball:'
@@ -23809,11 +23690,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'ball',
       'hoop',
-      'basketball',
-      'orange ball',
-      'team sport',
+      'net',
+      'team sports',
       'sport',
-      'canadian sport',
       'game'
     ],
     shortcodes: [
@@ -23840,10 +23719,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'ball',
       'game',
       'ball game',
-      'team sport',
+      'team sports',
       'sport',
-      'hobby',
-      'olympic games'
+      'net',
     ],
     shortcodes: [
       ':volleyball:'
@@ -23864,16 +23742,16 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1f3c8',
     category: 'Activities',
     subgroup: 'sport',
-    label: 'american football',
+    label: 'football',
     tags: [
-      'american',
+
       'ball',
       'football',
-      'american game',
-      'oval ball',
       'ball game',
       'superbowl',
-      'team sport'
+      'team sports',
+      'american',
+      'sport'
     ],
     shortcodes: [
       ':american-football:'
@@ -23894,15 +23772,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1f3c9',
     category: 'Activities',
     subgroup: 'sport',
-    label: 'rugby football',
+    label: 'rugby',
     tags: [
       'ball',
       'football',
       'rugby',
-      'brown ball',
-      'league',
-      'union',
-      'team sport',
+      'team sports',
       'british sports',
       'sport'
     ],
@@ -23929,7 +23804,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'ball',
       'racquet',
-      'tennis',
       'tennis ball',
       'ball game',
       'game',
@@ -24008,7 +23882,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'bat',
       'game',
       'cricket',
-      'cricket bat and ball',
       'hobby',
       'activity'
     ],
@@ -24038,11 +23911,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'game',
       'hockey',
       'stick',
-      'field hockey stick and ball',
-      'ice hockey',
-      'team sport',
-      'hockey stick',
-      'puck'
+      'team sports',
     ],
     shortcodes: [
       ':field-hockey:'
@@ -24070,10 +23939,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'ice',
       'puck',
       'stick',
-      'ice hockey',
       'hockey stick',
-      'field hockey',
-      'team sport'
+      'team sports'
     ],
     shortcodes: [
       ':ice-hockey:'
@@ -24098,7 +23965,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'ball',
       'goal',
-      'stick'
+      'stick',
+      'team sports'
     ],
     shortcodes: [
       ':lacrosse:'
@@ -24122,13 +23990,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'ping pong',
     tags: [
       'ball',
-      'bat',
       'game',
       'paddle',
       'table tennis',
       'ping pong',
-      'ball game',
-      'hobby'
     ],
     shortcodes: [
       ':ping-pong:'
@@ -24184,9 +24049,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'sport',
       'fist',
       'beat',
-      'slap',
-      'slap in your face',
-      'muhammad ali'
     ],
     shortcodes: [
       ':boxing-glove:'
@@ -24215,7 +24077,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'taekwondo',
       'uniform',
       'white',
-      'keikogi',
       'sport'
     ],
     shortcodes: [
@@ -24240,7 +24101,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'goal net',
     tags: [
       'goal',
-      'net'
+      'net',
+      'score'
     ],
     shortcodes: [
       ':goal-net:'
@@ -24266,11 +24128,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'golf',
       'hole',
       'flag',
-      'golf flag',
-      'golf hole with flag',
       'sport',
       'ball',
-      'goal'
+      'course'
     ],
     shortcodes: [
       ':flag-in-hole:'
@@ -24294,7 +24154,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'ice skate',
     tags: [
       'ice',
-      'skate'
+      'skate',
+      'sport'
     ],
     shortcodes: [
       ':ice-skate:'
@@ -24319,11 +24180,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'fish',
       'pole',
-      'fishing rod',
-      'fishing pole',
+      'rod',
       'line',
       'caught',
-      'hobby'
+      'water'
     ],
     shortcodes: [
       ':fishing-pole:'
@@ -24347,6 +24207,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'diving mask',
     tags: [
       'diving',
+      'mask',
       'scuba',
       'snorkeling'
     ],
@@ -24401,10 +24262,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'snow',
       'skis',
       'skiing',
-      'ski boot',
-      'to ski',
       'winter',
-      'hobby',
       'sport'
     ],
     shortcodes: [
@@ -24429,7 +24287,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'sled',
     tags: [
       'sledge',
-      'sleigh'
+      'sleigh',
+      'winter'
     ],
     shortcodes: [
       ':sled:'
@@ -24453,7 +24312,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'curling stone',
     tags: [
       'game',
-      'rock'
+      'rock',
+      'sport'
     ],
     shortcodes: [
       ':curling-stone:'
@@ -24477,15 +24337,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'bullseye',
     tags: [
       'dart',
-      'direct hit',
-      'game',
       'hit',
       'target',
-      'direct',
       'dart board',
       'archery',
       'bullseye',
-      'darts'
     ],
     shortcodes: [
       ':direct-hit:',
@@ -24509,8 +24365,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'game',
     label: 'yo-yo',
     tags: [
-      'fluctuate',
-      'toy'
+
+      'toy',
+      'string'
     ],
     shortcodes: [
       ':yo-yo:'
@@ -24534,7 +24391,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'kite',
     tags: [
       'fly',
-      'soar'
+      'soar',
+      'toy'
     ],
     shortcodes: [
       ':kite:'
@@ -24558,9 +24416,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'water pistol',
     tags: [
       'gun',
-      'handgun',
       'pistol',
-      'revolver',
       'tool',
       'water',
       'weapon'
@@ -24589,15 +24445,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       '8',
       'ball',
       'billiard',
-      'eight',
-      'game',
-      'pool ball',
-      '8 ball',
-      'black ball',
-      'cue ball',
       'magic 8 ball',
       'pool',
-      'snooker',
       'billiards'
     ],
     shortcodes: [
@@ -24626,7 +24475,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'fairy tale',
       'fantasy',
       'fortune',
-      'tool',
       'mystery'
     ],
     shortcodes: [
@@ -24677,7 +24525,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'controller',
       'game',
-      'gamble'
+      'player'
     ],
     shortcodes: [
       ':video-game:'
@@ -24701,7 +24549,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'joystick',
     tags: [
       'game',
-      'video game'
+      'video game',
+      'controller',
+      'player'
     ],
     shortcodes: [
       ':joystick:'
@@ -24746,13 +24596,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1f3b2',
     category: 'Activities',
     subgroup: 'game',
-    label: 'game die',
+    label: 'dice',
     tags: [
-      'dice',
       'die',
       'game',
       'board game',
-      'isometric'
+      'play'
     ],
     shortcodes: [
       ':die:'
@@ -24775,11 +24624,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'game',
     label: 'puzzle piece',
     tags: [
-      'clue',
-      'interlocking',
+
       'jigsaw',
       'piece',
-      'puzzle'
+      'puzzle',
+      'clue',
     ],
     shortcodes: [
       ':jigsaw:'
@@ -24802,7 +24651,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'game',
     label: 'teddy bear',
     tags: [
-      'plaything',
+      'bear',
       'plush',
       'stuffed',
       'toy'
@@ -24829,7 +24678,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'piñata',
     tags: [
       'celebration',
-      'party'
+      'party',
+      'fiesta'
     ],
     shortcodes: [
       ':piñata:'
@@ -24881,7 +24731,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'doll',
       'nesting',
-      'russia'
+      'toy'
     ],
     shortcodes: [
       ':nesting-doll:'
@@ -25102,14 +24952,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'arts-crafts',
     label: 'performing arts',
     tags: [
-      'art',
       'mask',
       'performing',
       'theater',
-      'theatre',
       'culture',
       'entertainment',
-      'education'
     ],
     shortcodes: [
       ':performing-arts:'
@@ -25137,9 +24984,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'museum',
       'painting',
       'picture',
-      'culture',
       'artist',
-      'entertainment'
     ],
     shortcodes: [
       ':framed-picture:'
@@ -25163,13 +25008,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'artist palette',
     tags: [
       'art',
-      'museum',
+      'colors',
       'painting',
       'palette',
       'culture',
       'artist',
-      'leisure',
-      'entertainment'
     ],
     shortcodes: [
       ':artist-palette:'
@@ -25218,11 +25061,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'arts-crafts',
     label: 'sewing needle',
     tags: [
-      'embroidery',
       'needle',
       'sewing',
       'stitches',
-      'sutures',
+      'repair',
       'tailoring'
     ],
     shortcodes: [
@@ -25301,7 +25143,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'clothing',
       'eye',
       'eyeglasses',
-      'eyewear'
+      'eyewear',
+      'see'
     ],
     shortcodes: [
       ':glasses:'
@@ -25353,7 +25196,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'eye protection',
       'swimming',
-      'welding'
+      'welding',
+      'glasses'
     ],
     shortcodes: [
       ':goggles:'
@@ -25428,7 +25272,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'clothing',
       'tie',
-      'cravatte',
+      'shirt',
       'smart'
     ],
     shortcodes: [
@@ -25479,7 +25323,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'clothing',
       'pants',
-      'trousers'
+      'trousers',
+      'denim'
     ],
     shortcodes: [
       ':jeans:'
@@ -25502,7 +25347,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'scarf',
     tags: [
-      'neck'
+      'clothing',
+      'neck',
+      'winter',
+      'cold'
     ],
     shortcodes: [
       ':scarf:'
@@ -25525,7 +25373,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'gloves',
     tags: [
-      'hand'
+      'clothing',
+      'hand',
+      'winter',
+      'cold'
     ],
     shortcodes: [
       ':gloves:'
@@ -25548,7 +25399,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'coat',
     tags: [
-      'jacket'
+      'clothing',
+      'jacket',
+      'cold'
     ],
     shortcodes: [
       ':coat:'
@@ -25571,6 +25424,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'socks',
     tags: [
+      'clothing',
+      'foot',
+      'feet',
       'stocking'
     ],
     shortcodes: [
@@ -25668,7 +25524,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'one-piece swimsuit',
     tags: [
-      'bathing suit'
+      'clothing',
+      'bathing suit',
+      'swim',
+      'water'
     ],
     shortcodes: [
       ':one-piece-swimsuit:'
@@ -25691,10 +25550,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'briefs',
     tags: [
+      'clothing',
       'bathing suit',
-      'one-piece',
-      'swimsuit',
-      'underwear'
+      'swim',
+      'underwear',
+
     ],
     shortcodes: [
       ':swim-brief:'
@@ -25717,9 +25577,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'shorts',
     tags: [
+      'clothing',
       'bathing suit',
       'pants',
-      'underwear'
+      'underwear',
+      'swim'
     ],
     shortcodes: [
       ':shorts:'
@@ -25743,6 +25605,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'bikini',
     tags: [
       'clothing',
+      'swimsuit',
       'swim',
       'summer'
     ],
@@ -25796,7 +25659,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'fan',
       'flutter',
       'hot',
-      'shy'
     ],
     shortcodes: [
       ':fan:'
@@ -25819,7 +25681,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'purse',
     tags: [
-      'clothing',
+      'accessory',
       'coin',
       'money'
     ],
@@ -25845,7 +25707,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'handbag',
     tags: [
       'bag',
-      'clothing',
+      'accessory',
       'purse'
     ],
     shortcodes: [
@@ -25870,7 +25732,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'clutch bag',
     tags: [
       'bag',
-      'clothing',
+      'accessory',
       'pouch'
     ],
     shortcodes: [
@@ -25897,7 +25759,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'bag',
       'hotel',
       'shopping',
-      'buy'
+      'buy',
+      'carry'
     ],
     shortcodes: [
       ':shopping-bags:'
@@ -25921,10 +25784,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'backpack',
     tags: [
       'bag',
-      'rucksack',
       'satchel',
       'school',
-      'young'
+      'carry'
     ],
     shortcodes: [
       ':school-backpack:'
@@ -25945,13 +25807,12 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1fa74',
     category: 'Objects',
     subgroup: 'clothing',
-    label: 'thong sandal',
+    label: 'sandal',
     tags: [
-      'beach sandals',
+      'beach',
       'sandals',
-      'thong sandals',
-      'thongs',
-      'zōri'
+      'summer',
+      'shoe'
     ],
     shortcodes: [
       ':flip-flop:',
@@ -26029,7 +25890,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'backpacking',
       'boot',
       'camping',
-      'hiking'
+      'hiking',
+      'shoe'
     ],
     shortcodes: [
       ':hiking-boot:'
@@ -26130,7 +25992,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'ballet shoes',
     tags: [
       'ballet',
-      'dance'
+      'dance',
+      'shoe'
     ],
     shortcodes: [
       ':ballet-shoes:'
@@ -26179,10 +26042,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'clothing',
     label: 'hair pick',
     tags: [
-      'afro',
       'comb',
       'hair',
-      'pick'
+      'pick',
+      'afro',
     ],
     shortcodes: [
       ':hair-pick:'
@@ -26209,7 +26072,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'king',
       'queen',
       'crone',
-      'gold'
+      'gold',
+      'royalty'
     ],
     shortcodes: [
       ':crown:'
@@ -26260,8 +26124,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'clothing',
       'hat',
-      'top',
-      'tophat',
       'magic'
     ],
     shortcodes: [
@@ -26310,9 +26172,11 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     hexcode: '1f9e2',
     category: 'Objects',
     subgroup: 'clothing',
-    label: 'billed cap',
+    label: 'baseball hat',
     tags: [
-      'baseball cap'
+      'cap',
+      'clothing',
+      'brim'
     ],
     shortcodes: [
       ':billed-cap:'
@@ -26339,7 +26203,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'helmet',
       'military',
       'soldier',
-      'warrior'
     ],
     shortcodes: [
       ':military-helmet:'
@@ -26394,7 +26257,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'necklace',
       'prayer',
       'religion',
-      'expensive',
       'jewelry'
     ],
     shortcodes: [
@@ -26419,7 +26281,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'lipstick',
     tags: [
       'cosmetics',
-      'makeup'
+      'makeup',
+      'lips'
     ],
     shortcodes: [
       ':lipstick:'
@@ -26520,7 +26383,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'speaker low volume',
     tags: [
       'soft',
-      'sound'
+      'sound',
+      'speaker'
     ],
     shortcodes: [
       ':low-volume:',
@@ -26544,6 +26408,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sound',
     label: 'speaker medium volume',
     tags: [
+      'sound',
+      'speaker',
       'medium'
     ],
     shortcodes: [
@@ -26568,8 +26434,10 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sound',
     label: 'speaker high volume',
     tags: [
+      'sound',
+      'speaker',
       'loud',
-      'sound'
+      'high'
     ],
     shortcodes: [
       ':high-volume:',
@@ -26618,7 +26486,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'sound',
     label: 'megaphone',
     tags: [
-      'cheering'
+      'cheering',
+      'speaking',
+      'loud'
     ],
     shortcodes: [
       ':megaphone:'
@@ -26667,7 +26537,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'bell',
     tags: [
       'bell',
-      'sound'
+      'sound',
+      'ring'
     ],
     shortcodes: [
       ':bell:'
@@ -26720,7 +26591,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'music',
       'score',
-      'violin key',
+      'sheet',
       'rhythm'
     ],
     shortcodes: [
@@ -26750,7 +26621,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'song',
       'melody',
       'sounds',
-      'tone'
     ],
     shortcodes: [
       ':musical-note:'
@@ -26806,7 +26676,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'microphone',
       'music',
       'studio',
-      'stereo',
       'recording'
     ],
     shortcodes: [
@@ -26860,7 +26729,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'control',
       'knobs',
       'music',
-      'mix',
       'recording',
       'tool'
     ],
@@ -26885,15 +26753,13 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'music',
     label: 'microphone',
     tags: [
-      'karaoke',
       'mic',
       'sound',
       'loud',
       'stage',
       'speech',
       'singing',
-      'microphone',
-      'tone'
+      'karaoke'
     ],
     shortcodes: [
       ':microphone:'
@@ -26918,7 +26784,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'earbud',
       'music',
-      'headphones'
+      'headphones',
+      'listen'
     ],
     shortcodes: [
       ':headphone:'
@@ -26943,8 +26810,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'video',
       'radio',
-      'stereo radio',
-      'analog radio'
+      'music',
+      'listen'
     ],
     shortcodes: [
       ':radio:'
@@ -26970,7 +26837,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'instrument',
       'music',
       'sax',
-      'saxophone',
       'jazz'
     ],
     shortcodes: [
@@ -26994,6 +26860,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'musical-instrument',
     label: 'accordion',
     tags: [
+      'instrument',
+      'music',
       'concertina',
       'squeeze box'
     ],
@@ -27020,10 +26888,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'instrument',
       'music',
-      'guitar',
-      'e-guitar',
-      'instrumental',
-      'acoustic',
+      'string',
+      'electric',
       'chords'
     ],
     shortcodes: [
@@ -27051,7 +26917,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'keyboard',
       'music',
       'piano',
-      'piano keys',
+      'keys',
       'chords'
     ],
     shortcodes: [
@@ -27078,9 +26944,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'instrument',
       'music',
-      'trumpet',
+      'jazz',
       'horns',
-      'woodwind instrument'
+      'brass'
     ],
     shortcodes: [
       ':trumpet:'
@@ -27132,7 +26998,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'banjo',
     tags: [
       'music',
-      'stringed'
+      'string',
+      'instrument'
     ],
     shortcodes: [
       ':banjo:'
@@ -27155,6 +27022,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'musical-instrument',
     label: 'drum',
     tags: [
+      'instrument',
       'drumsticks',
       'music',
       'drum',
@@ -27181,6 +27049,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'musical-instrument',
     label: 'long drum',
     tags: [
+      'instrument',
       'beat',
       'conga',
       'drum',
@@ -27234,7 +27103,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'musical-instrument',
     label: 'flute',
     tags: [
-      'fife',
+      'instrument',
       'music',
       'pipe',
       'recorder',
@@ -27267,8 +27136,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'telephone',
       'smartphone',
       'message',
-      'voice',
-      'communication'
     ],
     shortcodes: [
       ':mobile-phone:'
@@ -27291,7 +27158,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'phone',
     label: 'mobile phone with arrow',
     tags: [
-      'arrow',
       'cell',
       'mobile',
       'phone',
@@ -27375,7 +27241,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'phone',
     label: 'pager',
     tags: [
-      'pager'
+      'pager',
+      'call',
+      'communication'
     ],
     shortcodes: [
       ':pager:'
@@ -27450,8 +27318,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     subgroup: 'computer',
     label: 'low battery',
     tags: [
+      'battery',
       'electronic',
-      'low energy'
+      'energy'
     ],
     shortcodes: [
       ':battery-low:'
@@ -27501,9 +27370,9 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'computer',
       'pc',
-      'personal',
-      'old',
-      'retro'
+      'macbook',
+      'chromebook'
+
     ],
     shortcodes: [
       ':laptop-computer:'
@@ -27553,6 +27422,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: 'printer',
     tags: [
       'computer',
+      'paper',
       'color',
       'electric'
     ],
@@ -30466,8 +30336,8 @@ const SVG_SHAPE_TEMPLATE = (color) =>
       'archer',
       'arrow',
       'bow',
-      'sagittarius',
-      'zodiac'
+      'hunt'
+
     ],
     shortcodes: [
       ':bow-and-arrow:'
@@ -30672,9 +30542,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     tags: [
       'balance',
       'justice',
-      'libra',
       'scale',
-      'zodiac',
       'silver'
     ],
     shortcodes: [
@@ -37867,1894 +37735,1894 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     skintoneBase: null
   },
   {
-      type: "emoji",
-      symbol: "🏁",
-      label: "chequered flag",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏁",
+    label: "chequered flag",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🚩",
-      label: "triangular flag",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🚩",
+    label: "triangular flag",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🎌",
-      label: "crossed flags",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🎌",
+    label: "crossed flags",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏴",
-      label: "black flag",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏴",
+    label: "black flag",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏳",
-      label: "white flag",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏳",
+    label: "white flag",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏳️‍🌈",
-      label: "rainbow flag",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏳️‍🌈",
+    label: "rainbow flag",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏳️‍⚧️",
-      label: "transgender flag",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏳️‍⚧️",
+    label: "transgender flag",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏴‍☠️",
-      label: "pirate flag",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏴‍☠️",
+    label: "pirate flag",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇨",
-      label: "flag: Ascension Island",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇨",
+    label: "flag: Ascension Island",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇩",
-      label: "flag: Andorra",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇩",
+    label: "flag: Andorra",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇪",
-      label: "flag: United Arab Emirates",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇪",
+    label: "flag: United Arab Emirates",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇫",
-      label: "flag: Afghanistan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇫",
+    label: "flag: Afghanistan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇬",
-      label: "flag: Antigua & Barbuda",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇬",
+    label: "flag: Antigua & Barbuda",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇮",
-      label: "flag: Anguilla",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇮",
+    label: "flag: Anguilla",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇱",
-      label: "flag: Albania",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇱",
+    label: "flag: Albania",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇲",
-      label: "flag: Armenia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇲",
+    label: "flag: Armenia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇴",
-      label: "flag: Angola",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇴",
+    label: "flag: Angola",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇶",
-      label: "flag: Antarctica",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇶",
+    label: "flag: Antarctica",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇷",
-      label: "flag: Argentina",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇷",
+    label: "flag: Argentina",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇸",
-      label: "flag: American Samoa",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇸",
+    label: "flag: American Samoa",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇹",
-      label: "flag: Austria",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇹",
+    label: "flag: Austria",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇺",
-      label: "flag: Australia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇺",
+    label: "flag: Australia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇼",
-      label: "flag: Aruba",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇼",
+    label: "flag: Aruba",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇽",
-      label: "flag: Åland Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇽",
+    label: "flag: Åland Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇦🇿",
-      label: "flag: Azerbaijan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇦🇿",
+    label: "flag: Azerbaijan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇦",
-      label: "flag: Bosnia & Herzegovina",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇦",
+    label: "flag: Bosnia & Herzegovina",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇧",
-      label: "flag: Barbados",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇧",
+    label: "flag: Barbados",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇩",
-      label: "flag: Bangladesh",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇩",
+    label: "flag: Bangladesh",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇪",
-      label: "flag: Belgium",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇪",
+    label: "flag: Belgium",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇫",
-      label: "flag: Burkina Faso",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇫",
+    label: "flag: Burkina Faso",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇬",
-      label: "flag: Bulgaria",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇬",
+    label: "flag: Bulgaria",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇭",
-      label: "flag: Bahrain",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇭",
+    label: "flag: Bahrain",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇮",
-      label: "flag: Burundi",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇮",
+    label: "flag: Burundi",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇯",
-      label: "flag: Benin",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇯",
+    label: "flag: Benin",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇱",
-      label: "flag: St. Barthélemy",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇱",
+    label: "flag: St. Barthélemy",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇲",
-      label: "flag: Bermuda",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇲",
+    label: "flag: Bermuda",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇳",
-      label: "flag: Brunei",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇳",
+    label: "flag: Brunei",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇴",
-      label: "flag: Bolivia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇴",
+    label: "flag: Bolivia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇶",
-      label: "flag: Caribbean Netherlands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇶",
+    label: "flag: Caribbean Netherlands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇷",
-      label: "flag: Brazil",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇷",
+    label: "flag: Brazil",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇸",
-      label: "flag: Bahamas",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇸",
+    label: "flag: Bahamas",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇹",
-      label: "flag: Bhutan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇹",
+    label: "flag: Bhutan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇻",
-      label: "flag: Bouvet Island",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇻",
+    label: "flag: Bouvet Island",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇼",
-      label: "flag: Botswana",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇼",
+    label: "flag: Botswana",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇾",
-      label: "flag: Belarus",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇾",
+    label: "flag: Belarus",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇧🇿",
-      label: "flag: Belize",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇧🇿",
+    label: "flag: Belize",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇦",
-      label: "flag: Canada",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇦",
+    label: "flag: Canada",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇨",
-      label: "flag: Cocos (Keeling) Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇨",
+    label: "flag: Cocos (Keeling) Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇩",
-      label: "flag: Congo - Kinshasa",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇩",
+    label: "flag: Congo - Kinshasa",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇫",
-      label: "flag: Central African Republic",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇫",
+    label: "flag: Central African Republic",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇬",
-      label: "flag: Congo - Brazzaville",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇬",
+    label: "flag: Congo - Brazzaville",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇭",
-      label: "flag: Switzerland",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇭",
+    label: "flag: Switzerland",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇮",
-      label: "flag: Côte d’Ivoire",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇮",
+    label: "flag: Côte d’Ivoire",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇰",
-      label: "flag: Cook Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇰",
+    label: "flag: Cook Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇱",
-      label: "flag: Chile",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇱",
+    label: "flag: Chile",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇲",
-      label: "flag: Cameroon",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇲",
+    label: "flag: Cameroon",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇳",
-      label: "flag: China",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇳",
+    label: "flag: China",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇴",
-      label: "flag: Colombia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇴",
+    label: "flag: Colombia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇵",
-      label: "flag: Clipperton Island",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇵",
+    label: "flag: Clipperton Island",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇶",
-      label: "⊛ flag: Sark",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇶",
+    label: "⊛ flag: Sark",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇷",
-      label: "flag: Costa Rica",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇷",
+    label: "flag: Costa Rica",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇺",
-      label: "flag: Cuba",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇺",
+    label: "flag: Cuba",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇻",
-      label: "flag: Cape Verde",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇻",
+    label: "flag: Cape Verde",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇼",
-      label: "flag: Curaçao",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇼",
+    label: "flag: Curaçao",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇽",
-      label: "flag: Christmas Island",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇽",
+    label: "flag: Christmas Island",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇾",
-      label: "flag: Cyprus",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇾",
+    label: "flag: Cyprus",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇨🇿",
-      label: "flag: Czechia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇨🇿",
+    label: "flag: Czechia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇩🇪",
-      label: "flag: Germany",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇩🇪",
+    label: "flag: Germany",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇩🇬",
-      label: "flag: Diego Garcia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇩🇬",
+    label: "flag: Diego Garcia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇩🇯",
-      label: "flag: Djibouti",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇩🇯",
+    label: "flag: Djibouti",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇩🇰",
-      label: "flag: Denmark",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇩🇰",
+    label: "flag: Denmark",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇩🇲",
-      label: "flag: Dominica",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇩🇲",
+    label: "flag: Dominica",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇩🇴",
-      label: "flag: Dominican Republic",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇩🇴",
+    label: "flag: Dominican Republic",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇩🇿",
-      label: "flag: Algeria",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇩🇿",
+    label: "flag: Algeria",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇦",
-      label: "flag: Ceuta & Melilla",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇦",
+    label: "flag: Ceuta & Melilla",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇨",
-      label: "flag: Ecuador",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇨",
+    label: "flag: Ecuador",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇪",
-      label: "flag: Estonia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇪",
+    label: "flag: Estonia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇬",
-      label: "flag: Egypt",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇬",
+    label: "flag: Egypt",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇭",
-      label: "flag: Western Sahara",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇭",
+    label: "flag: Western Sahara",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇷",
-      label: "flag: Eritrea",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇷",
+    label: "flag: Eritrea",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇸",
-      label: "flag: Spain",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇸",
+    label: "flag: Spain",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇹",
-      label: "flag: Ethiopia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇹",
+    label: "flag: Ethiopia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇪🇺",
-      label: "flag: European Union",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇪🇺",
+    label: "flag: European Union",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇫🇮",
-      label: "flag: Finland",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇫🇮",
+    label: "flag: Finland",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇫🇯",
-      label: "flag: Fiji",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇫🇯",
+    label: "flag: Fiji",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇫🇰",
-      label: "flag: Falkland Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇫🇰",
+    label: "flag: Falkland Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇫🇲",
-      label: "flag: Micronesia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇫🇲",
+    label: "flag: Micronesia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇫🇴",
-      label: "flag: Faroe Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇫🇴",
+    label: "flag: Faroe Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇫🇷",
-      label: "flag: France",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇫🇷",
+    label: "flag: France",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇦",
-      label: "flag: Gabon",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇦",
+    label: "flag: Gabon",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇧",
-      label: "flag: United Kingdom",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇧",
+    label: "flag: United Kingdom",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇩",
-      label: "flag: Grenada",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇩",
+    label: "flag: Grenada",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇪",
-      label: "flag: Georgia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇪",
+    label: "flag: Georgia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇫",
-      label: "flag: French Guiana",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇫",
+    label: "flag: French Guiana",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇬",
-      label: "flag: Guernsey",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇬",
+    label: "flag: Guernsey",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇭",
-      label: "flag: Ghana",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇭",
+    label: "flag: Ghana",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇮",
-      label: "flag: Gibraltar",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇮",
+    label: "flag: Gibraltar",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇱",
-      label: "flag: Greenland",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇱",
+    label: "flag: Greenland",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇲",
-      label: "flag: Gambia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇲",
+    label: "flag: Gambia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇳",
-      label: "flag: Guinea",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇳",
+    label: "flag: Guinea",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇵",
-      label: "flag: Guadeloupe",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇵",
+    label: "flag: Guadeloupe",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇶",
-      label: "flag: Equatorial Guinea",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇶",
+    label: "flag: Equatorial Guinea",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇷",
-      label: "flag: Greece",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇷",
+    label: "flag: Greece",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇸",
-      label: "flag: South Georgia & South Sandwich Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇸",
+    label: "flag: South Georgia & South Sandwich Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇹",
-      label: "flag: Guatemala",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇹",
+    label: "flag: Guatemala",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇺",
-      label: "flag: Guam",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇺",
+    label: "flag: Guam",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇼",
-      label: "flag: Guinea-Bissau",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇼",
+    label: "flag: Guinea-Bissau",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇬🇾",
-      label: "flag: Guyana",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇬🇾",
+    label: "flag: Guyana",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇭🇰",
-      label: "flag: Hong Kong SAR China",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇭🇰",
+    label: "flag: Hong Kong SAR China",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇭🇲",
-      label: "flag: Heard & McDonald Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇭🇲",
+    label: "flag: Heard & McDonald Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇭🇳",
-      label: "flag: Honduras",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇭🇳",
+    label: "flag: Honduras",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇭🇷",
-      label: "flag: Croatia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇭🇷",
+    label: "flag: Croatia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇭🇹",
-      label: "flag: Haiti",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇭🇹",
+    label: "flag: Haiti",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇭🇺",
-      label: "flag: Hungary",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇭🇺",
+    label: "flag: Hungary",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇨",
-      label: "flag: Canary Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇨",
+    label: "flag: Canary Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇩",
-      label: "flag: Indonesia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇩",
+    label: "flag: Indonesia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇪",
-      label: "flag: Ireland",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇪",
+    label: "flag: Ireland",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇱",
-      label: "flag: Israel",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇱",
+    label: "flag: Israel",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇲",
-      label: "flag: Isle of Man",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇲",
+    label: "flag: Isle of Man",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇳",
-      label: "flag: India",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇳",
+    label: "flag: India",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇴",
-      label: "flag: British Indian Ocean Territory",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇴",
+    label: "flag: British Indian Ocean Territory",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇶",
-      label: "flag: Iraq",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇶",
+    label: "flag: Iraq",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇷",
-      label: "flag: Iran",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇷",
+    label: "flag: Iran",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇸",
-      label: "flag: Iceland",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇸",
+    label: "flag: Iceland",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇮🇹",
-      label: "flag: Italy",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇮🇹",
+    label: "flag: Italy",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇯🇪",
-      label: "flag: Jersey",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇯🇪",
+    label: "flag: Jersey",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇯🇲",
-      label: "flag: Jamaica",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇯🇲",
+    label: "flag: Jamaica",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇯🇴",
-      label: "flag: Jordan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇯🇴",
+    label: "flag: Jordan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇯🇵",
-      label: "flag: Japan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇯🇵",
+    label: "flag: Japan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇪",
-      label: "flag: Kenya",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇪",
+    label: "flag: Kenya",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇬",
-      label: "flag: Kyrgyzstan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇬",
+    label: "flag: Kyrgyzstan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇭",
-      label: "flag: Cambodia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇭",
+    label: "flag: Cambodia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇮",
-      label: "flag: Kiribati",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇮",
+    label: "flag: Kiribati",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇲",
-      label: "flag: Comoros",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇲",
+    label: "flag: Comoros",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇳",
-      label: "flag: St. Kitts & Nevis",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇳",
+    label: "flag: St. Kitts & Nevis",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇵",
-      label: "flag: North Korea",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇵",
+    label: "flag: North Korea",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇷",
-      label: "flag: South Korea",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇷",
+    label: "flag: South Korea",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇼",
-      label: "flag: Kuwait",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇼",
+    label: "flag: Kuwait",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇾",
-      label: "flag: Cayman Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇾",
+    label: "flag: Cayman Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇰🇿",
-      label: "flag: Kazakhstan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇰🇿",
+    label: "flag: Kazakhstan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇦",
-      label: "flag: Laos",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇦",
+    label: "flag: Laos",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇧",
-      label: "flag: Lebanon",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇧",
+    label: "flag: Lebanon",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇨",
-      label: "flag: St. Lucia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇨",
+    label: "flag: St. Lucia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇮",
-      label: "flag: Liechtenstein",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇮",
+    label: "flag: Liechtenstein",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇰",
-      label: "flag: Sri Lanka",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇰",
+    label: "flag: Sri Lanka",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇷",
-      label: "flag: Liberia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇷",
+    label: "flag: Liberia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇸",
-      label: "flag: Lesotho",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇸",
+    label: "flag: Lesotho",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇹",
-      label: "flag: Lithuania",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇹",
+    label: "flag: Lithuania",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇺",
-      label: "flag: Luxembourg",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇺",
+    label: "flag: Luxembourg",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇻",
-      label: "flag: Latvia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇻",
+    label: "flag: Latvia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇱🇾",
-      label: "flag: Libya",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇱🇾",
+    label: "flag: Libya",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇦",
-      label: "flag: Morocco",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇦",
+    label: "flag: Morocco",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇨",
-      label: "flag: Monaco",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇨",
+    label: "flag: Monaco",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇩",
-      label: "flag: Moldova",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇩",
+    label: "flag: Moldova",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇪",
-      label: "flag: Montenegro",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇪",
+    label: "flag: Montenegro",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇫",
-      label: "flag: St. Martin",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇫",
+    label: "flag: St. Martin",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇬",
-      label: "flag: Madagascar",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇬",
+    label: "flag: Madagascar",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇭",
-      label: "flag: Marshall Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇭",
+    label: "flag: Marshall Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇰",
-      label: "flag: North Macedonia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇰",
+    label: "flag: North Macedonia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇱",
-      label: "flag: Mali",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇱",
+    label: "flag: Mali",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇲",
-      label: "flag: Myanmar (Burma)",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇲",
+    label: "flag: Myanmar (Burma)",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇳",
-      label: "flag: Mongolia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇳",
+    label: "flag: Mongolia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇴",
-      label: "flag: Macao SAR China",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇴",
+    label: "flag: Macao SAR China",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇵",
-      label: "flag: Northern Mariana Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇵",
+    label: "flag: Northern Mariana Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇶",
-      label: "flag: Martinique",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇶",
+    label: "flag: Martinique",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇷",
-      label: "flag: Mauritania",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇷",
+    label: "flag: Mauritania",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇸",
-      label: "flag: Montserrat",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇸",
+    label: "flag: Montserrat",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇹",
-      label: "flag: Malta",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇹",
+    label: "flag: Malta",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇺",
-      label: "flag: Mauritius",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇺",
+    label: "flag: Mauritius",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇻",
-      label: "flag: Maldives",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇻",
+    label: "flag: Maldives",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇼",
-      label: "flag: Malawi",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇼",
+    label: "flag: Malawi",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇽",
-      label: "flag: Mexico",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇽",
+    label: "flag: Mexico",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇾",
-      label: "flag: Malaysia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇾",
+    label: "flag: Malaysia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇲🇿",
-      label: "flag: Mozambique",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇲🇿",
+    label: "flag: Mozambique",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇦",
-      label: "flag: Namibia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇦",
+    label: "flag: Namibia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇨",
-      label: "flag: New Caledonia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇨",
+    label: "flag: New Caledonia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇪",
-      label: "flag: Niger",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇪",
+    label: "flag: Niger",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇫",
-      label: "flag: Norfolk Island",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇫",
+    label: "flag: Norfolk Island",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇬",
-      label: "flag: Nigeria",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇬",
+    label: "flag: Nigeria",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇮",
-      label: "flag: Nicaragua",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇮",
+    label: "flag: Nicaragua",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇱",
-      label: "flag: Netherlands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇱",
+    label: "flag: Netherlands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇴",
-      label: "flag: Norway",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇴",
+    label: "flag: Norway",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇵",
-      label: "flag: Nepal",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇵",
+    label: "flag: Nepal",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇷",
-      label: "flag: Nauru",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇷",
+    label: "flag: Nauru",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇺",
-      label: "flag: Niue",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇺",
+    label: "flag: Niue",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇳🇿",
-      label: "flag: New Zealand",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇳🇿",
+    label: "flag: New Zealand",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇴🇲",
-      label: "flag: Oman",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇴🇲",
+    label: "flag: Oman",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇦",
-      label: "flag: Panama",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇦",
+    label: "flag: Panama",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇪",
-      label: "flag: Peru",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇪",
+    label: "flag: Peru",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇫",
-      label: "flag: French Polynesia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇫",
+    label: "flag: French Polynesia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇬",
-      label: "flag: Papua New Guinea",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇬",
+    label: "flag: Papua New Guinea",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇭",
-      label: "flag: Philippines",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇭",
+    label: "flag: Philippines",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇰",
-      label: "flag: Pakistan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇰",
+    label: "flag: Pakistan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇱",
-      label: "flag: Poland",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇱",
+    label: "flag: Poland",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇲",
-      label: "flag: St. Pierre & Miquelon",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇲",
+    label: "flag: St. Pierre & Miquelon",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇳",
-      label: "flag: Pitcairn Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇳",
+    label: "flag: Pitcairn Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇷",
-      label: "flag: Puerto Rico",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇷",
+    label: "flag: Puerto Rico",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇸",
-      label: "flag: Palestinian Territories",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇸",
+    label: "flag: Palestinian Territories",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇹",
-      label: "flag: Portugal",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇹",
+    label: "flag: Portugal",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇼",
-      label: "flag: Palau",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇼",
+    label: "flag: Palau",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇵🇾",
-      label: "flag: Paraguay",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇵🇾",
+    label: "flag: Paraguay",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇶🇦",
-      label: "flag: Qatar",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇶🇦",
+    label: "flag: Qatar",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇷🇪",
-      label: "flag: Réunion",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇷🇪",
+    label: "flag: Réunion",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇷🇴",
-      label: "flag: Romania",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇷🇴",
+    label: "flag: Romania",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇷🇸",
-      label: "flag: Serbia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇷🇸",
+    label: "flag: Serbia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇷🇺",
-      label: "flag: Russia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇷🇺",
+    label: "flag: Russia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇷🇼",
-      label: "flag: Rwanda",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇷🇼",
+    label: "flag: Rwanda",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇦",
-      label: "flag: Saudi Arabia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇦",
+    label: "flag: Saudi Arabia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇧",
-      label: "flag: Solomon Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇧",
+    label: "flag: Solomon Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇨",
-      label: "flag: Seychelles",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇨",
+    label: "flag: Seychelles",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇩",
-      label: "flag: Sudan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇩",
+    label: "flag: Sudan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇪",
-      label: "flag: Sweden",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇪",
+    label: "flag: Sweden",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇬",
-      label: "flag: Singapore",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇬",
+    label: "flag: Singapore",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇭",
-      label: "flag: St. Helena",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇭",
+    label: "flag: St. Helena",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇮",
-      label: "flag: Slovenia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇮",
+    label: "flag: Slovenia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇯",
-      label: "flag: Svalbard & Jan Mayen",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇯",
+    label: "flag: Svalbard & Jan Mayen",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇰",
-      label: "flag: Slovakia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇰",
+    label: "flag: Slovakia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇱",
-      label: "flag: Sierra Leone",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇱",
+    label: "flag: Sierra Leone",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇲",
-      label: "flag: San Marino",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇲",
+    label: "flag: San Marino",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇳",
-      label: "flag: Senegal",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇳",
+    label: "flag: Senegal",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇴",
-      label: "flag: Somalia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇴",
+    label: "flag: Somalia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇷",
-      label: "flag: Suriname",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇷",
+    label: "flag: Suriname",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇸",
-      label: "flag: South Sudan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇸",
+    label: "flag: South Sudan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇹",
-      label: "flag: São Tomé & Príncipe",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇹",
+    label: "flag: São Tomé & Príncipe",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇻",
-      label: "flag: El Salvador",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇻",
+    label: "flag: El Salvador",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇽",
-      label: "flag: Sint Maarten",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇽",
+    label: "flag: Sint Maarten",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇾",
-      label: "flag: Syria",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇾",
+    label: "flag: Syria",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇸🇿",
-      label: "flag: Eswatini",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇸🇿",
+    label: "flag: Eswatini",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇦",
-      label: "flag: Tristan da Cunha",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇦",
+    label: "flag: Tristan da Cunha",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇨",
-      label: "flag: Turks & Caicos Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇨",
+    label: "flag: Turks & Caicos Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇩",
-      label: "flag: Chad",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇩",
+    label: "flag: Chad",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇫",
-      label: "flag: French Southern Territories",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇫",
+    label: "flag: French Southern Territories",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇬",
-      label: "flag: Togo",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇬",
+    label: "flag: Togo",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇭",
-      label: "flag: Thailand",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇭",
+    label: "flag: Thailand",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇯",
-      label: "flag: Tajikistan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇯",
+    label: "flag: Tajikistan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇰",
-      label: "flag: Tokelau",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇰",
+    label: "flag: Tokelau",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇱",
-      label: "flag: Timor-Leste",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇱",
+    label: "flag: Timor-Leste",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇲",
-      label: "flag: Turkmenistan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇲",
+    label: "flag: Turkmenistan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇳",
-      label: "flag: Tunisia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇳",
+    label: "flag: Tunisia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇴",
-      label: "flag: Tonga",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇴",
+    label: "flag: Tonga",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇷",
-      label: "flag: Türkiye",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇷",
+    label: "flag: Türkiye",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇹",
-      label: "flag: Trinidad & Tobago",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇹",
+    label: "flag: Trinidad & Tobago",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇻",
-      label: "flag: Tuvalu",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇻",
+    label: "flag: Tuvalu",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇼",
-      label: "flag: Taiwan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇼",
+    label: "flag: Taiwan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇹🇿",
-      label: "flag: Tanzania",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇹🇿",
+    label: "flag: Tanzania",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇺🇦",
-      label: "flag: Ukraine",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇺🇦",
+    label: "flag: Ukraine",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇺🇬",
-      label: "flag: Uganda",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇺🇬",
+    label: "flag: Uganda",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇺🇲",
-      label: "flag: U.S. Outlying Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇺🇲",
+    label: "flag: U.S. Outlying Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇺🇳",
-      label: "flag: United Nations",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇺🇳",
+    label: "flag: United Nations",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇺🇸",
-      label: "flag: United States",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇺🇸",
+    label: "flag: United States",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇺🇾",
-      label: "flag: Uruguay",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇺🇾",
+    label: "flag: Uruguay",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇺🇿",
-      label: "flag: Uzbekistan",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇺🇿",
+    label: "flag: Uzbekistan",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇻🇦",
-      label: "flag: Vatican City",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇻🇦",
+    label: "flag: Vatican City",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇻🇨",
-      label: "flag: St. Vincent & Grenadines",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇻🇨",
+    label: "flag: St. Vincent & Grenadines",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇻🇪",
-      label: "flag: Venezuela",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇻🇪",
+    label: "flag: Venezuela",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇻🇬",
-      label: "flag: British Virgin Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇻🇬",
+    label: "flag: British Virgin Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇻🇮",
-      label: "flag: U.S. Virgin Islands",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇻🇮",
+    label: "flag: U.S. Virgin Islands",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇻🇳",
-      label: "flag: Vietnam",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇻🇳",
+    label: "flag: Vietnam",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇻🇺",
-      label: "flag: Vanuatu",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇻🇺",
+    label: "flag: Vanuatu",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇼🇫",
-      label: "flag: Wallis & Futuna",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇼🇫",
+    label: "flag: Wallis & Futuna",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇼🇸",
-      label: "flag: Samoa",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇼🇸",
+    label: "flag: Samoa",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇽🇰",
-      label: "flag: Kosovo",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇽🇰",
+    label: "flag: Kosovo",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇾🇪",
-      label: "flag: Yemen",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇾🇪",
+    label: "flag: Yemen",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇾🇹",
-      label: "flag: Mayotte",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇾🇹",
+    label: "flag: Mayotte",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇿🇦",
-      label: "flag: South Africa",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇿🇦",
+    label: "flag: South Africa",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇿🇲",
-      label: "flag: Zambia",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇿🇲",
+    label: "flag: Zambia",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🇿🇼",
-      label: "flag: Zimbabwe",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🇿🇼",
+    label: "flag: Zimbabwe",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      label: "flag: England",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    label: "flag: England",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      label: "flag: Scotland",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    label: "flag: Scotland",
+    category: "Flags",
+    tags: []
   },
   {
-      type: "emoji",
-      symbol: "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
-      label: "flag: Wales",
-      category: "Flags",
-      tags: []
+    type: "emoji",
+    symbol: "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    label: "flag: Wales",
+    category: "Flags",
+    tags: []
   },
   {
     symbol: "./images/Mr-Potato-Head/Mr-Potato-Head-body.png",
@@ -39839,7 +39707,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: "All Done",
     category: "Proloquo2Go",
     tags: [
-      
+
     ]
   },
   {
@@ -39848,7 +39716,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: "Proloquo2Go",
     label: "Yes",
     tags: [
-      
+
     ]
   },
   {
@@ -39857,7 +39725,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: "Proloquo2Go",
     label: "Maybe",
     tags: [
-      
+
     ]
   },
   {
@@ -39866,7 +39734,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: "Proloquo2Go",
     label: "No",
     tags: [
-      
+
     ]
   },
   {
@@ -39875,7 +39743,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: "Proloquo2Go",
     label: "I Don't Know",
     tags: [
-      
+
     ]
   },
   {
@@ -39884,7 +39752,7 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     category: "Proloquo2Go",
     label: "More",
     tags: [
-      
+
     ]
   },
   {
@@ -40097,6 +39965,6 @@ const SVG_SHAPE_TEMPLATE = (color) =>
     label: "work",
     tags: []
   },
-      
-  ];
-  
+
+];
+

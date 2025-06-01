@@ -22,6 +22,7 @@ let tempSettings = { ...appState };
 // Dirty flag:
 let dirty = false;
 
+// Map of category → emoji icon for the dock
 const categoryIcons = {
   "Smileys & Emotion": "😃",
   "Animals & Nature": "🐶",
@@ -43,7 +44,6 @@ const categoryIcons = {
 const dock = document.getElementById("dock");
 const mainContent = document.getElementById("main-content");
 const dockPositionSelect = document.getElementById("dock-position");
-// <<< UPDATED >>> We removed the old #size-range reference.
 const fontSelect = document.getElementById("font-select");
 const settingsBtn = document.getElementById("settings-btn");
 
@@ -55,9 +55,7 @@ const voiceSelect = document.getElementById("voice-select");
 const saveSettingsBtn = document.getElementById("save-settings");
 const closeSettingsBtn = document.getElementById("close-settings");
 
-const confirmUnsavedModal = document.getElementById(
-  "confirm-unsaved-modal"
-);
+const confirmUnsavedModal = document.getElementById("confirm-unsaved-modal");
 const confirmSaveBtn = document.getElementById("confirm-save");
 const confirmDiscardBtn = document.getElementById("confirm-discard");
 
@@ -77,6 +75,21 @@ const headerSliderContainer = document.getElementById(
 let headerSizeRange = null;
 
 let availableVoices = [];
+
+/* ---------------------
+   Utility: Slugify (for generating safe IDs)
+--------------------- */
+/**
+ * Given a category name (e.g. "Food & Drink"), returns a slug
+ * containing only lowercase letters, numbers, and hyphens.
+ * E.g. slugify("Food & Drink") → "food-drink"
+ */
+function slugify(str) {
+  return str
+    .toLowerCase()                // lowercase
+    .replace(/[^a-z0-9]+/g, "-")  // replace any non-alphanumeric chunk with “-”
+    .replace(/^-+|-+$/g, "");     // remove leading/trailing hyphens
+}
 
 /* ---------------------
    Initialization
@@ -105,7 +118,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // <<< NEW >>> Conditionally show/hide header slider
   if (appState.showHeaderSlider) {
-    showHeaderSlider(); // function will create a header slider copy
+    showHeaderSlider(); // create header slider copy
   } else {
     headerSliderContainer.classList.add("hidden");
   }
@@ -299,12 +312,11 @@ function showHeaderSlider() {
     return;
   }
 
-  // Otherwise, create a copy of the modal slider but with a different id:
+  // Otherwise, create a copy of the modal slider but with id="header-size-range":
   const wrapper = document.createElement("div");
   wrapper.className = "slider-container";
   wrapper.style.marginRight = "1rem";
 
-  // Create the “Aa” label + <input> just like in the modal, but with id="header-size-range"
   const labelLeft = document.createElement("label");
   labelLeft.setAttribute("for", "header-size-range");
   labelLeft.textContent = "Aa";
@@ -324,21 +336,16 @@ function showHeaderSlider() {
   labelRight.textContent = "Aa";
   wrapper.appendChild(labelRight);
 
-  // Append to header-slider-container
   headerSliderContainer.appendChild(wrapper);
   headerSliderContainer.classList.remove("hidden");
 
-  // Keep a reference for cleanup & syncing:
   headerSizeRange = document.getElementById("header-size-range");
 
   // 1) Copy CSS‐styles from #modal-size-range to #header-size-range
-  //    (Assumes your CSS has rules for #modal-size-range; we’ll “alias” them here:)
   const modalRange = document.getElementById("modal-size-range");
   headerSizeRange.style.cssText = modalRange.style.cssText;
-  // If you had WebKit/Firefox pseudo-rules for #modal-size-range::-webkit-slider-thumb, etc.,
-  // you’ll need identical CSS for #header-size-range in your stylesheet.
 
-  // 2) Add event listener to sync header slider → modal slider
+  // 2) Listener: header slider → modal slider → live preview
   headerSizeRange.addEventListener("input", (e) => {
     const newSize = parseInt(e.target.value, 10);
     tempSettings.currentSize = newSize;
@@ -348,9 +355,6 @@ function showHeaderSlider() {
     // Sync the modal slider:
     modalSizeRange.value = newSize;
   });
-
-  // 3) Sync modal slider → header slider (if someone drags the one in the modal)
-  //    (Already handled by modalSizeRange’s listener above.)
 }
 
 function hideHeaderSlider() {
@@ -433,16 +437,18 @@ function populateCategoryCheckboxes(visibleCategories) {
 /* ---------------------
    Build Sections & Dock (Filtered)
 --------------------- */
-function buildCategorySections(
-  allowedCategories = appState.visibleCategories
-) {
+function buildCategorySections(allowedCategories = appState.visibleCategories) {
   mainContent.innerHTML = "";
+
   getUniqueCategories()
     .filter((cat) => allowedCategories.includes(cat))
     .forEach((cat) => {
       const section = document.createElement("section");
       section.className = "category-section";
-      section.id = `section-${cat.replace(/\s+/g, "-").toLowerCase()}`;
+
+      // <<< USE slugify() for safe IDs >>>
+      const catSlug = slugify(cat);
+      section.id = `section-${catSlug}`;  // e.g. "section-food-drink"
 
       const title = document.createElement("h2");
       title.className = "section-title";
@@ -457,9 +463,25 @@ function buildCategorySections(
         const card = document.createElement("div");
         card.className = "item-card";
 
+        // <<< ADD data-tags attribute for highlighting >>>
+        card.dataset.tags = item.tags.join(",");
+
+        // ========== SYMBOL ELEMENT ==========
         const symbolElem = document.createElement("div");
         symbolElem.className = "item-symbol";
 
+        // If this symbol is a “long number” (digits+commas, length > 4), add .small-number
+        if (
+          typeof item.symbol === "string" &&
+          /^[0-9,]+$/.test(item.symbol) && 
+          item.symbol.replace(/,/g, "").length >= 4
+        ) {
+          // e.g. "1000" → replace commas = "1000" length=4 → no
+          // "10,000" → replace commas = "10000" length=5 → yes
+          symbolElem.classList.add("small-number");
+        }
+
+        // Now insert the actual content: emoji / SVG / IMG / number
         if (item.type === "svg") {
           symbolElem.innerHTML = item.symbol;
         } else if (item.type === "image") {
@@ -471,6 +493,7 @@ function buildCategorySections(
         } else {
           symbolElem.textContent = item.symbol;
         }
+        // ======================================
 
         const labelElem = document.createElement("div");
         labelElem.className = "item-label";
@@ -479,13 +502,26 @@ function buildCategorySections(
         card.appendChild(symbolElem);
         card.appendChild(labelElem);
 
+        // <<< CLEAR previous highlights, then show this card’s tags >>>
         card.addEventListener("click", () => {
-          speakLabel(item.label);
-          updateHeaderTags(item.tags);
+  // 1) Clear any active tag in the header
+  document
+    .querySelectorAll("#tags-container .tag.active")
+    .forEach((t) => t.classList.remove("active"));
+
+  // 2) Remove any card highlights
+  document
+    .querySelectorAll(".item-card.highlighted")
+    .forEach((c) => c.classList.remove("highlighted"));
+
+  // 3) Speak and repopulate tags for this card
+  speakLabel(item.label);
+  updateHeaderTags(item.tags);
         });
 
         itemsGrid.appendChild(card);
 
+        // Autoscale only non‐SVG / non‐image symbols (optional)
         if (item.type !== "svg" && item.type !== "image") {
           setTimeout(() => {
             autoScaleText(symbolElem, symbolElem);
@@ -498,8 +534,10 @@ function buildCategorySections(
     });
 }
 
+
 function populateDock(allowedCategories = appState.visibleCategories) {
   dock.innerHTML = "";
+
   getUniqueCategories()
     .filter((cat) => allowedCategories.includes(cat))
     .forEach((cat) => {
@@ -509,7 +547,9 @@ function populateDock(allowedCategories = appState.visibleCategories) {
       btn.title = cat;
 
       btn.addEventListener("click", () => {
-        const sectionId = `section-${cat.replace(/\s+/g, "-").toLowerCase()}`;
+        // <<< MATCH slugify(cat) with section ID >>>
+        const catSlug = slugify(cat);
+        const sectionId = `section-${catSlug}`; // e.g. "section-food-drink"
         const sectionEl = document.getElementById(sectionId);
         if (sectionEl) {
           sectionEl.scrollIntoView({ behavior: "smooth" });
@@ -552,16 +592,11 @@ function applySizeToCardsAndIcons(sizeValue) {
 }
 
 function reScaleAllText() {
-  const symbols = document.querySelectorAll(".item-symbol");
-  // symbols.forEach((sym) => {
-  //   if (sym.querySelector("svg")) return;
-  //   // setTimeout(() => {
-  //   //   autoScaleText(sym, sym);
-  //   // }, 0);
-  // });
+  // No-op here (we switched to CSS-based scaling).
 }
 
 function autoScaleText(textElem, containerElem) {
+  // Fallback for non-CSS cases; usually unused now.
   const containerWidth = containerElem.clientWidth;
   const containerHeight = containerElem.clientHeight;
   let fontSize = Math.floor(containerHeight * 0.8);
@@ -615,33 +650,88 @@ function loadVoices() {
 }
 
 function applyVoiceSelection(voiceName) {
-  // For live preview, we just store it in tempSettings.
-  // When speakLabel() is called, it uses tempSettings.voiceName to pick the correct voice.
+  // Live preview: selection stored in tempSettings; speakLabel() uses it.
 }
 
 function speakLabel(text) {
   if (!("speechSynthesis" in window)) return;
+
+  // 1) Stop any currently speaking/queued utterances:
+  window.speechSynthesis.cancel();
+
+  // 2) Now create a brand-new utterance and speak it:
   const utterance = new SpeechSynthesisUtterance(text);
   const selectedVoiceName = voiceSelect.value || appState.voiceName;
   const found = availableVoices.find((v) => v.name === selectedVoiceName);
   if (found) {
     utterance.voice = found;
   }
-  speechSynthesis.speak(utterance);
+  window.speechSynthesis.speak(utterance);
 }
 
-function updateHeaderTags(tags) {
-  const header = document.getElementById("controls");
-  let tagsContainer = header.querySelector("#tags-container");
-  tagsContainer.innerHTML = "";
-  tags.forEach((tag) => {
+
+/**
+ * Given an array of strings (tagsArray), populate #tags-container.
+ * When a tag pill is clicked:
+ *  1) speak(tag)
+ *  2) clear previous highlights
+ *  3) highlight all cards whose data-tags includes(tag)
+ */
+function updateHeaderTags(tagsArray) {
+  const tagsContainer = document.getElementById("tags-container");
+  tagsContainer.innerHTML = ""; // clear previous tags
+
+  // Normalize and trim each tag string
+  const normalizedTags = tagsArray.map((t) => t.trim());
+
+  normalizedTags.forEach((tag) => {
     const tagElem = document.createElement("span");
     tagElem.className = "tag";
     tagElem.textContent = tag;
-    tagElem.addEventListener("click", () => speakLabel(tag));
+
+    tagElem.addEventListener("click", () => {
+      // If this tag is already active → toggle it OFF:
+      if (tagElem.classList.contains("active")) {
+        // 1) Remove .active from itself
+        tagElem.classList.remove("active");
+        // 2) Clear any highlighted cards
+        document
+          .querySelectorAll(".item-card.highlighted")
+          .forEach((card) => card.classList.remove("highlighted"));
+        return;
+      }
+
+      // Otherwise, this tag was NOT active → turn ALL tags off first:
+      document
+        .querySelectorAll("#tags-container .tag.active")
+        .forEach((t) => t.classList.remove("active"));
+
+      // Mark THIS tag as active
+      tagElem.classList.add("active");
+
+      // Clear any previous card highlights
+      document
+        .querySelectorAll(".item-card.highlighted")
+        .forEach((card) => card.classList.remove("highlighted"));
+
+      // Highlight every card whose data-tags includes this tag
+      document.querySelectorAll(".item-card").forEach((card) => {
+        if (!card.dataset.tags) return;
+        const cardTags = card.dataset.tags.split(",").map((s) => s.trim());
+        if (cardTags.includes(tag)) {
+          card.classList.add("highlighted");
+        }
+      });
+
+      // Speak the clicked tag last (optional order change)
+      speakLabel(tag);
+    });
+
     tagsContainer.appendChild(tagElem);
   });
 }
+
+
 
 function saveAppStateToStorage() {
   localStorage.setItem("emojiSpeakAppState", JSON.stringify(appState));
