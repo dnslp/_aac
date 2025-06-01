@@ -10211,6 +10211,7 @@ const dataItems = [
     subgroup: 'animal-mammal',
     label: 'dog',
     tags: [
+      'dog',
       'pet',
       'puppy',
       'doggy',
@@ -10237,11 +10238,12 @@ const dataItems = [
     subgroup: 'animal-mammal',
     label: 'guide dog',
     tags: [
+       'dog',
       'accessibility',
       'blind',
       'guide',
-      'service',
-      'dog'
+      'service'
+     
     ],
     shortcodes: [
       ':guide-dog:'
@@ -10264,10 +10266,11 @@ const dataItems = [
     subgroup: 'animal-mammal',
     label: 'service dog',
     tags: [
+         'dog',
       'accessibility',
       'assistance',
       'service',
-      'dog',
+  
     ],
     shortcodes: [
       ':service-dog:'
@@ -10451,15 +10454,13 @@ const dataItems = [
     subgroup: 'animal-mammal',
     label: 'black cat',
     tags: [
-
       'cat',
       'black',
-
       'kitty',
       'kitten',
       'purr',
       'unlucky',
-      'bad luck',
+      'pet',
     ],
     shortcodes: [
       ':black-cat:'
@@ -10596,7 +10597,8 @@ const dataItems = [
       'face',
       'horse',
       'riding',
-      'sport'
+      'sport',
+      'farm'
     ],
     shortcodes: [
       ':horse-face:'
@@ -11200,7 +11202,8 @@ const dataItems = [
       'long',
       'neck',
       'trees',
-      'big'
+      'big',
+      'wild'
     ],
     shortcodes: [
       ':giraffe:'
@@ -11281,6 +11284,7 @@ const dataItems = [
       'rhino',
       'horn',
       'africa',
+      'wild',
       'endagered'
     ],
     shortcodes: [
@@ -11765,7 +11769,9 @@ const dataItems = [
     subgroup: 'animal-mammal',
     label: 'skunk',
     tags: [
-      'stink'
+      'stinky',
+      'wild',
+      'stripe'
     ],
     shortcodes: [
       ':skunk:'
@@ -11790,7 +11796,8 @@ const dataItems = [
     tags: [
       'joey',
       'jump',
-      'marsupial'
+      'marsupial',
+      'wild'
     ],
     shortcodes: [
       ':kangaroo:'
@@ -11814,7 +11821,7 @@ const dataItems = [
     label: 'badger',
     tags: [
       'honey badger',
-      'pester'
+      'wild'
     ],
     shortcodes: [
       ':badger:'
@@ -11919,6 +11926,7 @@ const dataItems = [
     label: 'rooster',
     tags: [
       'chicken',
+      'bird',
       'farm',
       'poultry'
     ],
@@ -12763,6 +12771,7 @@ const dataItems = [
     subgroup: 'animal-marine',
     label: 'fish',
     tags: [
+      'fish',
       'swim',
       'animal',
       'water',
@@ -13007,6 +13016,7 @@ const dataItems = [
     label: 'butterfly',
     tags: [
       'insect',
+      'wings',
       'pretty',
       'garden',
       'fly'
@@ -13089,7 +13099,9 @@ const dataItems = [
       'bee',
       'insect',
       'honey',
-      'buzz'
+      'buzz',
+      'fly',
+      'sting'
     ],
     shortcodes: [
       ':bee:'
@@ -13613,7 +13625,6 @@ const dataItems = [
     tags: [
       'sun',
       'flower',
-
       'yellow',
       'summer',
       'seeds'
@@ -14069,7 +14080,7 @@ const dataItems = [
     tags: [
       'nesting',
       'bird',
-      'tree'
+
     ],
     shortcodes: [
       ':nest:'
@@ -14095,7 +14106,7 @@ const dataItems = [
       'nesting',
       'bird',
       'eggs',
-      'tree'
+
     ],
     shortcodes: [
       ':nest-with-eggs:'
@@ -14867,6 +14878,31 @@ const dataItems = [
     skintoneCombination: null,
     skintoneBase: null
   },
+    {
+    type: 'emoji',
+    symbol: '🫛',
+    hexcode: '1fadb',
+    category: 'Food & Drink',
+    subgroup: 'food-vegetable',
+    label: 'pea pod',
+    tags: [
+      'vegetable',
+      'green',
+      'legume',
+      'pod',
+      'fresh'
+    ],
+    shortcodes: [':pea-pod:'],
+    emoticons: [],
+    directional: false,
+    variation: false,
+    variationBase: null,
+    unicode: 15,
+    order: 3383,
+    skintone: null,
+    skintoneCombination: null,
+    skintoneBase: null
+  },
   {
     type: 'emoji',
     symbol: '🧄',
@@ -15016,31 +15052,7 @@ const dataItems = [
     skintoneCombination: null,
     skintoneBase: null
   },
-  {
-    type: 'emoji',
-    symbol: '🫛',
-    hexcode: '1fadb',
-    category: 'Food & Drink',
-    subgroup: 'food-vegetable',
-    label: 'pea pod',
-    tags: [
-      'vegetable',
-      'green',
-      'legume',
-      'pod',
-      'fresh'
-    ],
-    shortcodes: [':pea-pod:'],
-    emoticons: [],
-    directional: false,
-    variation: false,
-    variationBase: null,
-    unicode: 15,
-    order: 3383,
-    skintone: null,
-    skintoneCombination: null,
-    skintoneBase: null
-  },
+
   {
     type: 'emoji',
     symbol: '🍞',
@@ -19064,6 +19076,8 @@ const dataItems = [
     subgroup: 'transport-ground',
     label: 'train',
     tags: [
+      'train',
+      'tracks',
       'railway'
     ],
     shortcodes: [
@@ -20105,7 +20119,7 @@ const dataItems = [
       'car',
       'light',
       'police',
-      'revolving'
+      'red'
     ],
     shortcodes: [
       ':police-car-light:'
@@ -20243,7 +20257,6 @@ const dataItems = [
       'sea',
       'ocean',
       'water',
-      'anchor',
     ],
     shortcodes: [
       ':anchor:'
@@ -20403,7 +20416,8 @@ const dataItems = [
     label: 'ferry',
     tags: [
       'boat',
-      'passenger'
+      'passenger',
+      'water'
     ],
     shortcodes: [
       ':ferry:'
@@ -22091,7 +22105,8 @@ const dataItems = [
     label: 'ringed planet',
     tags: [
       'saturn',
-      'planet'
+      'planet',
+      'space'
     ],
     shortcodes: [
       ':ringed-planet:'
@@ -22170,6 +22185,7 @@ const dataItems = [
       'shooting',
       'star',
       'sky',
+      'space'
     ],
     shortcodes: [
       ':shooting-star:'
@@ -22192,7 +22208,9 @@ const dataItems = [
     subgroup: 'sky-weather',
     label: 'milky way',
     tags: [
-      'space'
+      'space',
+      'stars',
+      'galaxy'
     ],
     shortcodes: [
       ':milky-way:'
